@@ -1,53 +1,38 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
+using UnityEngine;
 
-public abstract class Enemy : iAttackable
+public class Enemy : MonoBehaviour
 {
-    private string ID;
-    private int maxHealth;
-    private int currentHealth;
-    private int money;
+    protected string _ID;
+    protected int _maxHealth;
+    protected int _currentHealth;
+    protected int _money;
+    protected float _speed;
+    protected Vector3 _currentPosition;
 
-    iMoveAgent moveAgent;
+    public MoveAgent moveAgent;
 
     public static Action<Enemy> OnDeath;
 
-    public Enemy(string pID, int pMaxHealth, int pMoney, float pSpeed, Vector3 pSpawn)
-    {
-        ID = pID;
-        maxHealth = pMaxHealth;
-        currentHealth = pMaxHealth;
-        money = pMoney;
-        //moveAgent.SetMovementSpeed(pSpeed);
-    }
-    public Enemy(Enemy enemy)
-    {
-        ID = enemy.ID;
-        maxHealth = enemy.maxHealth;
-        currentHealth = enemy.currentHealth;
-        money = enemy.money;
-        moveAgent = enemy.moveAgent;
-    }
-
-    public void SetTargetDestination(Vector3 pDesination)
-    {
-        moveAgent.SetDestination(pDesination);
-    }
     public void Move()
     {
-        moveAgent.Start();
+        moveAgent.Begin();
     }
     public void Attack(iAttackable pTarget)
     {
         pTarget.TakeAttack(1);  //  TODO: how to determine damage?
     }
 
-    public void TakeAttack(int pDamage)
+    public void Attack()
     {
-        currentHealth -= pDamage;
-        if (currentHealth < 0)
+        throw new NotImplementedException();
+    }
+    public virtual void TakeAttack(int pDamage)
+    {
+        _currentHealth -= pDamage;
+        if (_currentHealth < 0)
         {
             Die();
         }
@@ -56,4 +41,10 @@ public abstract class Enemy : iAttackable
     {
         OnDeath?.Invoke(this);
     }
+
+    public string GetID()
+    {
+        return _ID;
+    }
+
 }

@@ -9,7 +9,7 @@ public class ConcreteTowerDefenceGame
     float timeBetweenRounds;
 
     public static Action OnGameOver;
-    iTimer roundTimer;
+    Timer roundTimer;
 
     EnemySpawnHandler enemySpawnHandler;
 }

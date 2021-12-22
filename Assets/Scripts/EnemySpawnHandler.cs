@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
 
 
 public class EnemySpawnHandler : MonoBehaviour
 {
+
     [ReadOnly]
     [SerializeField]
+    int currentSpawns = 0;
+
     public List<Enemy> enemies = new List<Enemy>();
 
     private List<System.Numerics.Vector3> availableSpawns;
@@ -15,19 +17,22 @@ public class EnemySpawnHandler : MonoBehaviour
     int currentSpawnsLeft;
     float spawnTickTime;
 
-    iTimer tickTimer;
+    Timer tickTimer;
     public void Start()
     {
         setupTimer();
     }
     private void SpawnEnemy()
     {
-        enemies.Add(new PrototypeEnemy());
+        UnityEnemy EnemyGO = Instantiate(Resources.Load<UnityEnemy>("Zombie"));
+        EnemyGO.Initialize("zombie", 10, 10, 10.0f, new Vector3(65.0f, 3.0f, -45.0f));
+        enemies.Add(EnemyGO);
+        currentSpawns++;
     }
     protected void setupTimer()
     {
-        tickTimer = GetComponent<iTimer>();
-        tickTimer.Init(3.0f, SpawnEnemy, true);
+        tickTimer = GetComponent<Timer>();
+        tickTimer.Init(1.0f, SpawnEnemy, true);
         tickTimer.Start();
     }
 
