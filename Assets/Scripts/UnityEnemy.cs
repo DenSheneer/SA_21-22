@@ -3,39 +3,38 @@ using UnityEngine.AI;
 
 public class UnityEnemy : Enemy
 {
-    //[SerializeField]
-    //protected string ID;
-    //int maxHealth, money;
-    //[SerializeField]
-    //float speed;
-
-
-    //public void Start()
-    //{
-    //    //Initialize(ID, maxHealth, money, speed, Vector3.zero);
-    //}
-    Vector3 Spawn;
-
-    public void Initialize(string pID, int pMaxHealth, int pMoney, float pSpeed, Vector3 pSpawn)
+    Animator anim;
+    public override void Initialize(string pID, int pMaxHealth, int pMoney, float pSpeed, Vector3 pSpawn)
     {
-        _ID = pID;
-        _maxHealth = pMaxHealth;
-        _currentHealth = pMaxHealth;
-        _money = pMoney;
-        moveAgent = GetComponent<MoveAgent>();
-        moveAgent.SetPosition(pSpawn);
-        moveAgent.SetMovementSpeed(pSpeed);        
-        moveAgent.SetDestination(new Vector3(65.0f, 2, -65.0f));
+        base.Initialize(pID, pMaxHealth, pMoney, pSpeed, pSpawn);
+        gameObject.name = pID;
 
-
-        Spawn = pSpawn;
+        anim = GetComponent<Animator>();
     }
 
-    private void Update()
+    public override void TakeAttack(int pDamage)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        base.TakeAttack(pDamage);
+    }
+    public override void Die()
+    {
+        base.Die();
+        Destroy(this);
+    }
+    public void Update()
+    {
+        if (moveAgent.IsMoving())
         {
-            transform.position = Vector3.zero;
+            anim.SetFloat("Speed", moveAgent.GetCurrentSpeed() / moveAgent.GetMoveSpeed() );
         }
+    }
+
+    protected override void setupMoveAgent(Vector3 pSpawn, float pSpeed)
+    {
+        moveAgent = GetComponent<iMovementController>();
+        moveAgent.SetPosition(pSpawn);
+        moveAgent.SetMovementSpeed(pSpeed);
+
+        moveAgent.SetDestination(new Vector3(65.0f, 2, -65.0f));
     }
 }

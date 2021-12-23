@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class UnityMoveAgent : MoveAgent
+public class UnityMoveAgent : MonoBehaviour, iMovementController
 {
     NavMeshAgent agent;
 
@@ -12,50 +12,61 @@ public class UnityMoveAgent : MoveAgent
         agent = GetComponent<NavMeshAgent>();
     }
 
-    public override void SetDestination(Vector3 pDestination)
+    public void SetDestination(Vector3 pDestination)
     {
         agent.SetDestination(pDestination);
     }
 
-    public override void SetPosition(Vector3 pPosition)
+    public void SetPosition(Vector3 pPosition)
     {
         agent.enabled = false;
         agent.transform.position = pPosition;
         agent.enabled = true;
     }
 
-    public override void SetMovementSpeed(float pSpeed)
+    public void SetMovementSpeed(float pSpeed)
     {
         agent.speed = pSpeed;
     }
 
-    public override void ClearDestination()
+    public void ClearDestination()
     {
         agent.destination = agent.nextPosition;
     }
 
-    public override void Begin()
+    public void Begin()
     {
         agent.isStopped = false;
     }
 
-    public override void Stop()
+    public void Stop()
     {
         agent.isStopped = true;
     }
 
-    public override Vector3 GetDestination()
+    public Vector3 GetDestination()
     {
         return agent.destination;
     }
 
-    public override Vector3 GetPosition()
+    public Vector3 GetPosition()
     {
         return agent.transform.root.position;
     }
 
-    public override float GetMoveSpeed()
+    public float GetMoveSpeed()
     {
         return agent.speed;
+    }
+    public float GetCurrentSpeed()
+    {
+        return agent.velocity.magnitude;
+    }
+    public bool IsMoving()
+    {
+        if (agent.velocity != Vector3.zero)
+            return true;
+        else
+            return false;
     }
 }

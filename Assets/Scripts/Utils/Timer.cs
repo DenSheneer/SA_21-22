@@ -14,9 +14,9 @@ public class Timer : MonoBehaviour
 
     public Action OnTimerEnd;
 
-    public void Init(float pStartTime, Action pOnTimerEnd, bool pResetAndRepeat)
+    public void Initialize(float pStartTime, Action pOnTimerEnd, bool pResetAndRepeat)
     {
-        startTime = pStartTime;
+        SetTime(pStartTime);
         OnTimerEnd += pOnTimerEnd;
         resetAndRepeat = pResetAndRepeat;
     }
@@ -37,12 +37,12 @@ public class Timer : MonoBehaviour
         stop = true;
     }
 
-    public void Start()
+    public void Begin()
     {
         stop = false;
     }
 
-    public void Reset()
+    public void ResetTimer()
     {
         currentTime = startTime;
         stop = true;
@@ -65,8 +65,8 @@ public class Timer : MonoBehaviour
                 OnTimerEnd?.Invoke();
                 if (resetAndRepeat)
                 {
-                    Reset();
-                    Start();
+                    ResetTimer();
+                    Begin();
                 }
             }
         }

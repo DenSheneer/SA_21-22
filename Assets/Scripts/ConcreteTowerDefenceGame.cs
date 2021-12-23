@@ -11,5 +11,5 @@ public class ConcreteTowerDefenceGame
     public static Action OnGameOver;
     Timer roundTimer;
 
-    EnemySpawnHandler enemySpawnHandler;
+    UnityEnemySpawnHandler enemySpawnHandler;
 }

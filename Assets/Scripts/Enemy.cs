@@ -3,32 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+/// <summary>
+/// Enemy abstract base class. Inherits from Monobehaviour for Unity compatibility.
+/// </summary>
+public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable
 {
     protected string _ID;
     protected int _maxHealth;
     protected int _currentHealth;
     protected int _money;
-    protected float _speed;
-    protected Vector3 _currentPosition;
 
-    public MoveAgent moveAgent;
+    public iMovementController moveAgent;
 
     public static Action<Enemy> OnDeath;
 
-    public void Move()
+    /// <summary>
+    /// Contructor of the Enemy class. (Called 'Initialize' for compatibility with Unity)
+    /// </summary>
+    public virtual void Initialize(string pID, int pMaxHealth, int pMoney, float pSpeed, Vector3 pSpawn)
     {
-        moveAgent.Begin();
+        _ID = pID;
+        _maxHealth = pMaxHealth;
+        _currentHealth = pMaxHealth;
+        _money = pMoney;
+        setupMoveAgent(pSpawn, pSpeed);
     }
     public void Attack(iAttackable pTarget)
     {
         pTarget.TakeAttack(1);  //  TODO: how to determine damage?
     }
 
-    public void Attack()
-    {
-        throw new NotImplementedException();
-    }
     public virtual void TakeAttack(int pDamage)
     {
         _currentHealth -= pDamage;
@@ -37,7 +41,7 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
-    public void Die()
+    public virtual void Die()
     {
         OnDeath?.Invoke(this);
     }
@@ -46,5 +50,8 @@ public class Enemy : MonoBehaviour
     {
         return _ID;
     }
-
+    /// <summary>
+    /// Method for defining the moveAgent. Implement in concrete class.
+    /// </summary>
+    protected abstract void setupMoveAgent(Vector3 pSpawn, float pSpeed);
 }

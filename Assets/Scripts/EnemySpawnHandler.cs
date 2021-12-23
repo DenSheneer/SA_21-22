@@ -1,39 +1,51 @@
 using System.Collections;
+using System.Diagnostics;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class EnemySpawnHandler : MonoBehaviour
+/// <summary>
+/// Spawn handler abstract base class. Inherits from Monobehaviour for Unity compatibility.
+/// </summary>
+public abstract class EnemySpawnHandler : MonoBehaviour
 {
-
-    [ReadOnly]
-    [SerializeField]
-    int currentSpawns = 0;
+    protected List<System.Numerics.Vector3> availableSpawns;
+    protected int[] _spawnsPerWave = { 10, 15, 25 };
+    protected int currentSpawns = 0;
+    protected int _currentSpawnsLeft;
+    protected float _spawnTickTime = 3.0f;
 
     public List<Enemy> enemies = new List<Enemy>();
 
-    private List<System.Numerics.Vector3> availableSpawns;
-    int[] spawnsPerWave = { 10, 15, 25 };
-    int currentSpawnsLeft;
-    float spawnTickTime;
-
-    Timer tickTimer;
-    public void Start()
+    protected Timer _tickTimer;
+    public void Initialize()
     {
         setupTimer();
     }
-    private void SpawnEnemy()
+    public void SpawnEnemy()
     {
-        UnityEnemy EnemyGO = Instantiate(Resources.Load<UnityEnemy>("Zombie"));
-        EnemyGO.Initialize("zombie", 10, 10, 10.0f, new Vector3(65.0f, 3.0f, -45.0f));
-        enemies.Add(EnemyGO);
-        currentSpawns++;
+        Enemy newEnemy = createNewEnemy();
+        if (newEnemy != null)
+        {
+            enemies.Add(newEnemy);
+            currentSpawns++;
+        }else { System.Diagnostics.Debug.WriteLine("newEnemy was null."); }
     }
     protected void setupTimer()
     {
-        tickTimer = GetComponent<Timer>();
-        tickTimer.Init(1.0f, SpawnEnemy, true);
-        tickTimer.Start();
+        _tickTimer = defineTickTimer();
+        if (_tickTimer != null)
+        {
+            _tickTimer.Initialize(_spawnTickTime, SpawnEnemy, true);
+            _tickTimer.Begin();
+        } else { System.Diagnostics.Debug.WriteLine("tickTimer was null."); }
     }
+    /// <summary>
+    /// Returns an enemy with variabes set. Implement in concrete class.
+    /// </summary>
+    protected abstract Enemy createNewEnemy();
 
+    /// <summary>
+    /// Returns definition for _tickTimer. Variables could be set here or elsewhere.
+    /// </summary>
+    protected abstract Timer defineTickTimer();
 }
