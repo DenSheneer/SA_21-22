@@ -45,7 +45,7 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     protected abstract Enemy createNewEnemy();
 
     /// <summary>
-    /// Returns definition for _tickTimer. Variables could be set here or elsewhere.
+    /// Returns definition for _tickTimer. Timer's variables could be set here or elsewhere.
     /// </summary>
     protected abstract Timer defineTickTimer();
 }

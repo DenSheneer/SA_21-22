@@ -14,11 +14,12 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable
     protected int _money;
 
     public iMovementController moveAgent;
+    protected AbstractCollider myCollider;
 
-    public static Action<Enemy> OnDeath;
+    public Action<Enemy> OnDeath;
 
     /// <summary>
-    /// Contructor of the Enemy class. (Called 'Initialize' for compatibility with Unity)
+    /// Constructor of the Enemy class. (Is called 'Initialize' for compatibility with Unity)
     /// </summary>
     public virtual void Initialize(string pID, int pMaxHealth, int pMoney, float pSpeed, Vector3 pSpawn)
     {
@@ -36,7 +37,8 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable
     public virtual void TakeAttack(int pDamage)
     {
         _currentHealth -= pDamage;
-        if (_currentHealth < 0)
+        Debug.Log(_currentHealth);
+        if (_currentHealth <= 0)
         {
             Die();
         }

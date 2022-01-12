@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
+[RequireComponent(typeof(Timer))]
 public class UnityEnemySpawnHandler : EnemySpawnHandler
 {
     [SerializeField]
@@ -15,11 +13,12 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
     protected override Enemy createNewEnemy()
     {
         UnityEnemy unityEnemy = Instantiate(Resources.Load<UnityEnemy>("Zombie"));
-        unityEnemy.Initialize("zombie", 10, 10, 10.0f, new Vector3(65.0f, 3.0f, -45.0f));
+        unityEnemy.Initialize("zombie", 350, 10, 10.0f, new Vector3(65.0f, 3.0f, -65.0f));
         return unityEnemy;
     }
     protected override Timer defineTickTimer()
     {
-        return GetComponent<Timer>();
+        Timer newTimer = GetComponent<Timer>();
+        return newTimer;
     }
 }

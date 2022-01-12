@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Collider))]
 public class UnityEnemy : Enemy
 {
     Animator anim;
@@ -10,6 +12,7 @@ public class UnityEnemy : Enemy
         gameObject.name = pID;
 
         anim = GetComponent<Animator>();
+        myCollider = GetComponent<AbstractCollider>();
     }
 
     public override void TakeAttack(int pDamage)
@@ -19,7 +22,7 @@ public class UnityEnemy : Enemy
     public override void Die()
     {
         base.Die();
-        Destroy(this);
+        Destroy(gameObject);
     }
     public void Update()
     {
@@ -35,6 +38,6 @@ public class UnityEnemy : Enemy
         moveAgent.SetPosition(pSpawn);
         moveAgent.SetMovementSpeed(pSpeed);
 
-        moveAgent.SetDestination(new Vector3(65.0f, 2, -65.0f));
+        moveAgent.SetDestination(new Vector3(75.0f, 2, -45.0f));
     }
 }
