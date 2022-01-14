@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(iMovementController))]
 public class UnityEnemy : Enemy
 {
     Animator anim;
@@ -13,6 +14,10 @@ public class UnityEnemy : Enemy
 
         anim = GetComponent<Animator>();
         myCollider = GetComponent<AbstractCollider>();
+    }
+    public void Initialize(EnemyProperties properties)
+    {
+        Initialize(properties.id, properties.maxHealth, properties.money, properties.moveSpeed, properties.spawnLocation);
     }
 
     public override void TakeAttack(int pDamage)

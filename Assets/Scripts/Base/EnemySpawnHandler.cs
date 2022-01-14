@@ -8,13 +8,10 @@ using UnityEngine;
 /// </summary>
 public abstract class EnemySpawnHandler : MonoBehaviour
 {
-    protected List<System.Numerics.Vector3> availableSpawns;
-    protected int[] _spawnsPerWave = { 10, 15, 25 };
     protected int currentSpawns = 0;
-    protected int _currentSpawnsLeft;
     protected float _spawnTickTime = 3.0f;
 
-    public List<Enemy> enemies = new List<Enemy>();
+    List<Enemy> enemies = new List<Enemy>();
 
     protected Timer _tickTimer;
     public void Initialize()
@@ -26,9 +23,18 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         Enemy newEnemy = createNewEnemy();
         if (newEnemy != null)
         {
+            newEnemy.OnDeath += removeEnemyFromList;
             enemies.Add(newEnemy);
             currentSpawns++;
         }else { System.Diagnostics.Debug.WriteLine("newEnemy was null."); }
+    }
+
+    protected void removeEnemyFromList(Enemy enemy)
+    {
+        if (enemies.Contains(enemy))
+        {
+            enemies.Remove(enemy);
+        }
     }
     protected void setupTimer()
     {

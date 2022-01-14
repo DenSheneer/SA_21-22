@@ -1,8 +1,14 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Timer))]
 public class UnityEnemySpawnHandler : EnemySpawnHandler
 {
+    [SerializeField]
+    List<EnemyProperties> enemyTypes = new List<EnemyProperties>();
+    [SerializeField]
+    int enemyType = 0;
+
     [SerializeField]
     public float spawnTickTime = 3.0f;
     private void Start()
@@ -13,7 +19,7 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
     protected override Enemy createNewEnemy()
     {
         UnityEnemy unityEnemy = Instantiate(Resources.Load<UnityEnemy>("Zombie"));
-        unityEnemy.Initialize("zombie", 350, 10, 10.0f, new Vector3(65.0f, 3.0f, -65.0f));
+        unityEnemy.Initialize(enemyTypes[enemyType]);
         return unityEnemy;
     }
     protected override Timer defineTickTimer()
