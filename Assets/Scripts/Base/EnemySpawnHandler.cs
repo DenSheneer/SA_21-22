@@ -42,7 +42,7 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         if (_tickTimer != null)
         {
             _tickTimer.Initialize(_spawnTickTime, SpawnEnemy, true);
-            _tickTimer.Begin();
+            _tickTimer.IsPaused = false;
         } else { System.Diagnostics.Debug.WriteLine("tickTimer was null."); }
     }
     /// <summary>

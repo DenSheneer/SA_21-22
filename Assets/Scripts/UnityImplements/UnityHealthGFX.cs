@@ -39,4 +39,9 @@ public class UnityHealthGFX : MonoBehaviour, iEnemyHealthGFX
                                                              greenHealthImage.transform.localScale.y,
                                                              greenHealthImage.transform.localScale.z);
     }
+
+    public void DestroySelf()
+    {
+        Destroy(this);
+    }
 }

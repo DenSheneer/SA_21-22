@@ -8,14 +8,27 @@ public class UnityTower : Tower
 {
     Rigidbody rb;
 
-    void Start()
+    [SerializeField]
+    TowerProperties towerProperties;
+
+    public void Initialize(TowerProperties pTowerProperties)
     {
-        Initialize();
+        base.Initialize(pTowerProperties.AttackMode, pTowerProperties.Damage, pTowerProperties.AttackTick, pTowerProperties.AttackRadius);
     }
 
-    protected override void InitializeCollider()
+    void Start()
     {
-        myCollider = GetComponent<UnityCollider>();
+        Initialize(towerProperties);
+    }
+
+    protected override void initializeCollider()
+    {
         rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+    }
+
+    protected override Timer defineTickTimer()
+    {
+        return GetComponent<Timer>();
     }
 }

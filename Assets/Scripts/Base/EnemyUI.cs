@@ -21,7 +21,7 @@ public abstract class EnemyUI : MonoBehaviour, System.IObserver<Enemy>
 
     public void OnCompleted()
     {
-        return;
+        cancellation.Dispose();
     }
 
     public void OnError(System.Exception error)

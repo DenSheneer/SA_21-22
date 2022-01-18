@@ -55,10 +55,9 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     {
         OnDeath?.Invoke(this);
 
-        foreach(var observer in observers)
-        {
-            observer.OnCompleted();
-        }
+        foreach (var observer in observers.ToArray())
+            if (observers.Contains(observer))
+                observer.OnCompleted();
     }
 
     public string GetID()

@@ -32,20 +32,13 @@ public class Timer : MonoBehaviour
         return currentTime;
     }
 
-    public void Pause()
-    {
-        stop = true;
-    }
-
-    public void Begin()
-    {
-        stop = false;
-    }
+    public bool IsPaused { get { return stop; } set { stop = value; } }
 
     public void ResetTimer()
     {
         currentTime = startTime;
-        stop = true;
+        if (resetAndRepeat) { IsPaused = false; }
+        else { IsPaused = true; }
     }
 
     public void SetResetAndRepeat(bool mode)
@@ -63,11 +56,7 @@ public class Timer : MonoBehaviour
             if (currentTime <= 0)
             {
                 OnTimerEnd?.Invoke();
-                if (resetAndRepeat)
-                {
-                    ResetTimer();
-                    Begin();
-                }
+                ResetTimer();
             }
         }
     }
