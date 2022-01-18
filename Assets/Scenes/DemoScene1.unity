@@ -5427,7 +5427,6 @@ GameObject:
   - component: {fileID: 675342085}
   - component: {fileID: 675342088}
   - component: {fileID: 675342087}
-  - component: {fileID: 675342086}
   - component: {fileID: 675342089}
   - component: {fileID: 675342090}
   m_Layer: 0
@@ -5451,20 +5450,6 @@ Transform:
   m_Father: {fileID: 1713935042}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &675342086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675342084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 812e71302615d0148bbaf936aad28e25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unityCollider: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!65 &675342087
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5473,11 +5458,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675342084}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!33 &675342088
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5498,7 +5483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2552255f7e7f346429d0849656e9878d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemiesPresent: 0
+  enemiesPassed: 0
 --- !u!54 &675342090
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13395,11 +13380,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ccb3715e51d5443b3b486acfb060f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: []
   enemyTypes:
   - {fileID: 11400000, guid: 50b28433bd421f048a2d3dcbde4a8723, type: 2}
   - {fileID: 11400000, guid: 8acbe56d464bde84a9d6d0d12bb1c912, type: 2}
   enemyType: 0
-  spawnTickTime: 1
+  spawnTickTime: 1.25
 --- !u!114 &1644679913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17927,6 +17913,10 @@ PrefabInstance:
     - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239453830503291998, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.54
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}

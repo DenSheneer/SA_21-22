@@ -11,11 +11,24 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
 
     [SerializeField]
     public float spawnTickTime = 3.0f;
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
     private void Start()
     {
         _spawnTickTime = spawnTickTime;
         Initialize();
-        createNewEnemy();
+        SpawnEnemy();
     }
     protected override Enemy createNewEnemy()
     {

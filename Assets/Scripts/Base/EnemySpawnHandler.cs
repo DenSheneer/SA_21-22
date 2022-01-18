@@ -11,9 +11,10 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     protected int currentSpawns = 0;
     protected float _spawnTickTime = 3.0f;
 
-    List<Enemy> enemies = new List<Enemy>();
-
+    public List<Enemy> enemies = new List<Enemy>();
     protected Timer _tickTimer;
+    protected static EnemySpawnHandler _instance;
+    public static EnemySpawnHandler Instance { get { return _instance; } }
     public void Initialize()
     {
         setupTimer();

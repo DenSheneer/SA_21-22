@@ -1453,7 +1453,6 @@ GameObject:
   - component: {fileID: 8236538066086461173}
   - component: {fileID: 8261483949860017635}
   - component: {fileID: 2545506777591016829}
-  - component: {fileID: 4886347114246058357}
   - component: {fileID: 4356227095910648723}
   - component: {fileID: -8968672624953504438}
   - component: {fileID: 6946717190170126954}
@@ -1532,20 +1531,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1659526120325410646}
   greenHealthImage: {fileID: 6481386833365933480}
---- !u!114 &4886347114246058357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4356227095903270995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 812e71302615d0148bbaf936aad28e25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unityCollider: {fileID: 0}
-  rb: {fileID: 0}
 --- !u!95 &4356227095910648723
 Animator:
   serializedVersion: 3
@@ -1595,7 +1580,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4356227095903270995}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 4.31

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a80c758cdbaa504b9ece2b4d7839099, type: 3}
   m_Name: NormalTower
   m_EditorClassIdentifier: 
-  attackMode: 1
-  damage: 500
+  attackMode: 0
+  damage: 250
   attackTick: 2
-  attackRadius: 3
+  attackRadius: 19

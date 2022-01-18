@@ -3,18 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class UnityEnemyGoal : EnemyGoal
+[RequireComponent(typeof(Rigidbody))]
+public class UnityEnemyGoal : MonoBehaviour
 {
     [SerializeField]
-    int _enemiesPresent = 0;
+    int enemiesPassed = 0;
+
     private void Start()
     {
-        myCollider = GetComponent<AbstractCollider>();
-        base.Initialize();
+        Rigidbody rb = GetComponent<Rigidbody>();
+        Collider col = GetComponent<Collider>();
+
+        rb.isKinematic = true;
+        col.isTrigger = true;
+        rb.useGravity = false;
     }
-    protected override void updateEnemiesPresent(int newCount)
+
+    public void OnTriggerEnter(Collider other)
     {
-        base.updateEnemiesPresent(newCount);
-        _enemiesPresent = enemiesPresent;
+        if (other.gameObject.TryGetComponent<Enemy>(out Enemy enteringEnemy))
+        {
+            enemiesPassed++;
+            enteringEnemy.Die();
+        }
     }
 }
