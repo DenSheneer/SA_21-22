@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NormalEnemy
   m_EditorClassIdentifier: 
   id: zombie
-  maxHealth: 2500
+  maxHealth: 1500
   money: 10
   moveSpeed: 10
   spawnLocation: {x: 65, y: 0, z: -65}

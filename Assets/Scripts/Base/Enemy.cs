@@ -44,6 +44,8 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
             observer.OnNext(this);
         }
 
+        //Debug.Log("damaged: " + _currentHealth + " listeners: " + observers.Count);
+
         if (_currentHealth <= 0)
         {
             Die();

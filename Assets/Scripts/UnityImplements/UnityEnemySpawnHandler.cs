@@ -15,6 +15,7 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
     {
         _spawnTickTime = spawnTickTime;
         Initialize();
+        createNewEnemy();
     }
     protected override Enemy createNewEnemy()
     {
