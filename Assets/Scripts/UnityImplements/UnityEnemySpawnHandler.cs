@@ -32,7 +32,7 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
     }
     protected override Enemy createNewEnemy()
     {
-        UnityEnemy unityEnemy = Instantiate(Resources.Load<UnityEnemy>("Zombie"));
+        UnityEnemy unityEnemy = Instantiate(Resources.Load<UnityEnemy>("Spider"));
         unityEnemy.Initialize(enemyTypes[enemyType]);
         return unityEnemy;
     }
