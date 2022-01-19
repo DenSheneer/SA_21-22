@@ -11,7 +11,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     protected string _ID;
     protected int _maxHealth;
     protected int _currentHealth;
-    protected int _money;
+    protected uint _money;
     protected List<IObserver<Enemy>> observers;
 
     protected iMovementController moveAgent;
@@ -22,7 +22,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     /// <summary>
     /// Constructor of the Enemy class. (Is called 'Initialize' for compatibility with Unity)
     /// </summary>
-    public virtual void Initialize(string pID, int pMaxHealth, int pMoney, float pSpeed, Vector3 pSpawn)
+    public virtual void Initialize(string pID, int pMaxHealth, uint pMoney, float pSpeed, Vector3 pSpawn)
     {
         _ID = pID;
         _maxHealth = pMaxHealth;
@@ -60,10 +60,8 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
                 observer.OnCompleted();
     }
 
-    public string GetID()
-    {
-        return _ID;
-    }
+    public string GetID { get { return _ID; } }
+    public uint GetMoney { get { return _money; } }
     public int GetHealth { get { return _currentHealth; } }
     public int GetMaxHealth { get { return _maxHealth; } }
     /// <summary>

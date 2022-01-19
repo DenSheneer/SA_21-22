@@ -9,7 +9,10 @@ public class EnemyProperties : ScriptableObject
     public string id;
 
     [SerializeField]
-    public int maxHealth, money;
+    public int maxHealth;
+        
+    [SerializeField]
+    public uint money;
 
     [SerializeField]
     public float moveSpeed;

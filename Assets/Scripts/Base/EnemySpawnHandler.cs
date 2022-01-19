@@ -10,10 +10,11 @@ public abstract class EnemySpawnHandler : MonoBehaviour
 {
     protected int currentSpawns = 0;
     protected float _spawnTickTime = 3.0f;
-
-    public List<Enemy> enemies = new List<Enemy>();
     protected Timer _tickTimer;
     protected static EnemySpawnHandler _instance;
+
+    public List<Enemy> enemies = new List<Enemy>();
+    public System.Action<Enemy> OnEnemySpawn;
     public static EnemySpawnHandler Instance { get { return _instance; } }
     public void Initialize()
     {
@@ -27,7 +28,8 @@ public abstract class EnemySpawnHandler : MonoBehaviour
             newEnemy.OnDeath += removeEnemyFromList;
             enemies.Add(newEnemy);
             currentSpawns++;
-        }else { System.Diagnostics.Debug.WriteLine("newEnemy was null."); }
+            OnEnemySpawn?.Invoke(newEnemy);
+        }
     }
 
     protected void removeEnemyFromList(Enemy enemy)

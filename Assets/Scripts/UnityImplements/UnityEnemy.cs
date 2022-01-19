@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class UnityEnemy : Enemy
 {
     Animator anim;
-    public override void Initialize(string pID, int pMaxHealth, int pMoney, float pSpeed, Vector3 pSpawn)
+    public override void Initialize(string pID, int pMaxHealth, uint pMoney, float pSpeed, Vector3 pSpawn)
     {
         base.Initialize(pID, pMaxHealth, pMoney, pSpeed, pSpawn);
         gameObject.name = pID;
