@@ -19,5 +19,6 @@ public abstract class MoneyCollector : MonoBehaviour
     public void AddMoneyFromEnemy(Enemy enemy)
     {
         AddMoney(enemy.GetMoney);
+        enemy.OnDeath -= AddMoneyFromEnemy;
     }
 }

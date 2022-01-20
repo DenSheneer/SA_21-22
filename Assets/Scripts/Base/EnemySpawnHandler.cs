@@ -12,17 +12,19 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     protected float _spawnTickTime = 3.0f;
     protected Timer _tickTimer;
     protected static EnemySpawnHandler _instance;
+    protected SpawnPool enemySpawnPool;
 
     public List<Enemy> enemies = new List<Enemy>();
     public System.Action<Enemy> OnEnemySpawn;
     public static EnemySpawnHandler Instance { get { return _instance; } }
-    public void Initialize()
+    public void Initialize(SpawnPool pEnemySpawnPool)
     {
         setupTimer();
+        enemySpawnPool = pEnemySpawnPool;
     }
     public void SpawnEnemy()
     {
-        Enemy newEnemy = createNewEnemy();
+        Enemy newEnemy = createNewRandomEnemy(enemySpawnPool);
         if (newEnemy != null)
         {
             newEnemy.OnDeath += removeEnemyFromList;
@@ -46,15 +48,29 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         {
             _tickTimer.Initialize(_spawnTickTime, SpawnEnemy, true);
             _tickTimer.IsPaused = false;
-        } else { System.Diagnostics.Debug.WriteLine("tickTimer was null."); }
+        }
+        else { System.Diagnostics.Debug.WriteLine("tickTimer was null."); }
     }
     /// <summary>
     /// Returns an enemy with variabes set. Implement in concrete class.
     /// </summary>
-    protected abstract Enemy createNewEnemy();
+    protected abstract Enemy spawnEnemy(ENEMY_TYPE type);
+
+    protected Enemy createNewRandomEnemy(SpawnPool spawnRules)
+    {
+        Enemy enemy = null;
+        enemy = spawnEnemy(spawnRules.RandomPullFromPool());
+        return enemy;
+    }
 
     /// <summary>
     /// Returns definition for _tickTimer. Timer's variables could be set here or elsewhere.
     /// </summary>
     protected abstract Timer defineTickTimer();
+}
+public enum ENEMY_TYPE
+{
+    Spider = 0,
+    Zombie = 1,
+    Boss = 2
 }

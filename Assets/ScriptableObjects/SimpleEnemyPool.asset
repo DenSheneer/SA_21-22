@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e8c8437871c27409371b120f9d9920, type: 3}
-  m_Name: NormalEnemy
+  m_Script: {fileID: 11500000, guid: d722d2d72c177f4479a37da6fab7a097, type: 3}
+  m_Name: SimpleEnemyPool
   m_EditorClassIdentifier: 
-  id: zombie
-  maxHealth: 1500
-  money: 10
-  moveSpeed: 10
-  spawnLocation: {x: 65, y: 0, z: -65}
+  spawns: 0
+  maxStrongEnemies: 0
+  strongEnemPool: 0
+  medEnemPool: 1
+  weakEnemPool: 5

@@ -13602,9 +13602,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   enemyTypes:
-  - {fileID: 11400000, guid: 50b28433bd421f048a2d3dcbde4a8723, type: 2}
   - {fileID: 11400000, guid: 8acbe56d464bde84a9d6d0d12bb1c912, type: 2}
-  enemyType: 0
+  - {fileID: 11400000, guid: 50b28433bd421f048a2d3dcbde4a8723, type: 2}
+  spawnRule: {fileID: 11400000, guid: e783fa39aa58bdb4c82ed8072b65d939, type: 2}
   spawnTickTime: 1.25
 --- !u!114 &1644679913
 MonoBehaviour:
