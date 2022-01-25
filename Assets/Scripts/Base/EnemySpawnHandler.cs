@@ -24,13 +24,16 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     }
     public void SpawnEnemy()
     {
-        Enemy newEnemy = createNewRandomEnemy(enemySpawnPool);
-        if (newEnemy != null)
+        if (currentSpawns < enemySpawnPool.SpawnCount)
         {
-            newEnemy.OnDeath += removeEnemyFromList;
-            enemies.Add(newEnemy);
-            currentSpawns++;
-            OnEnemySpawn?.Invoke(newEnemy);
+            Enemy newEnemy = createNewRandomEnemy(enemySpawnPool);
+            if (newEnemy != null)
+            {
+                newEnemy.OnDeath += removeEnemyFromList;
+                enemies.Add(newEnemy);
+                currentSpawns++;
+                OnEnemySpawn?.Invoke(newEnemy);
+            }
         }
     }
 

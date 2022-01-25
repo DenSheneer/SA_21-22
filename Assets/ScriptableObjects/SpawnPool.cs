@@ -21,6 +21,7 @@ public class SpawnPool : ScriptableObject
     public int weakEnemPool;
 
     public int PoolSize() { return weakEnemPool + medEnemPool + strongEnemPool; }
+    public int SpawnCount { get { return spawns; } }
     public ENEMY_TYPE RandomPullFromPool()
     {
         if (PoolSize() > 0)
