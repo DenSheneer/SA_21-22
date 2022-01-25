@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d722d2d72c177f4479a37da6fab7a097, type: 3}
-  m_Name: SimpleEnemyPool
+  m_Script: {fileID: 11500000, guid: d7e8c8437871c27409371b120f9d9920, type: 3}
+  m_Name: Enemy_Devil
   m_EditorClassIdentifier: 
-  spawns: 5
-  maxStrongEnemies: 0
-  strongEnemPool: 1
-  medEnemPool: 1
-  weakEnemPool: 1
+  id: Devil
+  maxHealth: 3000
+  money: 50
+  moveSpeed: 13
+  spawnLocation: {x: 65, y: 0, z: -65}
