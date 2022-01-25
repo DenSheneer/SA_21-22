@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d722d2d72c177f4479a37da6fab7a097, type: 3}
-  m_Name: SimpleEnemyPool
+  m_Name: 2MediumEnemyPool
   m_EditorClassIdentifier: 
-  spawns: 5
+  spawns: 30
   maxStrongEnemies: 0
   strongEnemPool: 1
-  medEnemPool: 1
-  weakEnemPool: 1
+  medEnemPool: 5
+  weakEnemPool: 3
