@@ -8,7 +8,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     protected float attackTickTime = 1.0f;
     protected float attackRadius = 12.0f;
     protected Timer tickTimer;
-    private ATTACK_MODE attackMode = ATTACK_MODE.RANDOM;
+    protected ATTACK_MODE attackMode = ATTACK_MODE.RANDOM;
 
     private Dictionary<int, Enemy> inRangeEnemies;
 
@@ -26,6 +26,20 @@ public abstract class Tower : UnityEngine.MonoBehaviour
             tickTimer.Initialize(attackTickTime, attack, true);
             tickTimer.IsPaused = false;
         }
+    }
+    public void SetProperties(ATTACK_MODE pAttackMode, int pDamage, float pAttackTickTime, float pAttackRadius)
+    {
+        attackMode = pAttackMode;
+        damage = pDamage;
+        attackTickTime = pAttackTickTime;
+        attackRadius = pAttackRadius;
+    }
+    public void SetProperties(TowerProperties towerProperties)
+    {
+        attackMode = towerProperties.AttackMode;
+        damage = towerProperties.Damage;
+        attackTickTime = towerProperties.AttackTick;
+        attackRadius = towerProperties.AttackRadius;
     }
     private void attack()
     {

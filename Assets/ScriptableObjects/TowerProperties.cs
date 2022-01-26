@@ -4,6 +4,15 @@ using UnityEngine;
 public class TowerProperties : ScriptableObject
 {
     [SerializeField]
+    Mesh TowerBase;
+
+    [SerializeField]
+    Mesh TowerMiddle;
+
+    [SerializeField]
+    Mesh TowerTop;
+
+    [SerializeField]
     ATTACK_MODE attackMode;
 
     [SerializeField]
