@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a80c758cdbaa504b9ece2b4d7839099, type: 3}
   m_Name: NormalTower
   m_EditorClassIdentifier: 
+  GFX: {fileID: 11400000, guid: 189a30866f70004478a3c47f34296687, type: 2}
   attackMode: 0
   damage: 250
   attackTick: 2

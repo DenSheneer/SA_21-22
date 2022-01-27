@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public interface iTowerSelector
+public interface iTowerSelector : IObservable<Transform>
 {
-    Tower GetSelected();
+    Transform GetSelectedSpace();
+    void OnSpaceClick();
 }

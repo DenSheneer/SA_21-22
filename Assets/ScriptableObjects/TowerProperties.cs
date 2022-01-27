@@ -4,13 +4,7 @@ using UnityEngine;
 public class TowerProperties : ScriptableObject
 {
     [SerializeField]
-    Mesh TowerBase;
-
-    [SerializeField]
-    Mesh TowerMiddle;
-
-    [SerializeField]
-    Mesh TowerTop;
+    TowerBuildProperties GFX;
 
     [SerializeField]
     ATTACK_MODE attackMode;
@@ -43,5 +37,10 @@ public class TowerProperties : ScriptableObject
     {
         get { return attackRadius; }
         set { attackRadius = value; }
+    }
+    public TowerBuildProperties BuildProperties
+    {
+        get { return GFX; }
+        set { GFX = value; }
     }
 }

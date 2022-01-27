@@ -1,26 +1,47 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-public abstract class TowerManager : UnityEngine.MonoBehaviour
+public abstract class TowerManager : UnityEngine.MonoBehaviour, IObserver<Transform>
 {
     iTowerSelector towerSelector;
-    protected List<Tower> towers;
 
-    private System.Action<Tower> OnTowerSpawn;
+    [SerializeField]
+    protected Dictionary<Transform, Tower> towers;
+    private Action<Tower> OnTowerSpawn;
+
+    private IDisposable unsubscriber;
 
     protected void Initialize()
     {
-        setupTowerSelector();
-        towers = new List<Tower>();
+        towerSelector = setupTowerSelector();
+        unsubscriber = towerSelector.Subscribe(this);
+        towers = new Dictionary<Transform, Tower>();
     }
 
-    public void SpawnTower(TowerProperties towerProperties)
+    public void OnNext(Transform clickedSpace)
     {
-        Tower newTower = defineTower(towerProperties);
+        if (!towers.ContainsKey(clickedSpace))
+        {
+            SpawnTower(Resources.Load<TowerProperties>("Towers/NormalTower"), clickedSpace.position);
+        }
+        else { UpgradeTower(clickedSpace); }
+    }
+
+    public void SpawnTower(TowerProperties towerProperties, Vector3 position)
+    {
+        Tower newTower = defineTower(towerProperties, position);
         if (newTower != null)
         {
-            towers.Add(newTower);
+            towers.Add(newTower.transform, newTower);
         }
+    }
+
+    protected void UpgradeTower(Transform key)
+    {
+        Debug.Log("upgraded tower " + towers[key].name);
+        //SetExistingTowerProperties(towers[key], Resources.Load<TowerBuildProperties>("/BuildProperties/strong"));
     }
 
     public void SetExistingTowerProperties(Tower tower, TowerProperties towerProperties)
@@ -30,7 +51,20 @@ public abstract class TowerManager : UnityEngine.MonoBehaviour
     public void SubcribeToTowerSpawn(System.Action<Tower> onSpawn) { OnTowerSpawn += onSpawn; }
     public void UnsubscribeFromTowerSpawn(System.Action<Tower> onSpawn) { OnTowerSpawn -= onSpawn; }
 
-    public Tower[] GetTowers() { return towers.ToArray(); }
-    protected abstract void setupTowerSelector();
-    protected abstract Tower defineTower(TowerProperties towerProperties);
+    protected abstract iTowerSelector setupTowerSelector();
+    protected abstract Tower defineTower(TowerProperties towerProperties, Vector3 position);
+
+    public void OnCompleted()
+    {
+        unsubscriber.Dispose();
+    }
+
+    public void OnError(Exception error) { }
+}
+
+public enum TOWER_TIER
+{
+    weak = 0,
+    normal = 1,
+    strong = 2
 }
