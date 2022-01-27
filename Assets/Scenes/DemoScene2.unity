@@ -213,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 29137299}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,6 +441,10 @@ PrefabInstance:
       value: snow_tile_straight (16)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -514,6 +518,10 @@ PrefabInstance:
       value: snow_tile_straight (7)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -585,6 +593,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -667,6 +679,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -756,6 +772,10 @@ PrefabInstance:
       value: snow_tile (33)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -838,6 +858,10 @@ PrefabInstance:
       value: snow_tile (35)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -917,7 +941,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_Name
-      value: tile_dirt (6)
+      value: towerspace
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+      propertyPath: m_TagString
+      value: tower
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -925,6 +953,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+--- !u!1 &58856840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+  m_PrefabInstance: {fileID: 58856839}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &58856841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58856840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.87, z: 1}
+  m_Center: {x: 0, y: 0.47, z: 0}
 --- !u!1001 &58929343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -991,6 +1037,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_Name
       value: snow_tile_straight (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1064,6 +1114,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -1144,6 +1198,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7392225327938827759, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7392225327938827759, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1156,6 +1214,10 @@ PrefabInstance:
       value: snow_tile_treeQuad (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1164,6 +1226,10 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2798605382713886172, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798605382713886172, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1172,12 +1238,20 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3681790978099765340, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681790978099765340, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3681790978099765340, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327519614437959306, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7327519614437959306, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
@@ -1262,6 +1336,10 @@ PrefabInstance:
       value: snow_tile (31)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1340,6 +1418,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1499549837338632917, guid: 0ddf8b6d609127e428e8dd72af156c4b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1499549837338632917, guid: 0ddf8b6d609127e428e8dd72af156c4b, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1350,6 +1432,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0ddf8b6d609127e428e8dd72af156c4b, type: 3}
       propertyPath: m_Name
       value: snow_tile_rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0ddf8b6d609127e428e8dd72af156c4b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0ddf8b6d609127e428e8dd72af156c4b, type: 3}
       propertyPath: m_NavMeshLayer
@@ -1434,6 +1520,10 @@ PrefabInstance:
       value: snow_tile (49)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1514,6 +1604,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -1598,6 +1692,10 @@ PrefabInstance:
       value: snow_tile_cornerSquare (10)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -1678,6 +1776,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -1762,6 +1864,10 @@ PrefabInstance:
       value: snow_tile (50)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1842,6 +1948,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -1926,6 +2036,10 @@ PrefabInstance:
       value: snow_tile_cornerSquare (4)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -2006,6 +2120,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -2090,6 +2208,10 @@ PrefabInstance:
       value: snow_tile_straight (6)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -2166,6 +2288,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -2250,6 +2376,10 @@ PrefabInstance:
       value: snow_tile (37)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -2332,6 +2462,10 @@ PrefabInstance:
       value: snow_tile_straight (25)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -2405,6 +2539,10 @@ PrefabInstance:
       value: snow_tile_straight (22)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -2476,6 +2614,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -2560,6 +2702,10 @@ PrefabInstance:
       value: snow_tile_cornerSquare (2)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -2640,6 +2786,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (67)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -2734,6 +2884,10 @@ PrefabInstance:
       value: snow_tile_straight (27)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -2805,6 +2959,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (88)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -2889,6 +3047,10 @@ PrefabInstance:
       value: snow_tile (58)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -2910,6 +3072,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 29137299}
     m_Modifications:
+    - target: {fileID: -8848437439432763094, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -8848437439432763094, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -2971,8 +3137,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2287223201522926096, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2287223201522926096, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -1499549837338632917, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -1499549837338632917, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2983,8 +3157,16 @@ PrefabInstance:
       value: snow_tile_crystal (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053023591900777244, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9053023591900777244, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3057,7 +3239,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_Name
-      value: tile_dirt (3)
+      value: towerspace
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+      propertyPath: m_TagString
+      value: tower
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3065,6 +3251,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+--- !u!1 &280592028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+  m_PrefabInstance: {fileID: 280592027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &280592029
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280592028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.87, z: 1}
+  m_Center: {x: 0, y: 0.47, z: 0}
 --- !u!1001 &287681669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3133,6 +3337,10 @@ PrefabInstance:
       value: snow_tile (43)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -3147,83 +3355,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
   m_PrefabInstance: {fileID: 287681669}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &293357910
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1623984604}
-    m_Modifications:
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_Name
-      value: Tower (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
 --- !u!4 &326804573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
@@ -3295,6 +3426,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (91)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -3489,6 +3624,10 @@ PrefabInstance:
       value: snow_tile (19)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -3576,6 +3715,10 @@ PrefabInstance:
       value: snow_tile (34)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -3656,6 +3799,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (89)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -3740,6 +3887,10 @@ PrefabInstance:
       value: snow_tile_straight (4)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -3811,6 +3962,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
       propertyPath: m_Name
       value: snow_tile_riverStraight (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
       propertyPath: m_NavMeshLayer
@@ -3895,6 +4050,10 @@ PrefabInstance:
       value: snow_tile (27)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -3975,6 +4134,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -4059,6 +4222,10 @@ PrefabInstance:
       value: snow_tile (13)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4139,6 +4306,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (92)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -4223,6 +4394,10 @@ PrefabInstance:
       value: snow_tile (27)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4303,6 +4478,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -4392,6 +4571,10 @@ PrefabInstance:
       value: snow_tile (75)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4472,6 +4655,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -4556,6 +4743,10 @@ PrefabInstance:
       value: snow_tile (16)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4638,6 +4829,10 @@ PrefabInstance:
       value: snow_tile (64)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4718,6 +4913,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (71)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -4807,6 +5006,10 @@ PrefabInstance:
       value: snow_tile (30)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4887,6 +5090,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -4971,6 +5178,10 @@ PrefabInstance:
       value: snow_tile (53)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -5053,6 +5264,10 @@ PrefabInstance:
       value: snow_tile_straight (13)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -5124,6 +5339,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -5213,6 +5432,10 @@ PrefabInstance:
       value: snow_tile (79)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -5300,6 +5523,10 @@ PrefabInstance:
       value: snow_tile (65)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -5379,7 +5606,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_Name
-      value: tile_dirt (5)
+      value: towerspace
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+      propertyPath: m_TagString
+      value: tower
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5387,6 +5618,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+--- !u!1 &661263738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+  m_PrefabInstance: {fileID: 661263737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &661263739
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661263738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.87, z: 1}
+  m_Center: {x: 0, y: 0.47, z: 0}
 --- !u!1001 &662372833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5453,6 +5702,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 817f5ffcf47215c4c93b84ffa2a4a088, type: 3}
       propertyPath: m_Name
       value: snow_tile_riverCorner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 817f5ffcf47215c4c93b84ffa2a4a088, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 817f5ffcf47215c4c93b84ffa2a4a088, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5528,6 +5781,10 @@ PrefabInstance:
       value: snow_tile (62)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -5555,7 +5812,7 @@ GameObject:
   - component: {fileID: 675342087}
   - component: {fileID: 675342089}
   - component: {fileID: 675342090}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EndPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5694,6 +5951,10 @@ PrefabInstance:
       value: snow_tile (40)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -5774,6 +6035,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -5858,6 +6123,10 @@ PrefabInstance:
       value: snow_tile_straight (20)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -5934,6 +6203,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -6023,6 +6296,10 @@ PrefabInstance:
       value: snow_tile_straight (28)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -6096,6 +6373,10 @@ PrefabInstance:
       value: snow_tile_riverStraight (6)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -6119,11 +6400,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
   m_PrefabInstance: {fileID: 1312990866}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &729273180 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-  m_PrefabInstance: {fileID: 1007864819}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &736267511
 PrefabInstance:
@@ -6191,6 +6467,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -6275,6 +6555,10 @@ PrefabInstance:
       value: snow_tile (29)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -6354,7 +6638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_Name
-      value: tile_dirt
+      value: towerspace
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+      propertyPath: m_TagString
+      value: tower
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6362,6 +6650,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+--- !u!1 &743580089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+  m_PrefabInstance: {fileID: 743580088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &743580090
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743580089}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.87, z: 1}
+  m_Center: {x: 0, y: 0.47, z: 0}
 --- !u!1001 &744944978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6428,6 +6734,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -6512,6 +6822,10 @@ PrefabInstance:
       value: snow_tile_cornerSquare (9)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -6594,6 +6908,10 @@ PrefabInstance:
       value: snow_tile_riverCorner (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 817f5ffcf47215c4c93b84ffa2a4a088, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 817f5ffcf47215c4c93b84ffa2a4a088, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -6665,6 +6983,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -6749,6 +7071,10 @@ PrefabInstance:
       value: snow_tile (2)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -6829,6 +7155,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -6913,6 +7243,10 @@ PrefabInstance:
       value: snow_tile (23)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -6993,6 +7327,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
       propertyPath: m_Name
       value: snow_tile_riverStraight
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
       propertyPath: m_NavMeshLayer
@@ -7080,6 +7418,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -7174,6 +7516,10 @@ PrefabInstance:
       value: snow_tile_riverStraight (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -7256,6 +7602,10 @@ PrefabInstance:
       value: snow_tile_straight (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -7327,6 +7677,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -7411,6 +7765,10 @@ PrefabInstance:
       value: snow_tile_cornerSquare (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -7424,11 +7782,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
   m_PrefabInstance: {fileID: 907481149}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &930062093 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-  m_PrefabInstance: {fileID: 1629287786}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &932789249
 GameObject:
@@ -7543,6 +7896,10 @@ PrefabInstance:
       value: snow_tile_straight (8)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -7614,6 +7971,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -7698,6 +8059,10 @@ PrefabInstance:
       value: snow_tile_straight (10)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -7769,6 +8134,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -7851,6 +8220,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -7941,6 +8314,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7392225327938827759, guid: 8a6bcd07668430747962287ffea9e293, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7392225327938827759, guid: 8a6bcd07668430747962287ffea9e293, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -7953,12 +8330,20 @@ PrefabInstance:
       value: snow_tile_treeDouble
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8a6bcd07668430747962287ffea9e293, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8a6bcd07668430747962287ffea9e293, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8a6bcd07668430747962287ffea9e293, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681790978099765340, guid: 8a6bcd07668430747962287ffea9e293, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3681790978099765340, guid: 8a6bcd07668430747962287ffea9e293, type: 3}
       propertyPath: m_NavMeshLayer
@@ -7984,7 +8369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 991668606}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8059,83 +8444,6 @@ Transform:
   m_Father: {fileID: 1713935042}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1007864819
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1623984604}
-    m_Modifications:
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_Name
-      value: Tower (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
 --- !u!4 &1012555480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
@@ -8207,6 +8515,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -8291,6 +8603,10 @@ PrefabInstance:
       value: snow_tile (74)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -8371,6 +8687,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -8455,6 +8775,10 @@ PrefabInstance:
       value: snow_tile_cornerSquare (6)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -8535,6 +8859,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (87)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -8619,6 +8947,10 @@ PrefabInstance:
       value: snow_tile (69)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -8697,12 +9029,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1499549837338632917, guid: 037ecdfef305ad24399a457cfdfcfbd9, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1499549837338632917, guid: 037ecdfef305ad24399a457cfdfcfbd9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 037ecdfef305ad24399a457cfdfcfbd9, type: 3}
       propertyPath: m_Name
       value: snow_tile_hill
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 037ecdfef305ad24399a457cfdfcfbd9, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 037ecdfef305ad24399a457cfdfcfbd9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8778,6 +9118,10 @@ PrefabInstance:
       value: snow_tile_endSpawn
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c34a29efb0d0b2b4a810b51f2336a04c, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c34a29efb0d0b2b4a810b51f2336a04c, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -8799,6 +9143,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 29137299}
     m_Modifications:
+    - target: {fileID: -8848437439432763094, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -8848437439432763094, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -8860,8 +9208,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2287223201522926096, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2287223201522926096, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -1499549837338632917, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -1499549837338632917, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8872,8 +9228,16 @@ PrefabInstance:
       value: snow_tile_crystal
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9053023591900777244, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9053023591900777244, guid: 44d85283faf82994e9b8ff3748536d5f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8947,6 +9311,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (76)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -9031,6 +9399,10 @@ PrefabInstance:
       value: snow_tile (66)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -9113,6 +9485,10 @@ PrefabInstance:
       value: snow_tile_straight (14)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -9189,6 +9565,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -9271,6 +9651,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -9360,6 +9744,10 @@ PrefabInstance:
       value: snow_tile_cornerSquare (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -9442,6 +9830,10 @@ PrefabInstance:
       value: snow_tile_straight (18)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -9513,6 +9905,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -9597,6 +9993,10 @@ PrefabInstance:
       value: snow_tile (32)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -9676,7 +10076,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_Name
-      value: tile_dirt (2)
+      value: towerspace
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+      propertyPath: m_TagString
+      value: tower
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9684,6 +10088,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+--- !u!1 &1146450640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+  m_PrefabInstance: {fileID: 1146450639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1146450641
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146450640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.87, z: 1}
+  m_Center: {x: 0, y: 0.47, z: 0}
 --- !u!1001 &1152475479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9750,6 +10172,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_Name
       value: snow_tile_straight (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9823,6 +10249,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -9905,6 +10335,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -9994,6 +10428,10 @@ PrefabInstance:
       value: snow_tile (70)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -10074,6 +10512,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -10158,6 +10600,10 @@ PrefabInstance:
       value: snow_tile (78)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -10172,83 +10618,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
   m_PrefabInstance: {fileID: 1196167030}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1201216685
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1623984604}
-    m_Modifications:
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_Name
-      value: Tower (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
 --- !u!1001 &1208980792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10315,6 +10684,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -10404,6 +10777,10 @@ PrefabInstance:
       value: snow_tile_straight (15)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -10475,6 +10852,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -10559,6 +10940,10 @@ PrefabInstance:
       value: snow_tile (13)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -10641,6 +11026,10 @@ PrefabInstance:
       value: snow_tile
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -10721,6 +11110,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (90)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -10810,6 +11203,10 @@ PrefabInstance:
       value: snow_tile (14)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -10890,6 +11287,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -10974,6 +11375,10 @@ PrefabInstance:
       value: snow_tile (2)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -11054,6 +11459,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
       propertyPath: m_Name
       value: snow_tile_riverStraight (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
       propertyPath: m_NavMeshLayer
@@ -11138,6 +11547,10 @@ PrefabInstance:
       value: snow_tile_straight (21)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -11209,6 +11622,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -11293,6 +11710,10 @@ PrefabInstance:
       value: snow_tile_riverStraight (4)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -11302,88 +11723,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
---- !u!1001 &1337210129
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1623984604}
-    m_Modifications:
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_Name
-      value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 85
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
---- !u!4 &1342437390 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-  m_PrefabInstance: {fileID: 1201216685}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1344668035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11452,6 +11791,10 @@ PrefabInstance:
       value: snow_tile (81)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -11477,7 +11820,7 @@ GameObject:
   - component: {fileID: 1346152589}
   - component: {fileID: 1346152592}
   - component: {fileID: 1346152590}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11587,6 +11930,10 @@ PrefabInstance:
       value: snow_tile_straight (11)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -11658,6 +12005,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -11742,6 +12093,10 @@ PrefabInstance:
       value: snow_tile (10)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -11821,7 +12176,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_Name
-      value: tile_dirt (4)
+      value: towerspace
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+      propertyPath: m_TagString
+      value: tower
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11829,6 +12188,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+--- !u!1 &1356681415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+  m_PrefabInstance: {fileID: 1356681414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1356681416
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356681415}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.87, z: 1}
+  m_Center: {x: 0, y: 0.47, z: 0}
 --- !u!1001 &1368708732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11895,6 +12272,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -11979,6 +12360,10 @@ PrefabInstance:
       value: snow_tile_riverCorner
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 817f5ffcf47215c4c93b84ffa2a4a088, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 817f5ffcf47215c4c93b84ffa2a4a088, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -12053,6 +12438,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7392225327938827759, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7392225327938827759, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -12065,6 +12454,10 @@ PrefabInstance:
       value: snow_tile_treeQuad
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -12073,6 +12466,10 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2798605382713886172, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798605382713886172, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -12081,12 +12478,20 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3681790978099765340, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681790978099765340, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3681790978099765340, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327519614437959306, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7327519614437959306, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
@@ -12169,6 +12574,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -12258,6 +12667,10 @@ PrefabInstance:
       value: snow_tile_straight (26)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -12329,6 +12742,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -12411,6 +12828,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -12500,6 +12921,10 @@ PrefabInstance:
       value: snow_tile (73)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -12580,6 +13005,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (72)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -12664,6 +13093,10 @@ PrefabInstance:
       value: snow_tile (41)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -12744,6 +13177,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -12828,6 +13265,10 @@ PrefabInstance:
       value: snow_tile (6)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -12910,6 +13351,10 @@ PrefabInstance:
       value: snow_tile_straight (23)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -12986,6 +13431,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (83)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -13080,6 +13529,10 @@ PrefabInstance:
       value: snow_tile (48)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -13160,6 +13613,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -13244,6 +13701,10 @@ PrefabInstance:
       value: snow_tile (86)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -13326,6 +13787,10 @@ PrefabInstance:
       value: snow_tile_straight
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -13399,6 +13864,10 @@ PrefabInstance:
       value: snow_tile (82)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -13413,6 +13882,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
   m_PrefabInstance: {fileID: 1601943212}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1605721931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1605721933}
+  - component: {fileID: 1605721932}
+  - component: {fileID: 1605721934}
+  m_Layer: 0
+  m_Name: TowerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1605721932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605721931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3707f398f51e5184cb35e673b22af378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerProperties: {fileID: 11400000, guid: 193a05dd9f9e4284090ac7d9ccef86a7, type: 2}
+  weak: {fileID: 11400000, guid: de17ba8789c580145aa0448295a46093, type: 2}
+  normal: {fileID: 11400000, guid: c39c1caeef33f034ba9d83c66eb4e8b3, type: 2}
+  strong: {fileID: 11400000, guid: 189a30866f70004478a3c47f34296687, type: 2}
+--- !u!4 &1605721933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605721931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60.63423, y: -0.46044636, z: -13.373123}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1605721934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605721931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607e5e43e7e63b74084c325f216cdc40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1611325937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13479,6 +14008,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_Name
       value: snow_tile_straight (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13554,6 +14087,10 @@ PrefabInstance:
       value: snow_tile (26)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -13602,170 +14139,9 @@ Transform:
   - {fileID: 1980221787}
   - {fileID: 239131013}
   - {fileID: 520914779}
-  - {fileID: 543450652813219183}
-  - {fileID: 1973550000}
-  - {fileID: 729273180}
-  - {fileID: 1342437390}
-  - {fileID: 930062093}
-  - {fileID: 1920596321}
-  - {fileID: 2015157163}
   m_Father: {fileID: 1713935042}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1629287786
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1623984604}
-    m_Modifications:
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_Name
-      value: Tower (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
---- !u!1001 &1631827066
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1623984604}
-    m_Modifications:
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_Name
-      value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -45
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
 --- !u!1 &1644679910
 GameObject:
   m_ObjectHideFlags: 0
@@ -13896,6 +14272,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -14063,6 +14443,10 @@ PrefabInstance:
       value: snow_tile (25)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -14143,6 +14527,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -14232,6 +14620,10 @@ PrefabInstance:
       value: snow_tile (11)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -14314,6 +14706,10 @@ PrefabInstance:
       value: snow_tile_straight (5)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -14387,6 +14783,10 @@ PrefabInstance:
       value: snow_tile_straight (2)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -14403,7 +14803,7 @@ GameObject:
   - component: {fileID: 1708954166}
   - component: {fileID: 1708954169}
   - component: {fileID: 1708954167}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14552,6 +14952,10 @@ PrefabInstance:
       value: snow_tile (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -14639,6 +15043,10 @@ PrefabInstance:
       value: snow_tile (17)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -14719,6 +15127,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -14896,6 +15308,10 @@ PrefabInstance:
       value: snow_tile (12)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -14976,6 +15392,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -15060,6 +15480,10 @@ PrefabInstance:
       value: snow_tile (8)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -15142,6 +15566,10 @@ PrefabInstance:
       value: snow_tile (34)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -15221,7 +15649,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_Name
-      value: tile_dirt (1)
+      value: towerspace
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+      propertyPath: m_TagString
+      value: tower
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15229,6 +15661,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+--- !u!1 &1805725258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e0c73178711f543469624b1d2edeb694, type: 3}
+  m_PrefabInstance: {fileID: 1805725257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1805725259
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805725258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.87, z: 1}
+  m_Center: {x: 0, y: 0.47, z: 0}
 --- !u!1001 &1819317589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15295,6 +15745,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -15375,6 +15829,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7392225327938827759, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7392225327938827759, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -15387,6 +15845,10 @@ PrefabInstance:
       value: snow_tile_treeQuad
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -15395,6 +15857,10 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2798605382713886172, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2798605382713886172, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -15403,12 +15869,20 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3681790978099765340, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681790978099765340, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3681790978099765340, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327519614437959306, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7327519614437959306, guid: 0b5935ad51c79284badf72fff53d2d56, type: 3}
       propertyPath: m_NavMeshLayer
@@ -15491,6 +15965,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -15580,6 +16058,10 @@ PrefabInstance:
       value: snow_tile (56)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -15667,6 +16149,10 @@ PrefabInstance:
       value: snow_tile (36)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -15749,6 +16235,10 @@ PrefabInstance:
       value: snow_tile (31)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -15827,6 +16317,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1499549837338632917, guid: 0ddf8b6d609127e428e8dd72af156c4b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1499549837338632917, guid: 0ddf8b6d609127e428e8dd72af156c4b, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -15837,6 +16331,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0ddf8b6d609127e428e8dd72af156c4b, type: 3}
       propertyPath: m_Name
       value: snow_tile_rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0ddf8b6d609127e428e8dd72af156c4b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0ddf8b6d609127e428e8dd72af156c4b, type: 3}
       propertyPath: m_NavMeshLayer
@@ -15921,6 +16419,10 @@ PrefabInstance:
       value: snow_tile_riverBridge
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 113836162362f7d40bfe10f1d7a30c0f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 113836162362f7d40bfe10f1d7a30c0f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -16001,6 +16503,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -16085,6 +16591,10 @@ PrefabInstance:
       value: snow_tile (15)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -16167,6 +16677,10 @@ PrefabInstance:
       value: snow_tile_straight (24)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -16238,6 +16752,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -16322,6 +16840,10 @@ PrefabInstance:
       value: snow_tile (22)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -16404,6 +16926,10 @@ PrefabInstance:
       value: snow_tile_cornerSquare (10)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -16417,11 +16943,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
   m_PrefabInstance: {fileID: 1910919363}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1920596321 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-  m_PrefabInstance: {fileID: 293357910}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1925186388
 PrefabInstance:
@@ -16491,12 +17012,20 @@ PrefabInstance:
       value: snow_tile_tree
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0eb4a6ae796d5a148898ee1f8f31e635, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0eb4a6ae796d5a148898ee1f8f31e635, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0eb4a6ae796d5a148898ee1f8f31e635, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681790978099765340, guid: 0eb4a6ae796d5a148898ee1f8f31e635, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3681790978099765340, guid: 0eb4a6ae796d5a148898ee1f8f31e635, type: 3}
       propertyPath: m_NavMeshLayer
@@ -16581,6 +17110,10 @@ PrefabInstance:
       value: snow_tile_straight (17)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -16652,6 +17185,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -16736,6 +17273,10 @@ PrefabInstance:
       value: snow_tile_cornerSquare (9)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -16749,11 +17290,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
   m_PrefabInstance: {fileID: 1970633613}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1973550000 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-  m_PrefabInstance: {fileID: 1631827066}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1980221787 stripped
 Transform:
@@ -16831,6 +17367,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (77)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -16915,16 +17455,15 @@ PrefabInstance:
       value: snow_tile_straight (19)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495c2d6082ade9741afd5ca8bf3a545f, type: 3}
---- !u!4 &2015157163 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-  m_PrefabInstance: {fileID: 1337210129}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2020253100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16991,6 +17530,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -17075,6 +17618,10 @@ PrefabInstance:
       value: snow_tile_endSpawn (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c34a29efb0d0b2b4a810b51f2336a04c, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c34a29efb0d0b2b4a810b51f2336a04c, type: 3}
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
@@ -17155,6 +17702,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -17239,6 +17790,10 @@ PrefabInstance:
       value: snow_tile (63)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -17321,6 +17876,10 @@ PrefabInstance:
       value: snow_tile_riverCorner (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 817f5ffcf47215c4c93b84ffa2a4a088, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 817f5ffcf47215c4c93b84ffa2a4a088, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -17392,6 +17951,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_Name
       value: snow_tile (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
@@ -17476,6 +18039,10 @@ PrefabInstance:
       value: snow_tile (59)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -17558,6 +18125,10 @@ PrefabInstance:
       value: snow_tile (17)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -17638,6 +18209,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
       propertyPath: m_Name
       value: snow_tile_riverStraight (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 21c877da4e2eba94680b008d07b0f990, type: 3}
       propertyPath: m_NavMeshLayer
@@ -17727,6 +18302,10 @@ PrefabInstance:
       value: snow_tile (22)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -17807,6 +18386,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_Name
       value: snow_tile_cornerSquare (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e6633f48d06e2284a94c5b898a4a3f5f, type: 3}
       propertyPath: m_NavMeshLayer
@@ -17901,6 +18484,10 @@ PrefabInstance:
       value: snow_tile (84)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -17915,73 +18502,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f022f3a74b22dfc42b5d6d4b069c9513, type: 3}
   m_PrefabInstance: {fileID: 2146953995}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &543450652813219183 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-  m_PrefabInstance: {fileID: 2953444006734742071}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &2953444006734742071
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1623984604}
-    m_Modifications:
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_Name
-      value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 2611476991311662562, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -55
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419926259986896728, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239453830503291998, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.54
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 161f680efbf2e5e46994b9ed0d54baef, type: 3}

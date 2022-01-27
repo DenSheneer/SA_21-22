@@ -8,31 +8,21 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     protected float attackTickTime = 1.0f;
     protected float attackRadius = 12.0f;
     protected Timer tickTimer;
-    protected ATTACK_MODE attackMode = ATTACK_MODE.RANDOM;
+    protected ATTACK_MODE attackMode;
+    protected iTowerGraphicsBuilder GraphicsBuilder;
 
     private Dictionary<int, Enemy> inRangeEnemies;
 
-    protected virtual void Initialize(ATTACK_MODE pAttackMode, int pDamage, float pAttackTickTime, float pAttackRadius)
+    public virtual void Initialize(TowerProperties towerProperties)
     {
-        attackMode = pAttackMode;
-        damage = pDamage;
-        attackTickTime = pAttackTickTime;
-        attackRadius = pAttackRadius;
-
-
+        GraphicsBuilder = defineGraphicsBuilder();
         tickTimer = defineTickTimer();
         if (tickTimer != null)
         {
             tickTimer.Initialize(attackTickTime, attack, true);
             tickTimer.IsPaused = false;
         }
-    }
-    public void SetProperties(ATTACK_MODE pAttackMode, int pDamage, float pAttackTickTime, float pAttackRadius)
-    {
-        attackMode = pAttackMode;
-        damage = pDamage;
-        attackTickTime = pAttackTickTime;
-        attackRadius = pAttackRadius;
+        SetProperties(towerProperties);
     }
     public void SetProperties(TowerProperties towerProperties)
     {
@@ -40,6 +30,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
         damage = towerProperties.Damage;
         attackTickTime = towerProperties.AttackTick;
         attackRadius = towerProperties.AttackRadius;
+        GraphicsBuilder.AssembleGFX(towerProperties.BuildProperties);
     }
     private void attack()
     {
@@ -107,6 +98,9 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     }
 
     protected abstract Timer defineTickTimer();
+
+    protected abstract iTowerGraphicsBuilder defineGraphicsBuilder();
+
 }
 
 public enum ATTACK_MODE
