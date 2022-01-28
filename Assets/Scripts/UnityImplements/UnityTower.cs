@@ -9,8 +9,8 @@ public class UnityTower : Tower
         return GetComponent<Timer>();
     }
 
-    protected override iTowerGraphicsBuilder defineGraphicsBuilder()
+    protected override iTowerGFX_Factory defineGraphicsBuilder()
     {
-        return GetComponent<iTowerGraphicsBuilder>();
+        return GetComponent<iTowerGFX_Factory>();
     }
 }

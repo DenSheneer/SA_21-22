@@ -4,12 +4,9 @@ using UnityEngine;
 
 public abstract class Tower : UnityEngine.MonoBehaviour
 {
-    protected int damage = 1;
-    protected float attackTickTime = 1.0f;
-    protected float attackRadius = 12.0f;
+    TowerProperties towerProperties;
     protected Timer tickTimer;
-    protected ATTACK_MODE attackMode;
-    protected iTowerGraphicsBuilder GraphicsBuilder;
+    protected iTowerGFX_Factory GraphicsBuilder;
 
     private Dictionary<int, Enemy> inRangeEnemies;
 
@@ -19,24 +16,21 @@ public abstract class Tower : UnityEngine.MonoBehaviour
         tickTimer = defineTickTimer();
         if (tickTimer != null)
         {
-            tickTimer.Initialize(attackTickTime, attack, true);
+            tickTimer.Initialize(towerProperties.AttackTick, attack, true);
             tickTimer.IsPaused = false;
         }
         SetProperties(towerProperties);
     }
     public void SetProperties(TowerProperties towerProperties)
     {
-        attackMode = towerProperties.AttackMode;
-        damage = towerProperties.Damage;
-        attackTickTime = towerProperties.AttackTick;
-        attackRadius = towerProperties.AttackRadius;
-        GraphicsBuilder.AssembleGFX(towerProperties.BuildProperties);
+        this.towerProperties = Instantiate(towerProperties);
+        GraphicsBuilder.AssembleGFX(towerProperties.Tier);
     }
     private void attack()
     {
         iAttackable target = null;
         Enemy[] inRangeEnemies = getInRangeEnemies(EnemySpawnHandler.Instance.enemies.ToArray());
-        switch (attackMode)
+        switch (towerProperties.AttackMode)
         {
             case ATTACK_MODE.RANDOM:
                 target = selectRandomInrangeEnemy(inRangeEnemies);
@@ -50,7 +44,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     }
     void attackTarget(iAttackable target)
     {
-        target.TakeAttack(damage);
+        target.TakeAttack(towerProperties.Damage);
     }
     Enemy selectNearestEnemy(Enemy[] enemies)
     {
@@ -68,7 +62,6 @@ public abstract class Tower : UnityEngine.MonoBehaviour
                     nearest = enemy;
                 }
             }
-            Debug.Log(nearestDist);
             return nearest;
         }
         return null;
@@ -89,7 +82,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
         foreach (Enemy enemy in enemies)
         {
             float thisDist = Vector3.Distance(enemy.transform.position, transform.position);
-            if (thisDist <= attackRadius)
+            if (thisDist <= towerProperties.AttackRadius)
             {
                 inRangeEnemies.Add(enemy);
             }
@@ -99,7 +92,9 @@ public abstract class Tower : UnityEngine.MonoBehaviour
 
     protected abstract Timer defineTickTimer();
 
-    protected abstract iTowerGraphicsBuilder defineGraphicsBuilder();
+    protected abstract iTowerGFX_Factory defineGraphicsBuilder();
+
+    public TowerProperties Properties { get { return towerProperties; } }
 
 }
 

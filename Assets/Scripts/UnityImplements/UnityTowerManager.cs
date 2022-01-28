@@ -27,10 +27,13 @@ public class UnityTowerManager : TowerManager
 
     protected override Tower defineTower(TowerProperties towerProperties, Vector3 position)
     {
-        UnityTower unityTower = Instantiate(Resources.Load<UnityTower>("Tower1"));
-        unityTower.Initialize(towerProperties);
+        UnityTower unityTower = Instantiate(Resources.Load<UnityTower>("Tower"));
+        if (unityTower != null)
+        {
+            unityTower.Initialize(towerProperties);
 
-        unityTower.transform.position = position;
+            unityTower.transform.position = position;
+        }
 
         return unityTower;
     }
