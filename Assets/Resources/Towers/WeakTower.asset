@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a80c758cdbaa504b9ece2b4d7839099, type: 3}
-  m_Name: NormalTower
+  m_Name: WeakTower
   m_EditorClassIdentifier: 
-  tier: 1
-  attackMode: 1
+  tier: 0
+  attackMode: 0
   damage: 500
-  attackTick: 1
+  attackTick: 1.5
   attackRadius: 19
