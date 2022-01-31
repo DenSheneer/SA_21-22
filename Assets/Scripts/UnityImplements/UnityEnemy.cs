@@ -31,6 +31,12 @@ public class UnityEnemy : Enemy
     }
     public override void RemoveFromGame()
     {
+        base.RemoveFromGame();
+
+        foreach (var observer in observers.ToArray())
+            if (observers.Contains(observer))
+                observer.OnCompleted();
+
         Destroy(gameObject);
     }
     public void Update()

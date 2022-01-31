@@ -19,21 +19,17 @@ public class UI_Building : MonoBehaviour, UserInterface, IObserver<Transform>
 
     private MoneyManager moneyManag;
     private IDisposable unsubscriber;
-    private Camera cam;
 
     private Transform selected;
     private Tower selectedTower;
 
-    public Action OnClose;
+    public Action OnStartButtonClick;
 
-    private void Start()
+    private void Awake()
     {
-        moneyManag = MoneyManager.Instance;
-        cam = Camera.main;
         button_closeUpgradeMenu.onClick.AddListener(disableUpgradeMenu);
         button_startWave.onClick.AddListener(onStartButtonClick);
-
-        Open();
+        moneyManag = MoneyManager.Instance;
     }
 
     void EnableUpgradeMenu(Vector3 screenPostion)
@@ -59,7 +55,7 @@ public class UI_Building : MonoBehaviour, UserInterface, IObserver<Transform>
     {
         if (!menu_buildMenu.activeInHierarchy)
         {
-            EnableUpgradeMenu(cam.WorldToScreenPoint(value.position));
+            EnableUpgradeMenu(Camera.main.WorldToScreenPoint(value.position));
             Tower tower = TowerManager.Instance.GetTowerByTransform(value);
             if (tower != null)
             {
@@ -104,8 +100,7 @@ public class UI_Building : MonoBehaviour, UserInterface, IObserver<Transform>
     }
     void onStartButtonClick()
     {
-        Close();
-        EnemySpawnHandler.Instance.StartWave();
+        OnStartButtonClick?.Invoke();
     }
 
     public void Open()
@@ -118,7 +113,6 @@ public class UI_Building : MonoBehaviour, UserInterface, IObserver<Transform>
     {
         disableUpgradeMenu();
         canvasObject.SetActive(false);
-        OnClose?.Invoke();
     }
 
     private void hookToSelector()

@@ -13,6 +13,9 @@ public abstract class MoneyManager : MonoBehaviour
     public static MoneyManager Instance { get { return _instance; } }
 
     public void AddMoney(uint amount) { money += amount; }
+
+    public void SetMoney(uint money) { this.money = money; }
+    public uint Money { get { return money; } }
     public bool RemoveMoney(uint amount)
     {
 

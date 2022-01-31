@@ -24,7 +24,13 @@ public class UnityEnemyGoal : MonoBehaviour
         if (other.gameObject.TryGetComponent<Enemy>(out Enemy enteringEnemy))
         {
             enemiesPassed++;
-            enteringEnemy.Die();
+            enteringEnemy.RemoveFromGame();
         }
+    }
+
+    public int EnemiesPassed
+    {
+        get { return enemiesPassed; }
+        set { enemiesPassed = value; }
     }
 }

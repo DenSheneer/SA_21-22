@@ -59,7 +59,10 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
             if (observers.Contains(observer))
                 observer.OnCompleted();
     }
-    public abstract void RemoveFromGame();
+    public virtual void RemoveFromGame()
+    {
+        OnDeath = null;
+    }
 
     public string GetID { get { return _ID; } }
     public uint GetMoney { get { return _money; } }

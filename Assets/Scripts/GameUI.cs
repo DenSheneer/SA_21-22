@@ -18,24 +18,46 @@ public class GameUI : MonoBehaviour
     [SerializeField]
     Button button_quit;
 
+    UserInterface current = null;
+
     private void Awake()
     {
-        if (ui_building != null)
+        current = ui_building;
+    }
+
+    public void SetStartWaveButton(System.Action start)
+    {
+        ui_building.OnStartButtonClick += start;
+    }
+    public void SetResetWaveButton(System.Action reset)
+    {
+        ui_gameplay.OnResetButtonClick += reset;
+    }
+
+    public void OpenUI(UI_TYPE type)
+    {
+        switch (type)
         {
-            ui_building.OnClose += openGameplayUI;
-        }
-        if (ui_gameplay != null)
-        {
-            ui_gameplay.OnClose += openBuildUI;
+            case UI_TYPE.building:
+                openUI(ui_building);
+                current = ui_building;
+                break;
+            case UI_TYPE.gameplay:
+                openUI(ui_gameplay);
+                current = ui_gameplay;
+                break;
         }
     }
 
-    void openGameplayUI()
+    private void openUI(UserInterface nextUI)
     {
-        ui_gameplay.Open();
+        current.Close();
+        nextUI.Open();
     }
-    void openBuildUI()
-    {
-        ui_building.Open();
-    }
+}
+
+public enum UI_TYPE
+{
+    building = 0,
+    gameplay = 1
 }

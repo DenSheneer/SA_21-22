@@ -16,11 +16,11 @@ public class UI_Gameplay : MonoBehaviour, UserInterface
     [SerializeField]
     Button button_reset;
 
-    public Action OnClose;
+    public Action OnResetButtonClick;
 
-    public void Start()
+    private void Awake()
     {
-        button_reset.onClick.AddListener(Close);
+        button_reset.onClick.AddListener(onResetButtonClick);
     }
 
     public void Open()
@@ -30,8 +30,10 @@ public class UI_Gameplay : MonoBehaviour, UserInterface
 
     public void Close()
     {
-        EnemySpawnHandler.Instance.ResetWave();
         canvasObject.SetActive(false);
-        OnClose?.Invoke();
+    }
+    private void onResetButtonClick()
+    {
+        OnResetButtonClick?.Invoke();
     }
 }
