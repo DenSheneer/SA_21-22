@@ -16,10 +16,6 @@ public class UnityTowerManager : TowerManager
     [SerializeField]
     TowerBuildProperties strong;
 
-    private void Start()
-    {
-        Initialize();
-    }
     protected override iTowerSelector setupTowerSelector()
     {
         return GetComponent<UnityClickSelector>();
@@ -36,5 +32,18 @@ public class UnityTowerManager : TowerManager
         }
 
         return unityTower;
+    }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+        Initialize();
     }
 }

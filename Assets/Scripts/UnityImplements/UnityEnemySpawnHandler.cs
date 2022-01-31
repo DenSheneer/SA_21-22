@@ -22,13 +22,8 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
         {
             _instance = this;
         }
-    }
-
-    private void Start()
-    {
         _spawnTickTime = spawnTickTime;
         Initialize(spawnRule);
-        SpawnEnemy();
     }
 
     protected override Enemy spawnEnemy(ENEMY_TYPE type)

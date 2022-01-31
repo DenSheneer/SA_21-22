@@ -3,25 +3,26 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class TowerManager : UnityEngine.MonoBehaviour, IObserver<Transform>, IObservable<Tower>
+public abstract class TowerManager : UnityEngine.MonoBehaviour, IObservable<Tower>
 {
-    iTowerSelector towerSelector;
+    protected static TowerManager _instance;
 
     [SerializeField]
     protected Dictionary<Transform, Tower> towers;
 
     private List<IObserver<Tower>> observers;
-    private IDisposable unsubscriber;
+    private iTowerSelector towerSelector;
+
+    public static TowerManager Instance { get { return _instance; } }
 
     protected void Initialize()
     {
         observers = new List<IObserver<Tower>>();
         towerSelector = setupTowerSelector();
-        unsubscriber = towerSelector.Subscribe(this);
         towers = new Dictionary<Transform, Tower>();
     }
 
-    public void OnNext(Transform clickedSpace)
+    public void BuildOrUpgrade(Transform clickedSpace)
     {
         if (!towers.ContainsKey(clickedSpace))
         {
@@ -31,6 +32,12 @@ public abstract class TowerManager : UnityEngine.MonoBehaviour, IObserver<Transf
         {
             UpgradeTower(clickedSpace);
         }
+    }
+
+    public Tower GetTowerByTransform(Transform key)
+    {
+        towers.TryGetValue(key, out Tower outTower);
+        return outTower;
     }
 
     public void SpawnTower(TowerProperties towerProperties, Vector3 position)
@@ -72,11 +79,6 @@ public abstract class TowerManager : UnityEngine.MonoBehaviour, IObserver<Transf
     protected abstract iTowerSelector setupTowerSelector();
     protected abstract Tower defineTower(TowerProperties towerProperties, Vector3 position);
 
-    public void OnCompleted()
-    {
-        unsubscriber.Dispose();
-    }
-
     public void OnError(Exception error) { }
 
     private void NotifyObservers(Tower tower)
@@ -84,6 +86,18 @@ public abstract class TowerManager : UnityEngine.MonoBehaviour, IObserver<Transf
         foreach (var observer in observers)
         {
             observer.OnNext(tower);
+        }
+    }
+
+    public IDisposable SusbscribeToSelector(System.IObserver<Transform> observer)
+    {
+        if (towerSelector != null)
+        {
+            return towerSelector.Subscribe(observer);
+        }
+        else
+        {
+            return null;
         }
     }
 
@@ -95,10 +109,12 @@ public abstract class TowerManager : UnityEngine.MonoBehaviour, IObserver<Transf
         }
         return new Unsubscriber<Tower>(observers, observer);
     }
+
 }
 
 public enum TOWER_TIER
 {
+    none = -1,
     weak = 0,
     normal = 1,
     strong = 2

@@ -29,6 +29,10 @@ public class UnityEnemy : Enemy
         base.Die();
         Destroy(gameObject);
     }
+    public override void RemoveFromGame()
+    {
+        Destroy(gameObject);
+    }
     public void Update()
     {
         if (moveAgent.IsMoving())

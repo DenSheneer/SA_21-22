@@ -22,6 +22,24 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         setupTimer();
         enemySpawnPool = pEnemySpawnPool;
     }
+    public void StartWave()
+    {
+        SpawnEnemy();
+        _tickTimer.IsPaused = false;
+    }
+    public void ResetWave()
+    {
+        while (enemies.Count != 0)
+        {
+            Enemy tobeRemoved = enemies[enemies.Count - 1];
+            removeEnemyFromList(tobeRemoved);
+            tobeRemoved.RemoveFromGame();
+        }
+
+        currentSpawns = 0;
+        _tickTimer.ResetTimer();
+        _tickTimer.IsPaused = true;
+    }
     public void SpawnEnemy()
     {
         if (currentSpawns < enemySpawnPool.SpawnCount)
@@ -50,7 +68,7 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         if (_tickTimer != null)
         {
             _tickTimer.Initialize(_spawnTickTime, SpawnEnemy, true);
-            _tickTimer.IsPaused = false;
+            _tickTimer.IsPaused = true;
         }
         else { System.Diagnostics.Debug.WriteLine("tickTimer was null."); }
     }
