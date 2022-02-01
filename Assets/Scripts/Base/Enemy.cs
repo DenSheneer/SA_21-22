@@ -18,7 +18,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     protected AbstractCollider myCollider;
 
     public Action<Enemy> OnDeath;
-    public Action<Enemy> OnDelete;
+    public Action<Enemy> OnGoalReached;
 
     /// <summary>
     /// Constructor of the Enemy class. (Is called 'Initialize' for compatibility with Unity)
@@ -56,20 +56,16 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     {
         OnDeath?.Invoke(this);
 
-        foreach (var observer in observers.ToArray())
-            if (observers.Contains(observer))
-                observer.OnCompleted();
-
         deleteSelf();
     }
+    public void GoalReached()
+    {
+        OnGoalReached?.Invoke(this);
+        deleteSelf();
+    }
+
     public void Delete()
     {
-        OnDelete?.Invoke(this);
-
-        foreach (var observer in observers.ToArray())
-            if (observers.Contains(observer))
-                observer.OnCompleted();
-
         deleteSelf();
     }
 

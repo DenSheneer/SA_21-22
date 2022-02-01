@@ -42,13 +42,13 @@ public class UnityGameOverChecker : MonoBehaviour
         if (other.gameObject.TryGetComponent<Enemy>(out Enemy enteringEnemy))
         {
             lifes--;
-            enteringEnemy.Delete();
-            OnLifesChange?.Invoke(lifes);
-
             if (lifes < 1)
             {
                 OnGameOver?.Invoke();
+                return;
             }
+            enteringEnemy.GoalReached();
+            OnLifesChange?.Invoke(lifes);
         }
     }
 

@@ -14,15 +14,21 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     protected Timer _tickTimer;
     protected static EnemySpawnHandler _instance;
     protected SpawnPool enemySpawnPool;
+    protected int currentWave = 0;
+
+    [SerializeField]
+    protected List<SpawnPool> waves = new List<SpawnPool>();
 
     public List<Enemy> enemies = new List<Enemy>();
     public System.Action<Enemy> OnEnemySpawn;
     public System.Action<Enemy> OnEnemyDie;
+    public System.Action OnWaveComplete;
+    public System.Action OnComplete;
     public static EnemySpawnHandler Instance { get { return _instance; } }
-    public void Initialize(SpawnPool pEnemySpawnPool)
+    public void Initialize()
     {
         setupTimer();
-        enemySpawnPool = pEnemySpawnPool;
+        enemySpawnPool = waves[currentWave];
     }
 
     public uint Kills { get { return kills; } }
@@ -31,8 +37,15 @@ public abstract class EnemySpawnHandler : MonoBehaviour
 
     public void StartWave()
     {
-        SpawnEnemy();
+        SpawnEnemyTick();
         _tickTimer.IsPaused = false;
+    }
+    public void SetWave(int waveNr)
+    {
+        if (waves.Count > waveNr)
+        {
+            enemySpawnPool = waves[waveNr];
+        }
     }
     public void ResetWave()
     {
@@ -47,7 +60,7 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         _tickTimer.ResetTimer();
         _tickTimer.IsPaused = true;
     }
-    public void SpawnEnemy()
+    public void SpawnEnemyTick()
     {
         if (currentSpawns < enemySpawnPool.SpawnCount)
         {
@@ -55,12 +68,33 @@ public abstract class EnemySpawnHandler : MonoBehaviour
             if (newEnemy != null)
             {
                 newEnemy.OnDeath += handleKilledEnemy;
-                newEnemy.OnDelete += handleDeletedEnemy;
+                newEnemy.OnGoalReached += handleGoalReachedEnemy;
                 enemies.Add(newEnemy);
                 currentSpawns++;
                 OnEnemySpawn?.Invoke(newEnemy);
             }
         }
+    }
+    private void onWaveComplete()
+    {
+        if (currentWave == waves.Count - 1)
+        {
+            OnComplete?.Invoke();
+        }
+        else
+        {
+            nextWave();
+        }
+    }
+
+    private void nextWave()
+    {
+        currentWave++;
+        currentSpawns = 0;
+        SetWave(currentWave);
+        _tickTimer.ResetTimer();
+        _tickTimer.IsPaused = true;
+        OnWaveComplete?.Invoke();
     }
 
     private void handleKilledEnemy(Enemy enemy)
@@ -68,11 +102,24 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         kills++;
         OnEnemyDie?.Invoke(enemy);
         removeEnemyFromList(enemy);
+        if (enemies.Count < 1)
+        {
+            onWaveComplete();
+        }
     }
 
     public void handleDeletedEnemy(Enemy enemy)
     {
         removeEnemyFromList(enemy);
+    }
+
+    private void handleGoalReachedEnemy(Enemy enemy)
+    {
+        removeEnemyFromList(enemy);
+        if (enemies.Count < 1)
+        {
+            onWaveComplete();
+        }
     }
 
     protected void removeEnemyFromList(Enemy enemy)
@@ -87,7 +134,7 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         _tickTimer = defineTickTimer();
         if (_tickTimer != null)
         {
-            _tickTimer.Initialize(_spawnTickTime, SpawnEnemy, true);
+            _tickTimer.Initialize(_spawnTickTime, SpawnEnemyTick, true);
             _tickTimer.IsPaused = true;
         }
         else { System.Diagnostics.Debug.WriteLine("tickTimer was null."); }

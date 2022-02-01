@@ -27,7 +27,8 @@ public class GameUI : MonoBehaviour
 
     private void Start()
     {
-        UnityGameOverChecker.Instance.OnLifesChange += UpdateLives;
+        UnityGameOverChecker.Instance.OnLifesChange += UpdateLifes;
+        UpdateLifes(UnityGameOverChecker.Instance.Lifes);
     }
 
     public void SetStartWaveButton(System.Action start)
@@ -64,7 +65,7 @@ public class GameUI : MonoBehaviour
     {
         text_money.text = "Money: " + money.ToString();
     }
-    public void UpdateLives(uint lives)
+    public void UpdateLifes(uint lives)
     {
         text_lives.text = "Lives: " + lives.ToString();
     }

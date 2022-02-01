@@ -5814,7 +5814,7 @@ GameObject:
   - component: {fileID: 675342089}
   - component: {fileID: 675342090}
   m_Layer: 2
-  m_Name: EndPoint
+  m_Name: GameOverChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5831,8 +5831,8 @@ Transform:
   m_LocalPosition: {x: 75, y: 0, z: -45}
   m_LocalScale: {x: 10, y: 11, z: 10}
   m_Children: []
-  m_Father: {fileID: 1713935042}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!65 &675342087
 BoxCollider:
@@ -14368,7 +14368,7 @@ Transform:
   - {fileID: 239131013}
   - {fileID: 520914779}
   m_Father: {fileID: 1713935042}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1644679910
 GameObject:
@@ -14414,12 +14414,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ccb3715e51d5443b3b486acfb060f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waves:
+  - {fileID: 11400000, guid: 7d4aa27d3c1db8e4ebcb527f2c921686, type: 2}
+  - {fileID: 11400000, guid: 424643a19161c4c439b5cba50e38c447, type: 2}
+  - {fileID: 11400000, guid: 62fb4bc2ca87b5146a3fe2c00c111f4f, type: 2}
   enemies: []
   enemyTypes:
   - {fileID: 11400000, guid: 8acbe56d464bde84a9d6d0d12bb1c912, type: 2}
   - {fileID: 11400000, guid: 50b28433bd421f048a2d3dcbde4a8723, type: 2}
   - {fileID: 11400000, guid: 010b9ff445bcc70418624b311e9c18ee, type: 2}
-  spawnRule: {fileID: 11400000, guid: 62fb4bc2ca87b5146a3fe2c00c111f4f, type: 2}
   spawnTickTime: 1.25
 --- !u!114 &1644679913
 MonoBehaviour:
@@ -15107,7 +15110,6 @@ Transform:
   m_Children:
   - {fileID: 991668606}
   - {fileID: 29137299}
-  - {fileID: 675342085}
   - {fileID: 1623984604}
   m_Father: {fileID: 0}
   m_RootOrder: 2

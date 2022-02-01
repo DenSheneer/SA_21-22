@@ -6,8 +6,6 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
 {
     [SerializeField]
     List<EnemyProperties> enemyTypes = new List<EnemyProperties>();
-    [SerializeField]
-    SpawnPool spawnRule;
 
     [SerializeField]
     public float spawnTickTime = 3.0f;
@@ -23,7 +21,7 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
             _instance = this;
         }
         _spawnTickTime = spawnTickTime;
-        Initialize(spawnRule);
+        Initialize();
     }
 
     protected override Enemy spawnEnemy(ENEMY_TYPE type)

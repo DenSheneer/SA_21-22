@@ -28,7 +28,7 @@ public class UnityEnemy : Enemy
     {
         if (moveAgent.IsMoving())
         {
-            anim.SetFloat("Speed", moveAgent.GetCurrentSpeed() / moveAgent.GetMoveSpeed() );
+            anim.SetFloat("Speed", moveAgent.GetCurrentSpeed() / moveAgent.GetMoveSpeed());
         }
     }
 
@@ -43,6 +43,10 @@ public class UnityEnemy : Enemy
 
     protected override void deleteSelf()
     {
+        foreach (var observer in observers.ToArray())
+            if (observers.Contains(observer))
+                observer.OnCompleted();
+
         Destroy(gameObject);
     }
 }

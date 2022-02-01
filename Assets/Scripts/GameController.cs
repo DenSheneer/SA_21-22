@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        EnemySpawnHandler.Instance.OnWaveComplete += StartBuildPhase;
+        EnemySpawnHandler.Instance.OnComplete += gameWon;
         gameUI.UpdateMoney(MoneyManager.Instance.Money);
         StartBuildPhase();
     }
@@ -47,4 +49,9 @@ public class GameController : MonoBehaviour
     {
         gameUI.OpenUI(UI_TYPE.building);
     }
+    void gameWon()
+    {
+        Debug.Log("huzzah! you won!");
+    }
+       
 }
