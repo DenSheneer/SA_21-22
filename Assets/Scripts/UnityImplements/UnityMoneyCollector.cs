@@ -17,6 +17,6 @@ public class UnityMoneyCollector : MoneyManager
     }
     void Start()
     {
-        EnemySpawnHandler.Instance.OnEnemySpawn += AddMoneyFromEnemy;
+        EnemySpawnHandler.Instance.OnEnemyDie += AddMoneyFromEnemy;
     }
 }

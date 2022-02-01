@@ -9,6 +9,7 @@ using UnityEngine;
 public abstract class EnemySpawnHandler : MonoBehaviour
 {
     protected int currentSpawns = 0;
+    protected uint kills = 0;
     protected float _spawnTickTime = 3.0f;
     protected Timer _tickTimer;
     protected static EnemySpawnHandler _instance;
@@ -16,12 +17,18 @@ public abstract class EnemySpawnHandler : MonoBehaviour
 
     public List<Enemy> enemies = new List<Enemy>();
     public System.Action<Enemy> OnEnemySpawn;
+    public System.Action<Enemy> OnEnemyDie;
     public static EnemySpawnHandler Instance { get { return _instance; } }
     public void Initialize(SpawnPool pEnemySpawnPool)
     {
         setupTimer();
         enemySpawnPool = pEnemySpawnPool;
     }
+
+    public uint Kills { get { return kills; } }
+    public void SetKills(uint kills) { this.kills = kills; }
+    public int SpawnsLeft { get { return enemySpawnPool.spawns - currentSpawns; } }
+
     public void StartWave()
     {
         SpawnEnemy();
@@ -31,9 +38,9 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     {
         while (enemies.Count != 0)
         {
-            Enemy tobeRemoved = enemies[enemies.Count - 1];
-            removeEnemyFromList(tobeRemoved);
-            tobeRemoved.RemoveFromGame();
+            Enemy toBeDeleted = enemies[enemies.Count - 1];
+            removeEnemyFromList(toBeDeleted);
+            toBeDeleted.Delete();
         }
 
         currentSpawns = 0;
@@ -47,12 +54,25 @@ public abstract class EnemySpawnHandler : MonoBehaviour
             Enemy newEnemy = createNewRandomEnemy(enemySpawnPool);
             if (newEnemy != null)
             {
-                newEnemy.OnDeath += removeEnemyFromList;
+                newEnemy.OnDeath += handleKilledEnemy;
+                newEnemy.OnDelete += handleDeletedEnemy;
                 enemies.Add(newEnemy);
                 currentSpawns++;
                 OnEnemySpawn?.Invoke(newEnemy);
             }
         }
+    }
+
+    private void handleKilledEnemy(Enemy enemy)
+    {
+        kills++;
+        OnEnemyDie?.Invoke(enemy);
+        removeEnemyFromList(enemy);
+    }
+
+    public void handleDeletedEnemy(Enemy enemy)
+    {
+        removeEnemyFromList(enemy);
     }
 
     protected void removeEnemyFromList(Enemy enemy)

@@ -16,22 +16,39 @@ public class UI_Gameplay : MonoBehaviour, UserInterface
     [SerializeField]
     Button button_reset;
 
-    public Action OnClose;
+    public Action OnResetButtonClick;
 
-    public void Start()
+    private void Start()
     {
-        button_reset.onClick.AddListener(Close);
+        button_reset.onClick.AddListener(onResetButtonClick);
+        EnemySpawnHandler.Instance.OnEnemyDie += updateKills;
+        EnemySpawnHandler.Instance.OnEnemySpawn += updateSpawns;
     }
 
     public void Open()
     {
         canvasObject.SetActive(true);
+        updateSpawns(null);
+        updateKills(null);
     }
 
     public void Close()
     {
-        EnemySpawnHandler.Instance.ResetWave();
         canvasObject.SetActive(false);
-        OnClose?.Invoke();
     }
+    private void onResetButtonClick()
+    {
+        OnResetButtonClick?.Invoke();
+    }
+    private void updateKills(Enemy enemy)
+    {
+        text_kills.text = "Enemies killed: " + EnemySpawnHandler.Instance.Kills.ToString();
+    }
+    private void updateSpawns(Enemy enemy)
+    {
+        text_killsLeft.text = "Spawns left: " + EnemySpawnHandler.Instance.SpawnsLeft.ToString();
+    }
+
+
+
 }

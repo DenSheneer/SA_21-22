@@ -6,5 +6,4 @@ public interface UserInterface
 {
     void Open();
     void Close();
-    //void ResetToDefaultState();
 }

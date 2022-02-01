@@ -9,14 +9,19 @@ public abstract class MoneyManager : MonoBehaviour
     [SerializeField]
     TowerUpgradeCosts costs;
 
+    public System.Action<uint> OnMoneyChange;
+
     protected static MoneyManager _instance;
     public static MoneyManager Instance { get { return _instance; } }
 
-    public void AddMoney(uint amount) { money += amount; }
+    public void AddMoney(uint amount) { money += amount; OnMoneyChange?.Invoke(money); }
+
+    public void SetMoney(uint money) { this.money = money; OnMoneyChange?.Invoke(money); }
+    public uint Money { get { return money; } }
     public bool RemoveMoney(uint amount)
     {
 
-        if (amount <= money) { money -= amount; return true; }
+        if (amount <= money) { money -= amount; OnMoneyChange?.Invoke(money); return true; }
         else { return false; }
     }
     public void AddMoneyFromEnemy(Enemy enemy)
@@ -32,16 +37,5 @@ public abstract class MoneyManager : MonoBehaviour
         }
         else { return uint.MaxValue; }
 
-    }
-    private void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
     }
 }

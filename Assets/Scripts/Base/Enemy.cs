@@ -18,6 +18,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     protected AbstractCollider myCollider;
 
     public Action<Enemy> OnDeath;
+    public Action<Enemy> OnDelete;
 
     /// <summary>
     /// Constructor of the Enemy class. (Is called 'Initialize' for compatibility with Unity)
@@ -51,15 +52,26 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
             Die();
         }
     }
-    public virtual void Die()
+    public void Die()
     {
         OnDeath?.Invoke(this);
 
         foreach (var observer in observers.ToArray())
             if (observers.Contains(observer))
                 observer.OnCompleted();
+
+        deleteSelf();
     }
-    public abstract void RemoveFromGame();
+    public void Delete()
+    {
+        OnDelete?.Invoke(this);
+
+        foreach (var observer in observers.ToArray())
+            if (observers.Contains(observer))
+                observer.OnCompleted();
+
+        deleteSelf();
+    }
 
     public string GetID { get { return _ID; } }
     public uint GetMoney { get { return _money; } }
@@ -69,6 +81,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     /// Method for defining the moveAgent. Implement in concrete class.
     /// </summary>
     protected abstract void setupMoveAgent(Vector3 pSpawn, float pSpeed);
+    protected abstract void deleteSelf();
 
     public IDisposable Subscribe(System.IObserver<Enemy> observer)
     {
