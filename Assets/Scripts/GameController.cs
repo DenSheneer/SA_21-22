@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    int enemiesPassedBeforeReset = 10;
-
     uint moneyBeforeReset = 0;
+    uint killsbeforeReset = 0;
+    uint lifesBeforeReset = 10;
 
-    [SerializeField]
-    UnityEnemyGoal enemyGoal;
 
     [SerializeField]
     GameUI gameUI;
@@ -19,23 +17,28 @@ public class GameController : MonoBehaviour
     {
         gameUI.SetResetWaveButton(CancelWave);
         gameUI.SetStartWaveButton(StartWave);
+        MoneyManager.Instance.OnMoneyChange += gameUI.UpdateMoney;
+        UnityGameOverChecker.Instance.OnGameOver += CancelWave;
     }
 
     private void Start()
     {
+        gameUI.UpdateMoney(MoneyManager.Instance.Money);
         StartBuildPhase();
     }
     void StartWave()
     {
         gameUI.OpenUI(UI_TYPE.gameplay);
         moneyBeforeReset = MoneyManager.Instance.Money;
-        enemiesPassedBeforeReset = enemyGoal.EnemiesPassed;
+        killsbeforeReset = EnemySpawnHandler.Instance.Kills;
+        lifesBeforeReset = UnityGameOverChecker.Instance.Lifes;
         EnemySpawnHandler.Instance.StartWave();
     }
     void CancelWave()
     {
-        enemyGoal.EnemiesPassed = enemiesPassedBeforeReset;
+        UnityGameOverChecker.Instance.SetLifes(lifesBeforeReset);
         MoneyManager.Instance.SetMoney(moneyBeforeReset);
+        EnemySpawnHandler.Instance.SetKills(killsbeforeReset);
         EnemySpawnHandler.Instance.ResetWave();
         StartBuildPhase();
     }
@@ -44,5 +47,4 @@ public class GameController : MonoBehaviour
     {
         gameUI.OpenUI(UI_TYPE.building);
     }
-
 }

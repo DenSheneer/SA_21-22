@@ -17,7 +17,6 @@ public class UI_Building : MonoBehaviour, UserInterface, IObserver<Transform>
     [SerializeField]
     Button button_upgrade, button_startWave, button_closeUpgradeMenu;
 
-    private MoneyManager moneyManag;
     private IDisposable unsubscriber;
 
     private Transform selected;
@@ -29,7 +28,6 @@ public class UI_Building : MonoBehaviour, UserInterface, IObserver<Transform>
     {
         button_closeUpgradeMenu.onClick.AddListener(disableUpgradeMenu);
         button_startWave.onClick.AddListener(onStartButtonClick);
-        moneyManag = MoneyManager.Instance;
     }
 
     void EnableUpgradeMenu(Vector3 screenPostion)
@@ -61,7 +59,7 @@ public class UI_Building : MonoBehaviour, UserInterface, IObserver<Transform>
             {
                 TowerProperties tp = tower.Properties;
                 text_Strength.text = tp.Tier.ToString() + " tower";
-                text_upgradePrice.text = "Build price: " + moneyManag.GetUpgradeCosts(tp.Tier);
+                text_upgradePrice.text = "Build price: " + MoneyManager.Instance.GetUpgradeCosts(tp.Tier);
                 if (tp.Tier == TOWER_TIER.strong)
                 {
                     text_upgradePrice.text = "This tower is already maxed out!";
@@ -72,7 +70,7 @@ public class UI_Building : MonoBehaviour, UserInterface, IObserver<Transform>
             else
             {
                 text_Strength.text = "Nothing here yet!";
-                text_upgradePrice.text = "Build price: " + moneyManag.GetUpgradeCosts(TOWER_TIER.none);
+                text_upgradePrice.text = "Build price: " + MoneyManager.Instance.GetUpgradeCosts(TOWER_TIER.none);
             }
             selected = value;
             selectedTower = tower;
@@ -85,10 +83,10 @@ public class UI_Building : MonoBehaviour, UserInterface, IObserver<Transform>
         bool transactionpassed = false;
         if (selectedTower != null)
         {
-            transactionpassed = moneyManag.RemoveMoney(moneyManag.GetUpgradeCosts(selectedTower.Properties.Tier));
+            transactionpassed = MoneyManager.Instance.RemoveMoney(MoneyManager.Instance.GetUpgradeCosts(selectedTower.Properties.Tier));
         }else
         {
-            transactionpassed = moneyManag.RemoveMoney(moneyManag.GetUpgradeCosts(TOWER_TIER.none));
+            transactionpassed = MoneyManager.Instance.RemoveMoney(MoneyManager.Instance.GetUpgradeCosts(TOWER_TIER.none));
         }
         if (transactionpassed)
         {

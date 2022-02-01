@@ -24,21 +24,6 @@ public class UnityEnemy : Enemy
     {
         base.TakeAttack(pDamage);
     }
-    public override void Die()
-    {
-        base.Die();
-        Destroy(gameObject);
-    }
-    public override void RemoveFromGame()
-    {
-        base.RemoveFromGame();
-
-        foreach (var observer in observers.ToArray())
-            if (observers.Contains(observer))
-                observer.OnCompleted();
-
-        Destroy(gameObject);
-    }
     public void Update()
     {
         if (moveAgent.IsMoving())
@@ -54,5 +39,10 @@ public class UnityEnemy : Enemy
         moveAgent.SetMovementSpeed(pSpeed);
 
         moveAgent.SetDestination(new Vector3(75.0f, 2, -45.0f));
+    }
+
+    protected override void deleteSelf()
+    {
+        Destroy(gameObject);
     }
 }
