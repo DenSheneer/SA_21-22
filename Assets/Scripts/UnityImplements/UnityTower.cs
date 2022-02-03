@@ -5,9 +5,9 @@ using UnityEngine;
 public class UnityTower : Tower
 {
     List<Enemy> inrangeEnemy;
-    protected override Timer defineTickTimer()
+    protected override Unitytimer defineTickTimer()
     {
-        return GetComponent<Timer>();
+        return GetComponent<Unitytimer>();
     }
 
     protected override iTowerGFX_Factory defineGraphicsBuilder()

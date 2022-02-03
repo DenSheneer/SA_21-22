@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class Timer : MonoBehaviour
+public class Unitytimer : MonoBehaviour
 {
     [SerializeField]
     float currentTime;
@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
 
     public Action OnTimerEnd;
 
-    public void Initialize(float pStartTime, Action pOnTimerEnd, bool pResetAndRepeat)
+    public virtual void Initialize(float pStartTime, Action pOnTimerEnd, bool pResetAndRepeat)
     {
         SetTime(pStartTime);
         OnTimerEnd += pOnTimerEnd;
@@ -59,5 +59,8 @@ public class Timer : MonoBehaviour
                 ResetTimer();
             }
         }
+    }
+    public void Delete()
+    {
     }
 }

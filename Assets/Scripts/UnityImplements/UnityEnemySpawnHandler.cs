@@ -1,7 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-
-[RequireComponent(typeof(Timer))]
 public class UnityEnemySpawnHandler : EnemySpawnHandler
 {
     [SerializeField]
@@ -22,9 +20,9 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
         unityEnemy.Initialize(enemyTypes[(int)type]);
         return unityEnemy;
     }
-    protected override Timer defineTickTimer()
+    protected override Unitytimer defineTickTimer()
     {
-        Timer newTimer = GetComponent<Timer>();
+        Unitytimer newTimer = GetComponent<Unitytimer>();
         return newTimer;
     }
 }

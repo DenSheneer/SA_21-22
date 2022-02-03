@@ -20,10 +20,6 @@ public class UnityEnemy : Enemy
         Initialize(properties.id, properties.maxHealth, properties.money, properties.moveSpeed, properties.spawnLocation);
     }
 
-    public override void TakeAttack(int pDamage)
-    {
-        base.TakeAttack(pDamage);
-    }
     public void Update()
     {
         if (moveAgent.IsMoving())

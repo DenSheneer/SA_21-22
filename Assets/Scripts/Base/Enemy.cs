@@ -12,6 +12,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     protected int _maxHealth;
     protected int _currentHealth;
     protected uint _money;
+
     protected List<IObserver<Enemy>> observers;
 
     protected iMovementController moveAgent;
@@ -31,10 +32,6 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
         observers = new List<IObserver<Enemy>>();
         setupMoveAgent(pSpawn, pSpeed);
     }
-    public void Attack(iAttackable pTarget)
-    {
-        pTarget.TakeAttack(1);  //  TODO: how to determine damage?
-    }
 
     public virtual void TakeAttack(int pDamage)
     {
@@ -43,8 +40,6 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
         {
             observer.OnNext(this);
         }
-
-        //Debug.Log("damaged: " + _currentHealth + " listeners: " + observers.Count);
 
         if (_currentHealth <= 0)
         {

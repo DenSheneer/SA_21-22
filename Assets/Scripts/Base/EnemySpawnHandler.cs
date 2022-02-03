@@ -10,7 +10,7 @@ public abstract class EnemySpawnHandler : MonoBehaviour
 {
     protected int currentSpawns = 0;
     protected float _spawnTickTime = 3.0f;
-    protected Timer _tickTimer;
+    protected Unitytimer _tickTimer;
     protected SpawnPool enemySpawnPool;
     protected int currentWave = 0;
 
@@ -144,7 +144,7 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     /// <summary>
     /// Returns definition for _tickTimer. Timer's variables could be set here or elsewhere.
     /// </summary>
-    protected abstract Timer defineTickTimer();
+    protected abstract Unitytimer defineTickTimer();
 }
 public enum ENEMY_TYPE
 {

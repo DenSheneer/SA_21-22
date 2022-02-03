@@ -8,7 +8,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     protected TowerProperties powerProperties;
     protected TowerBuildProperties buildProperties;
 
-    protected Timer tickTimer;
+    protected Unitytimer tickTimer;
     protected iTowerGFX_Factory GraphicsBuilder;
 
     private int currentTier = 0;
@@ -103,7 +103,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
 
     protected abstract Enemy[] getInRangeEnemies();
 
-    protected abstract Timer defineTickTimer();
+    protected abstract Unitytimer defineTickTimer();
 
     protected abstract iTowerGFX_Factory defineGraphicsBuilder();
 

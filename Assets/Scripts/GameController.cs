@@ -30,41 +30,31 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     private void Awake()
     {
         selector = GetComponent<iTowerSelector>();
-        moneyManager.OnMoneyChange += gameUI.UpdateMoney;
-        gameOverChecker.OnEnemyGoalReach += handleGoalReachedEnemy;
-        gameplay_UI.OnResetButtonClick += CancelWave;
-        build_UI.OnUpgradeButtonClick += tryUpgrade;
-        build_UI.OnStartButtonClick += StartWave;
+        setupMoneyManager_Action();
+        setupUI_Actions();
+        setupEnemyManager_Actions();
     }
 
     private void Start()
     {
-        enemyManager.OnWaveComplete += StartBuildPhase;
-        enemyManager.OnComplete += gameWon;
-        enemyManager.OnEnemyKill += handleEnemyKilled;
-        enemyManager.OnEnemySpawn += handleEnemySpawned;
         unsubscriber = selector.Subscribe(this);
 
-        StartBuildPhase();
+        startBuildPhase();
     }
-    void StartWave()
+    private void startWave()
     {
+        saveOldValues();
         gameUI.OpenUI(UI_TYPE.gameplay);
-        moneyBeforeReset = moneyManager.Money;
-        killsbeforeReset = currentKills;
-        lifesBeforeReset = currentLifes;
         enemyManager.StartWave();
     }
-    void CancelWave()
+    void cancelWave()
     {
-        moneyManager.SetMoney(moneyBeforeReset);
-        currentLifes = lifesBeforeReset;
-        currentKills = killsbeforeReset;
+        restoreOldValues();
         enemyManager.ResetWave();
-        StartBuildPhase();
+        startBuildPhase();
     }
 
-    void StartBuildPhase()
+    void startBuildPhase()
     {
         gameUI.OpenUI(UI_TYPE.building);
         gameplay_UI.UpdateKills(currentKills);
@@ -103,6 +93,7 @@ public class GameController : MonoBehaviour, IObserver<Transform>
             build_UI.CloseUpgradeMenu();
         }
     }
+
     /// <summary>
     /// handleEnemyKilled should be called from an enemy that was killed by the player.
     /// </summary>
@@ -133,8 +124,38 @@ public class GameController : MonoBehaviour, IObserver<Transform>
 
         if (currentLifes < 1)
         {
-            CancelWave();
+            cancelWave();
         }
+    }
+    private void setupEnemyManager_Actions()
+    {
+        enemyManager.OnWaveComplete += startBuildPhase;
+        enemyManager.OnComplete += gameWon;
+        enemyManager.OnEnemyKill += handleEnemyKilled;
+        enemyManager.OnEnemySpawn += handleEnemySpawned;
+    }
+    private void setupUI_Actions()
+    {
+        gameOverChecker.OnEnemyGoalReach += handleGoalReachedEnemy;
+        gameplay_UI.OnResetButtonClick += cancelWave;
+        build_UI.OnUpgradeButtonClick += tryUpgrade;
+        build_UI.OnStartButtonClick += startWave;
+    }
+    private void setupMoneyManager_Action()
+    {
+        moneyManager.OnMoneyChange += gameUI.UpdateMoney;
+    }
+    void saveOldValues()
+    {
+        moneyBeforeReset = moneyManager.Money;
+        killsbeforeReset = currentKills;
+        lifesBeforeReset = currentLifes;
+    }
+    void restoreOldValues()
+    {
+        moneyManager.SetMoney(moneyBeforeReset);
+        currentLifes = lifesBeforeReset;
+        currentKills = killsbeforeReset;
     }
     public void OnCompleted() { }
     public void OnError(Exception error) { }
