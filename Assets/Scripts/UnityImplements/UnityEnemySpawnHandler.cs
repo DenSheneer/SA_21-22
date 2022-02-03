@@ -12,14 +12,6 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
 
     private void Awake()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
         _spawnTickTime = spawnTickTime;
         Initialize();
     }

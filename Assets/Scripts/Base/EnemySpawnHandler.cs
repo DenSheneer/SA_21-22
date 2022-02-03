@@ -9,10 +9,8 @@ using UnityEngine;
 public abstract class EnemySpawnHandler : MonoBehaviour
 {
     protected int currentSpawns = 0;
-    protected uint kills = 0;
     protected float _spawnTickTime = 3.0f;
     protected Timer _tickTimer;
-    protected static EnemySpawnHandler _instance;
     protected SpawnPool enemySpawnPool;
     protected int currentWave = 0;
 
@@ -20,21 +18,21 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     protected List<SpawnPool> waves = new List<SpawnPool>();
 
     public List<Enemy> enemies = new List<Enemy>();
+    public System.Action<Enemy> OnEnemyKill;
     public System.Action<Enemy> OnEnemySpawn;
-    public System.Action<Enemy> OnEnemyDie;
     public System.Action OnWaveComplete;
     public System.Action OnComplete;
-    public static EnemySpawnHandler Instance { get { return _instance; } }
     public void Initialize()
     {
         setupTimer();
         enemySpawnPool = waves[currentWave];
     }
-
-    public uint Kills { get { return kills; } }
-    public void SetKills(uint kills) { this.kills = kills; }
     public int SpawnsLeft { get { return enemySpawnPool.spawns - currentSpawns; } }
 
+    public void onEnemyKill(Enemy enemy)
+    {
+        OnEnemyKill?.Invoke(enemy);
+    }
     public void StartWave()
     {
         SpawnEnemyTick();
@@ -67,8 +65,7 @@ public abstract class EnemySpawnHandler : MonoBehaviour
             Enemy newEnemy = createNewRandomEnemy(enemySpawnPool);
             if (newEnemy != null)
             {
-                newEnemy.OnDeath += handleKilledEnemy;
-                newEnemy.OnGoalReached += handleGoalReachedEnemy;
+                newEnemy.OnDeath += onEnemyKill;
                 enemies.Add(newEnemy);
                 currentSpawns++;
                 OnEnemySpawn?.Invoke(newEnemy);
@@ -97,10 +94,8 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         OnWaveComplete?.Invoke();
     }
 
-    private void handleKilledEnemy(Enemy enemy)
+    public void HandleKilledEnemy(Enemy enemy)
     {
-        kills++;
-        OnEnemyDie?.Invoke(enemy);
         removeEnemyFromList(enemy);
         if (enemies.Count < 1)
         {
@@ -108,12 +103,7 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         }
     }
 
-    public void handleDeletedEnemy(Enemy enemy)
-    {
-        removeEnemyFromList(enemy);
-    }
-
-    private void handleGoalReachedEnemy(Enemy enemy)
+    public void HandleGoalReachedEnemy(Enemy enemy)
     {
         removeEnemyFromList(enemy);
         if (enemies.Count < 1)

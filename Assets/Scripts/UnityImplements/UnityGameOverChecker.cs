@@ -6,28 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class UnityGameOverChecker : MonoBehaviour
 {
-    private static UnityGameOverChecker _instance;
-    public static UnityGameOverChecker Instance { get { return _instance; } }
-
-    [SerializeField]
-    uint lifes = 10;
-
-    public System.Action<uint> OnLifesChange;
-    public System.Action OnGameOver;
+    public System.Action<Enemy> OnEnemyGoalReach;
 
     private void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
-    }
-
-    private void Start()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         Collider col = GetComponent<Collider>();
@@ -41,25 +22,8 @@ public class UnityGameOverChecker : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<Enemy>(out Enemy enteringEnemy))
         {
-            lifes--;
-            if (lifes < 1)
-            {
-                OnGameOver?.Invoke();
-                return;
-            }
             enteringEnemy.GoalReached();
-            OnLifesChange?.Invoke(lifes);
+            OnEnemyGoalReach?.Invoke(enteringEnemy);
         }
-    }
-
-    public uint Lifes
-    {
-        get { return lifes; }
-    }
-    public void SetLifes(uint lifes)
-    {
-        this.lifes = lifes;
-        OnLifesChange?.Invoke(lifes);
-
     }
 }

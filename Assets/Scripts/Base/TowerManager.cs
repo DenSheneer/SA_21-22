@@ -5,8 +5,6 @@ using UnityEngine;
 
 public abstract class TowerManager : UnityEngine.MonoBehaviour
 {
-    protected static TowerManager _instance;
-
     [SerializeField]
     protected Dictionary<Transform, Tower> towers;
 
@@ -14,8 +12,6 @@ public abstract class TowerManager : UnityEngine.MonoBehaviour
     protected TowerUpgradePath towerUpgradePath;
 
     private List<IObserver<Tower>> observers;
-
-    public static TowerManager Instance { get { return _instance; } }
 
     protected void Initialize()
     {

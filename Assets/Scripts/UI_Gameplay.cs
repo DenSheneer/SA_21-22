@@ -21,15 +21,13 @@ public class UI_Gameplay : MonoBehaviour, UserInterface
     private void Start()
     {
         button_reset.onClick.AddListener(onResetButtonClick);
-        EnemySpawnHandler.Instance.OnEnemyDie += updateKills;
-        EnemySpawnHandler.Instance.OnEnemySpawn += updateSpawns;
+        //EnemySpawnHandler.Instance.OnEnemyDie += updateKills;
+        //EnemySpawnHandler.Instance.OnEnemySpawn += updateSpawns;
     }
 
     public void Open()
     {
         canvasObject.SetActive(true);
-        updateSpawns(null);
-        updateKills(null);
     }
 
     public void Close()
@@ -40,13 +38,13 @@ public class UI_Gameplay : MonoBehaviour, UserInterface
     {
         OnResetButtonClick?.Invoke();
     }
-    private void updateKills(Enemy enemy)
+    public void UpdateKills(uint kills)
     {
-        text_kills.text = "Enemies killed: " + EnemySpawnHandler.Instance.Kills.ToString();
+        text_kills.text = "Enemies killed: " + kills;
     }
-    private void updateSpawns(Enemy enemy)
+    public void UpdateSpawns(int spawnsLeft)
     {
-        text_killsLeft.text = "Spawns left: " + EnemySpawnHandler.Instance.SpawnsLeft.ToString();
+        text_killsLeft.text = "Spawns left: " + spawnsLeft;
     }
 
 

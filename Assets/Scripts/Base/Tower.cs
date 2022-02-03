@@ -11,7 +11,6 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     protected Timer tickTimer;
     protected iTowerGFX_Factory GraphicsBuilder;
 
-    private Dictionary<int, Enemy> inRangeEnemies;
     private int currentTier = 0;
 
     public virtual void Initialize(TowerUpgradePath upgradePath)
@@ -55,7 +54,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     private void attack()
     {
         iAttackable target = null;
-        Enemy[] inRangeEnemies = getInRangeEnemies(EnemySpawnHandler.Instance.enemies.ToArray());
+        Enemy[] inRangeEnemies = getInRangeEnemies();
         switch (powerProperties.attackMode)
         {
             case ATTACK_MODE.RANDOM:
@@ -102,19 +101,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
         return null;
     }
 
-    Enemy[] getInRangeEnemies(Enemy[] enemies)
-    {
-        List<Enemy> inRangeEnemies = new List<Enemy>();
-        foreach (Enemy enemy in enemies)
-        {
-            float thisDist = Vector3.Distance(enemy.transform.position, transform.position);
-            if (thisDist <= powerProperties.attackRadius)
-            {
-                inRangeEnemies.Add(enemy);
-            }
-        }
-        return inRangeEnemies.ToArray();
-    }
+    protected abstract Enemy[] getInRangeEnemies();
 
     protected abstract Timer defineTickTimer();
 

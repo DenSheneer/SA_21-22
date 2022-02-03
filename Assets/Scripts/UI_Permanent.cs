@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameUI : MonoBehaviour
+public class UI_Permanent : MonoBehaviour
 {
     [SerializeField]
     TextMeshProUGUI text_money, text_lives;
@@ -27,8 +27,8 @@ public class GameUI : MonoBehaviour
 
     private void Start()
     {
-        UnityGameOverChecker.Instance.OnLifesChange += UpdateLifes;
-        UpdateLifes(UnityGameOverChecker.Instance.Lifes);
+        //UnityGameOverChecker.Instance.OnLifesChange += UpdateLifes;
+        //UpdateLifes(UnityGameOverChecker.Instance.Lifes);
     }
     public void SetResetWaveButton(System.Action reset)
     {
