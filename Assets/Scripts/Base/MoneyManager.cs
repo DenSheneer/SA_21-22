@@ -29,13 +29,4 @@ public abstract class MoneyManager : MonoBehaviour
         AddMoney(enemy.GetMoney);
         enemy.OnDeath -= AddMoneyFromEnemy;
     }
-    public uint GetUpgradeCosts(TOWER_TIER currentTier)
-    {
-        if (currentTier != TOWER_TIER.strong)
-        {
-            return costs.GetCosts[(int)currentTier + 1];
-        }
-        else { return uint.MaxValue; }
-
-    }
 }

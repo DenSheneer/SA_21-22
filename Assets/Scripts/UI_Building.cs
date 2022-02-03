@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class UI_Building : MonoBehaviour, UserInterface, IObserver<Transform>
+public class UI_Building : MonoBehaviour, UserInterface
 {
     [SerializeField]
     GameObject canvasObject;
@@ -23,78 +23,56 @@ public class UI_Building : MonoBehaviour, UserInterface, IObserver<Transform>
     private Tower selectedTower;
 
     public Action OnStartButtonClick;
+    public Action OnUpgradeButtonClick;
 
     private void Awake()
     {
-        button_closeUpgradeMenu.onClick.AddListener(disableUpgradeMenu);
+        button_upgrade.onClick.AddListener(onUpgradeButtonClick);
+        button_closeUpgradeMenu.onClick.AddListener(CloseUpgradeMenu);
         button_startWave.onClick.AddListener(onStartButtonClick);
     }
 
-    void EnableUpgradeMenu(Vector3 screenPostion)
+    void OpenUpgradeMenu(Vector3 screenPostion)
     {
         button_upgrade.gameObject.SetActive(true);
         menu_buildMenu.SetActive(true);
         menu_buildMenu.transform.position = screenPostion;
     }
-    void disableUpgradeMenu()
+    public void CloseUpgradeMenu()
     {
-        button_upgrade.onClick.RemoveAllListeners();
         menu_buildMenu.SetActive(false);
     }
 
-    public void OnCompleted()
-    {
-        unsubscriber.Dispose();
-    }
-
-    public void OnError(System.Exception error) { }
-
-    public void OnNext(Transform value)
+    public void SelectTower(Transform selectedSpace, Tower tower, uint emptyBuildCosts)
     {
         if (!menu_buildMenu.activeInHierarchy)
         {
-            EnableUpgradeMenu(Camera.main.WorldToScreenPoint(value.position));
-            Tower tower = TowerManager.Instance.GetTowerByTransform(value);
+            OpenUpgradeMenu(Camera.main.WorldToScreenPoint(selectedSpace.position));
             if (tower != null)
             {
                 TowerProperties tp = tower.Properties;
-                text_Strength.text = tp.Tier.ToString() + " tower";
-                text_upgradePrice.text = "Build price: " + MoneyManager.Instance.GetUpgradeCosts(tp.Tier);
-                if (tp.Tier == TOWER_TIER.strong)
+                text_Strength.text = tower.TierName + " tower";
+                if (tower.IsMaxTier())
                 {
-                    text_upgradePrice.text = "This tower is already maxed out!";
+                    text_upgradePrice.text = "Tower is already maxed out!";
                     button_upgrade.gameObject.SetActive(false);
                     return;
                 }
+                text_upgradePrice.text = "Build price: " + tower.UpgradePath.NextPowerTier(tower.Tier).costs;
             }
             else
             {
                 text_Strength.text = "Nothing here yet!";
-                text_upgradePrice.text = "Build price: " + MoneyManager.Instance.GetUpgradeCosts(TOWER_TIER.none);
+                text_upgradePrice.text = "Build price: " + emptyBuildCosts;
             }
-            selected = value;
             selectedTower = tower;
-            button_upgrade.onClick.AddListener(OnUpgradeButtonClick);
+            selected = selectedSpace;
         }
     }
 
-    void OnUpgradeButtonClick()
+    void onUpgradeButtonClick()
     {
-        bool transactionpassed = false;
-        if (selectedTower != null)
-        {
-            transactionpassed = MoneyManager.Instance.RemoveMoney(MoneyManager.Instance.GetUpgradeCosts(selectedTower.Properties.Tier));
-        }else
-        {
-            transactionpassed = MoneyManager.Instance.RemoveMoney(MoneyManager.Instance.GetUpgradeCosts(TOWER_TIER.none));
-        }
-        if (transactionpassed)
-        {
-            TowerManager.Instance.BuildOrUpgrade(selected);
-            selectedTower = null;
-            selected = null;
-            disableUpgradeMenu();
-        }
+        OnUpgradeButtonClick?.Invoke();
     }
     void onStartButtonClick()
     {
@@ -103,18 +81,12 @@ public class UI_Building : MonoBehaviour, UserInterface, IObserver<Transform>
 
     public void Open()
     {
-        hookToSelector();
         canvasObject.SetActive(true);
     }
 
     public void Close()
     {
-        disableUpgradeMenu();
+        CloseUpgradeMenu();
         canvasObject.SetActive(false);
-    }
-
-    private void hookToSelector()
-    {
-        unsubscriber = TowerManager.Instance.SusbscribeToSelector(this);
     }
 }

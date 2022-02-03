@@ -6,6 +6,9 @@ using UnityEngine;
 public class TowerBuildProperties : ScriptableObject
 {
     [SerializeField]
+    public string tierName = "";
+
+    [SerializeField]
     Mesh towerBase;
 
     [SerializeField]

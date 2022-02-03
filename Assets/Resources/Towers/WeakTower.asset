@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a80c758cdbaa504b9ece2b4d7839099, type: 3}
   m_Name: WeakTower
   m_EditorClassIdentifier: 
-  tier: 0
+  tierName: Weak
+  costs: 200
   attackMode: 0
   damage: 500
   attackTick: 1.5

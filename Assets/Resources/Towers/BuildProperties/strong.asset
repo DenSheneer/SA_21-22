@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31c7633b7875fa4eb64ecf94b57572d, type: 3}
   m_Name: strong
   m_EditorClassIdentifier: 
+  tierName: strong
   towerBase: {fileID: 4124340151314665191, guid: e1322ba186553bc49887525fd389059f, type: 3}
   towerMiddle: {fileID: 2858711284886185586, guid: f5512aae044689e4c865fde7e7821866, type: 3}
   towerTop: {fileID: 7554950522599040198, guid: 995210ae411fc1840aadd0960974bcec, type: 3}

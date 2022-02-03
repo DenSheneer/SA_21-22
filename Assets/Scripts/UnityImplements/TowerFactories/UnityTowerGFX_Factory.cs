@@ -7,32 +7,13 @@ public class UnityTowerGFX_Factory : MonoBehaviour, iTowerGFX_Factory
     [SerializeField]
     protected MeshFilter towerBase, towerMiddle, towerTop;
 
-    string path = "";
-
-    public void AssembleGFX(TOWER_TIER towerTier) 
+    public void AssembleGFX(TowerBuildProperties tbp) 
     {
-        switch(towerTier)
+        if (tbp != null)
         {
-            case TOWER_TIER.weak:
-                path = "Towers/BuildProperties/weak";
-                break;
-            case TOWER_TIER.normal:
-                path = "Towers/BuildProperties/normal";
-                break;
-            case TOWER_TIER.strong:
-                path = "Towers/BuildProperties/strong";
-                break;
-        }
-        Draw();
-    }
-    public void Draw()
-    {
-        TowerBuildProperties towerBuildProperties = Resources.Load<TowerBuildProperties>(path);
-        if (towerBuildProperties != null)
-        {
-            towerBase.mesh = towerBuildProperties.TowerBase;
-            towerMiddle.mesh = towerBuildProperties.TowerMiddle;
-            towerTop.mesh = towerBuildProperties.TowerTop;
+            towerBase.mesh = tbp.TowerBase;
+            towerMiddle.mesh = tbp.TowerMiddle;
+            towerTop.mesh = tbp.TowerTop;
         }
     }
 }

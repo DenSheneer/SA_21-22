@@ -30,11 +30,6 @@ public class GameUI : MonoBehaviour
         UnityGameOverChecker.Instance.OnLifesChange += UpdateLifes;
         UpdateLifes(UnityGameOverChecker.Instance.Lifes);
     }
-
-    public void SetStartWaveButton(System.Action start)
-    {
-        ui_building.OnStartButtonClick += start;
-    }
     public void SetResetWaveButton(System.Action reset)
     {
         ui_gameplay.OnResetButtonClick += reset;

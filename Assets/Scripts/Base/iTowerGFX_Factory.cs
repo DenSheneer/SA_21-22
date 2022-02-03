@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface iTowerGFX_Factory
 {
-    void AssembleGFX(TOWER_TIER towerTier);
+    void AssembleGFX(TowerBuildProperties towerTier);
 }

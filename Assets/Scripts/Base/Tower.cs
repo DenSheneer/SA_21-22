@@ -4,33 +4,59 @@ using UnityEngine;
 
 public abstract class Tower : UnityEngine.MonoBehaviour
 {
-    TowerProperties towerProperties;
+    public TowerUpgradePath upgradePath;
+    protected TowerProperties powerProperties;
+    protected TowerBuildProperties buildProperties;
+
     protected Timer tickTimer;
     protected iTowerGFX_Factory GraphicsBuilder;
 
     private Dictionary<int, Enemy> inRangeEnemies;
+    private int currentTier = 0;
 
-    public virtual void Initialize(TowerProperties towerProperties)
+    public virtual void Initialize(TowerUpgradePath upgradePath)
     {
         GraphicsBuilder = defineGraphicsBuilder();
         tickTimer = defineTickTimer();
+
+        this.upgradePath = upgradePath.GetCopy();
+        TowerProperties firstPowerTier = upgradePath.FirstPowerTier();
+        if (firstPowerTier != null) { powerProperties = firstPowerTier; }
+        TowerBuildProperties firstBuildTier = upgradePath.FirstBuildTier();
+        if (firstBuildTier != null) { buildProperties = firstBuildTier; }
+
         if (tickTimer != null)
         {
-            tickTimer.Initialize(towerProperties.AttackTick, attack, true);
+            tickTimer.Initialize(powerProperties.attackTick, attack, true);
             tickTimer.IsPaused = false;
         }
-        SetProperties(towerProperties);
+        if (GraphicsBuilder != null)
+        {
+            GraphicsBuilder.AssembleGFX(buildProperties);
+        }
     }
-    public void SetProperties(TowerProperties towerProperties)
+
+    public void Upgrade()
     {
-        this.towerProperties = Instantiate(towerProperties);
-        GraphicsBuilder.AssembleGFX(towerProperties.Tier);
+        TowerProperties nextPowerTier = upgradePath.NextPowerTier(currentTier);
+        if (nextPowerTier != null)
+        {
+            powerProperties = nextPowerTier;
+        }
+        TowerBuildProperties nextBuildTier = upgradePath.NextBuildingTier(currentTier);
+        if (nextBuildTier != null)
+        {
+            buildProperties = nextBuildTier;
+            GraphicsBuilder.AssembleGFX(buildProperties);
+        }
+        currentTier++;
     }
+
     private void attack()
     {
         iAttackable target = null;
         Enemy[] inRangeEnemies = getInRangeEnemies(EnemySpawnHandler.Instance.enemies.ToArray());
-        switch (towerProperties.AttackMode)
+        switch (powerProperties.attackMode)
         {
             case ATTACK_MODE.RANDOM:
                 target = selectRandomInrangeEnemy(inRangeEnemies);
@@ -44,7 +70,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     }
     void attackTarget(iAttackable target)
     {
-        target.TakeAttack(towerProperties.Damage);
+        target.TakeAttack(powerProperties.damage);
     }
     Enemy selectNearestEnemy(Enemy[] enemies)
     {
@@ -82,7 +108,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
         foreach (Enemy enemy in enemies)
         {
             float thisDist = Vector3.Distance(enemy.transform.position, transform.position);
-            if (thisDist <= towerProperties.AttackRadius)
+            if (thisDist <= powerProperties.attackRadius)
             {
                 inRangeEnemies.Add(enemy);
             }
@@ -94,7 +120,19 @@ public abstract class Tower : UnityEngine.MonoBehaviour
 
     protected abstract iTowerGFX_Factory defineGraphicsBuilder();
 
-    public TowerProperties Properties { get { return towerProperties; } }
+    public bool IsMaxTier()
+    {
+        if (currentTier >= upgradePath.MaxTier())
+        {
+            return true;
+        }
+        return false;
+    }
+    public int Tier { get { return currentTier; } }
+    public string TierName { get { return powerProperties.tierName; } }
+
+    public TowerUpgradePath UpgradePath { get { return upgradePath; } }
+    public TowerProperties Properties { get { return powerProperties; } }
 
 }
 

@@ -4,29 +4,13 @@ using UnityEngine;
 
 public class UnityTowerManager : TowerManager
 {
-    [SerializeField]
-    TowerProperties towerProperties;
 
-    [SerializeField]
-    TowerBuildProperties weak;
-
-    [SerializeField]
-    TowerBuildProperties normal;
-
-    [SerializeField]
-    TowerBuildProperties strong;
-
-    protected override iTowerSelector setupTowerSelector()
-    {
-        return GetComponent<UnityClickSelector>();
-    }
-
-    protected override Tower defineTower(TowerProperties towerProperties, Vector3 position)
+    protected override Tower defineTower(TowerUpgradePath upgradePath, Vector3 position)
     {
         UnityTower unityTower = Instantiate(Resources.Load<UnityTower>("Tower"));
         if (unityTower != null)
         {
-            unityTower.Initialize(towerProperties);
+            unityTower.Initialize(upgradePath);
 
             unityTower.transform.position = position;
         }
