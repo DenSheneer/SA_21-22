@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawns: 1
   maxStrongEnemies: 0
-  strongEnemPool: 1
+  strongEnemPool: 0
   medEnemPool: 0
-  weakEnemPool: 0
+  weakEnemPool: 1

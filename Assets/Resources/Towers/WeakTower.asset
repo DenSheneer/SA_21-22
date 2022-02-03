@@ -17,4 +17,4 @@ MonoBehaviour:
   attackMode: 0
   damage: 500
   attackTick: 1.5
-  attackRadius: 19
+  attackRadius: 15

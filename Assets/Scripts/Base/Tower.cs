@@ -69,7 +69,8 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     }
     void attackTarget(iAttackable target)
     {
-        target.TakeAttack(powerProperties.damage);
+        //target.TakeAttack(powerProperties.damage);
+        target.TakeStatusAttack(1.0f, 3, 100);
     }
     Enemy selectNearestEnemy(Enemy[] enemies)
     {

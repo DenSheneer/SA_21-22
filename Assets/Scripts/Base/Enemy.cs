@@ -12,6 +12,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     protected int _maxHealth;
     protected int _currentHealth;
     protected uint _money;
+    protected float _maxSpeed;
 
     protected List<IObserver<Enemy>> observers;
 
@@ -19,6 +20,9 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     protected AbstractCollider myCollider;
 
     public Action<Enemy> OnDeath;
+
+    [SerializeField]
+    List<PoisonEffect> statusEffects;
 
     /// <summary>
     /// Constructor of the Enemy class. (Is called 'Initialize' for compatibility with Unity)
@@ -29,6 +33,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
         _maxHealth = pMaxHealth;
         _currentHealth = pMaxHealth;
         _money = pMoney;
+        _maxSpeed = pSpeed;
         observers = new List<IObserver<Enemy>>();
         setupMoveAgent(pSpawn, pSpeed);
     }
@@ -46,6 +51,22 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
             Die();
         }
     }
+
+    public void TakeStatusAttack(float tickTime, int ticks, int damage)
+    {
+        PoisonEffect newEffect = gameObject.AddComponent<PoisonEffect>();
+        newEffect.Initialize(this, tickTime, ticks, damage);
+        statusEffects.Add(newEffect);
+    }
+    public void RemoveStatusEffect(PoisonEffect effect)
+    {
+        if (statusEffects.Contains(effect))
+        {
+            statusEffects.Remove(effect);
+            Destroy(effect);
+        }
+    }
+
     public void Die()
     {
         OnDeath?.Invoke(this);
@@ -60,6 +81,15 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     public void Delete()
     {
         deleteSelf();
+    }
+
+    public void SetAgentSpeed(float speed)
+    {
+        moveAgent.SetMovementSpeed(speed);
+    }
+    public void RestoreSpeed()
+    {
+        moveAgent.SetMovementSpeed(_maxSpeed);
     }
 
     public string GetID { get { return _ID; } }

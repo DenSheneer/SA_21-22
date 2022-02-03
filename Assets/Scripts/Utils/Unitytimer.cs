@@ -60,7 +60,4 @@ public class Unitytimer : MonoBehaviour
             }
         }
     }
-    public void Delete()
-    {
-    }
 }
