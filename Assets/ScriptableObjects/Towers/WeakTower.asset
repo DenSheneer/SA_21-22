@@ -9,7 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc80118d0cc10bf46a0eb9400eadf4b1, type: 3}
-  m_Name: UpgradeCosts
+  m_Script: {fileID: 11500000, guid: 7a80c758cdbaa504b9ece2b4d7839099, type: 3}
+  m_Name: WeakTower
   m_EditorClassIdentifier: 
-  costs: c80000002c010000f4010000ee020000
+  tierName: Weak
+  costs: 200
+  attackMode: 0
+  damage: 500
+  attackTick: 1.5
+  attackRadius: 15
+  poisonDamage: 0
+  aoeAttackRange: 10

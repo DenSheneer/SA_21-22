@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44849986, g: 0.49854326, b: 0.5756473, a: 1}
+  m_IndirectSpecularColor: {r: 0.4484995, g: 0.4985425, b: 0.57564676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,9 +135,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1698713436273757806, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6090191547630123937, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6090191547989917955, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
       propertyPath: m_Pivot.x
@@ -224,12 +228,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6090191547989917957, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
-      propertyPath: m_MatchWidthOrHeight
+      propertyPath: m_UiScaleMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090191547989917957, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090191547989917957, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6090191547989917959, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6315656100622044933, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}

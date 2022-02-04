@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoisonEffectFactory : iStatusEffect
+public class PoisonEffectFactory
 {
     public PoisonEffectProperties Produce(POISON_EFFECT_STRENGTH strength)
     {

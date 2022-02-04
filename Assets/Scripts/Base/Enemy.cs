@@ -111,4 +111,9 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
         }
         return new Unsubscriber<Enemy>(observers, observer);
     }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
 }

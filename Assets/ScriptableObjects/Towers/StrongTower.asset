@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a80c758cdbaa504b9ece2b4d7839099, type: 3}
-  m_Name: NormalTower
+  m_Name: StrongTower
   m_EditorClassIdentifier: 
-  tierName: Normal
-  costs: 300
+  tierName: Strong
+  costs: 750
   attackMode: 1
-  damage: 500
+  damage: 1000
   attackTick: 1
   attackRadius: 15
   poisonDamage: 1
+  aoeAttackRange: 10

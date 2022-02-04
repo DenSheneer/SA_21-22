@@ -23,10 +23,10 @@ public class UnityTower : Tower
         }
     }
 
-    protected override Enemy[] getInRangeEnemies()
+    protected override Enemy[] getInRangeEnemies(Vector3 position, float radius)
     {
         List<Enemy> inRange = new List<Enemy>();
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, powerProperties.attackRadius);
+        Collider[] hitColliders = Physics.OverlapSphere(position, radius);
         foreach(Collider col in hitColliders)
         {
             col.gameObject.TryGetComponent<Enemy>(out Enemy enemy);

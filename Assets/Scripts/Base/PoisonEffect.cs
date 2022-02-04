@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoisonEffect : Unitytimer, iStatusEffect
+public class PoisonEffect : Unitytimer
 {
     int totalTicks;
     int currentTick = 0;

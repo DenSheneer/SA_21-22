@@ -21,3 +21,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c39c1caeef33f034ba9d83c66eb4e8b3, type: 2}
   - {fileID: 11400000, guid: 189a30866f70004478a3c47f34296687, type: 2}
   addPoisonCosts: 750
+  addAOE_Costs: 750

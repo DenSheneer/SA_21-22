@@ -106,6 +106,19 @@ public class GameController : MonoBehaviour, IObserver<Transform>
             build_UI.CloseUpgradeMenu();
         }
     }
+    private void tryAddAOE()
+    {
+        bool transactionPassed = false;
+        if (selectedTower != null)
+        {
+            transactionPassed = moneyManager.RemoveMoney(selectedTower.UpgradePath.GetAddPoisonCosts());
+        }
+        if (transactionPassed)
+        {
+            selectedTower.AOE_Enabled = true;
+            build_UI.CloseUpgradeMenu();
+        }
+    }
 
     /// <summary>
     /// handleEnemyKilled should be called from an enemy that was killed by the player.
@@ -154,6 +167,7 @@ public class GameController : MonoBehaviour, IObserver<Transform>
         gameplay_UI.OnResetButtonClick += cancelWave;
         build_UI.OnUpgradeButtonClick += tryUpgrade;
         build_UI.OnPoisonButtonClick += tryAddPoison;
+        build_UI.OnAOE_ButtonClick += tryAddAOE;
         build_UI.OnStartButtonClick += startWave;
     }
     private void setupMoneyManager_Action()

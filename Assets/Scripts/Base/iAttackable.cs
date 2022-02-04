@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public interface iAttackable
 {
@@ -7,4 +8,6 @@ public interface iAttackable
     void RemoveStatusEffect(PoisonEffect effect);
     void TakeAttack(int pDamage);
     void Die();
+
+    Vector3 GetPosition();
 }

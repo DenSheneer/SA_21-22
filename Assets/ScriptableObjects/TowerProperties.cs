@@ -10,5 +10,6 @@ public class TowerProperties : ScriptableObject
     public float attackTick;
     public float attackRadius;
     public POISON_EFFECT_STRENGTH poisonDamage;
+    public float aoeAttackRange;
 
 }

@@ -13,6 +13,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
 
     private int currentTier = 0;
     private bool poisonEnabled = false;
+    private bool aoeAttackEnabled = false;
 
     public virtual void Initialize(TowerUpgradePath upgradePath)
     {
@@ -56,11 +57,16 @@ public abstract class Tower : UnityEngine.MonoBehaviour
         get { return poisonEnabled; }
         set { poisonEnabled = value; }
     }
+    public bool AOE_Enabled
+    {
+        get { return aoeAttackEnabled; }
+        set { aoeAttackEnabled = value; }
+    }
 
     private void attack()
     {
         iAttackable target = null;
-        Enemy[] inRangeEnemies = getInRangeEnemies();
+        Enemy[] inRangeEnemies = getInRangeEnemies(transform.position, powerProperties.attackRadius);
         switch (powerProperties.attackMode)
         {
             case ATTACK_MODE.RANDOM:
@@ -75,10 +81,28 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     }
     void attackTarget(iAttackable target)
     {
-        target.TakeAttack(powerProperties.damage);
-        if (poisonEnabled)
+        if (aoeAttackEnabled)
         {
-            target.TakeStatusAttack(powerProperties.poisonDamage);
+            Enemy[] inAOE_Range = getInRangeEnemies(target.GetPosition(), powerProperties.aoeAttackRange);
+            if (inAOE_Range.Length > 0)
+            {
+                for (int i = 0; i < inAOE_Range.Length; i++)
+                {
+                    inAOE_Range[i].TakeAttack(powerProperties.damage);
+                    if (poisonEnabled)
+                    {
+                        inAOE_Range[i].TakeStatusAttack(powerProperties.poisonDamage);
+                    }
+                }
+            }
+        }
+        else
+        {
+            target.TakeAttack(powerProperties.damage);
+            if (poisonEnabled)
+            {
+                target.TakeStatusAttack(powerProperties.poisonDamage);
+            }
         }
     }
     Enemy selectNearestEnemy(Enemy[] enemies)
@@ -111,7 +135,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
         return null;
     }
 
-    protected abstract Enemy[] getInRangeEnemies();
+    protected abstract Enemy[] getInRangeEnemies(Vector3 position, float radius);
 
     protected abstract Unitytimer defineTickTimer();
 

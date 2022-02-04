@@ -11,6 +11,8 @@ public class TowerUpgradePath : ScriptableObject
     List<TowerBuildProperties> buildProperties;
     [SerializeField]
     uint addPoisonCosts;
+    [SerializeField]
+    uint addAOE_Costs;
 
     public TowerUpgradePath GetCopy()
     {
@@ -56,6 +58,10 @@ public class TowerUpgradePath : ScriptableObject
     public uint GetAddPoisonCosts()
     {
         return addPoisonCosts;
+    }
+    public uint GetAddAOE_Costs()
+    {
+        return addAOE_Costs;
     }
 
     public int MaxTier()
