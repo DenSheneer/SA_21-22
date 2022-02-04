@@ -8,14 +8,16 @@ public class PoisonEffect : Unitytimer, iStatusEffect
     int currentTick = 0;
     int damage;
     iAttackable target;
-    public void Initialize(iAttackable target, float tickTime, int ticks, int damage)
+    public void Initialize(iAttackable target, PoisonEffectProperties properties)
     {
-        this.totalTicks = ticks;
         this.target = target;
-        this.damage = damage;
-        base.Initialize(tickTime, onTimerEnd, true);
+        totalTicks = properties.totalTicks;
+        damage = properties.damage;
+        base.Initialize(properties.tickTime, onTimerEnd, true);
         IsPaused = false;
     }
+
+
     void onTimerEnd()
     {
         target.TakeAttack(damage);

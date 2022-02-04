@@ -9,6 +9,8 @@ public class TowerUpgradePath : ScriptableObject
     List<TowerProperties> powerProperties;
     [SerializeField]
     List<TowerBuildProperties> buildProperties;
+    [SerializeField]
+    uint addPoisonCosts;
 
     public TowerUpgradePath GetCopy()
     {
@@ -40,7 +42,6 @@ public class TowerUpgradePath : ScriptableObject
         {
             return buildProperties[nextIndex];
         }
-        Debug.Log("returned null, upgrade tiers found: " + buildProperties.Count);
         return null;
     }
     public TowerBuildProperties FirstBuildTier()
@@ -50,6 +51,11 @@ public class TowerUpgradePath : ScriptableObject
             return buildProperties[0];
         }
         return null;
+    }
+
+    public uint GetAddPoisonCosts()
+    {
+        return addPoisonCosts;
     }
 
     public int MaxTier()

@@ -74,22 +74,35 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     {
         this.selectedSpace = selectedSpace;
         selectedTower = towerManager.GetTowerByTransform(selectedSpace);
-        build_UI.SelectTower(selectedSpace, selectedTower, towerManager.GetFirstBuildCosts());
+        build_UI.HandleSpaceSelect(selectedSpace, selectedTower, towerManager.GetFirstBuildCosts());
     }
     private void tryUpgrade()
     {
-        bool transactionpassed = false;
+        bool transactionPassed = false;
         if (selectedTower != null)
         {
-            transactionpassed = moneyManager.RemoveMoney(selectedTower.UpgradePath.NextPowerTier(selectedTower.Tier).costs);
+            transactionPassed = moneyManager.RemoveMoney(selectedTower.UpgradePath.NextPowerTier(selectedTower.Tier).costs);
         }
         else
         {
-            transactionpassed = moneyManager.RemoveMoney(towerManager.GetFirstBuildCosts());
+            transactionPassed = moneyManager.RemoveMoney(towerManager.GetFirstBuildCosts());
         }
-        if (transactionpassed)
+        if (transactionPassed)
         {
             towerManager.BuildOrUpgrade(selectedSpace);
+            build_UI.CloseUpgradeMenu();
+        }
+    }
+    private void tryAddPoison()
+    {
+        bool transactionPassed = false;
+        if (selectedTower != null)
+        {
+            transactionPassed = moneyManager.RemoveMoney(selectedTower.UpgradePath.GetAddPoisonCosts());
+        }
+        if (transactionPassed)
+        {
+            selectedTower.PoisonEnabled = true;
             build_UI.CloseUpgradeMenu();
         }
     }
@@ -136,9 +149,11 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     }
     private void setupUI_Actions()
     {
+        gameUI.OnResetButtonClick += closeGame;
         gameOverChecker.OnEnemyGoalReach += handleGoalReachedEnemy;
         gameplay_UI.OnResetButtonClick += cancelWave;
         build_UI.OnUpgradeButtonClick += tryUpgrade;
+        build_UI.OnPoisonButtonClick += tryAddPoison;
         build_UI.OnStartButtonClick += startWave;
     }
     private void setupMoneyManager_Action()
@@ -156,6 +171,10 @@ public class GameController : MonoBehaviour, IObserver<Transform>
         moneyManager.SetMoney(moneyBeforeReset);
         currentLifes = lifesBeforeReset;
         currentKills = killsbeforeReset;
+    }
+    void closeGame()
+    {
+        Application.Quit();
     }
     public void OnCompleted() { }
     public void OnError(Exception error) { }

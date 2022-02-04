@@ -52,10 +52,11 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
         }
     }
 
-    public void TakeStatusAttack(float tickTime, int ticks, int damage)
+    public void TakeStatusAttack(POISON_EFFECT_STRENGTH strength)
     {
+        PoisonEffectFactory poisonEffectFactory = new PoisonEffectFactory();
         PoisonEffect newEffect = gameObject.AddComponent<PoisonEffect>();
-        newEffect.Initialize(this, tickTime, ticks, damage);
+        newEffect.Initialize(this, poisonEffectFactory.Produce(strength));
         statusEffects.Add(newEffect);
     }
     public void RemoveStatusEffect(PoisonEffect effect)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -18,11 +19,14 @@ public class UI_Permanent : MonoBehaviour
     [SerializeField]
     Button button_quit;
 
+    public Action OnResetButtonClick;
+
     UserInterface current = null;
 
     private void Awake()
     {
         current = ui_building;
+        button_quit.onClick.AddListener(onResetButtonClick);
     }
 
     private void Start()
@@ -64,9 +68,9 @@ public class UI_Permanent : MonoBehaviour
     {
         text_lives.text = "Lives: " + lives.ToString();
     }
-    public void quitGame()
+    public void onResetButtonClick()
     {
-        Application.Quit();
+        OnResetButtonClick?.Invoke();
     }
 }
 

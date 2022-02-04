@@ -18,3 +18,4 @@ MonoBehaviour:
   damage: 1000
   attackTick: 1
   attackRadius: 15
+  poisonDamage: 1

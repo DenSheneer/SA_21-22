@@ -12,6 +12,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     protected iTowerGFX_Factory GraphicsBuilder;
 
     private int currentTier = 0;
+    private bool poisonEnabled = false;
 
     public virtual void Initialize(TowerUpgradePath upgradePath)
     {
@@ -50,6 +51,11 @@ public abstract class Tower : UnityEngine.MonoBehaviour
         }
         currentTier++;
     }
+    public bool PoisonEnabled
+    {
+        get { return poisonEnabled; }
+        set { poisonEnabled = value; }
+    }
 
     private void attack()
     {
@@ -69,8 +75,11 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     }
     void attackTarget(iAttackable target)
     {
-        //target.TakeAttack(powerProperties.damage);
-        target.TakeStatusAttack(1.0f, 3, 100);
+        target.TakeAttack(powerProperties.damage);
+        if (poisonEnabled)
+        {
+            target.TakeStatusAttack(powerProperties.poisonDamage);
+        }
     }
     Enemy selectNearestEnemy(Enemy[] enemies)
     {
