@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4484995, g: 0.4985425, b: 0.57564676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44849986, g: 0.49854326, b: 0.5756473, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11724,9 +11724,9 @@ MonoBehaviour:
   enemyManager: {fileID: 1644679912}
   moneyManager: {fileID: 423621134}
   gameOverChecker: {fileID: 675342089}
-  gameUI: {fileID: 1524219852}
-  build_UI: {fileID: 1854938143}
-  gameplay_UI: {fileID: 267751992}
+  ui_permanent: {fileID: 1524219852}
+  ui_building: {fileID: 1854938143}
+  ui_gameplay: {fileID: 267751992}
 --- !u!114 &1311122229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14450,6 +14450,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8acbe56d464bde84a9d6d0d12bb1c912, type: 2}
   - {fileID: 11400000, guid: 50b28433bd421f048a2d3dcbde4a8723, type: 2}
   - {fileID: 11400000, guid: 010b9ff445bcc70418624b311e9c18ee, type: 2}
+  enemyDestination: {x: 0, y: 0, z: 0}
   spawnTickTime: 1.25
 --- !u!114 &1644679913
 MonoBehaviour:

@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     uint currentLifes = 10;
     uint lifesBeforeReset = 0;
 
+    iUserInterface ui_current = null;
     iTowerSelector selector;
     Transform selectedSpace;
     Tower selectedTower;
@@ -21,15 +22,16 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     [SerializeField] EnemySpawnHandler enemyManager;
     [SerializeField] MoneyManager moneyManager;
     [SerializeField] UnityGameOverChecker gameOverChecker;
-    [SerializeField] UI_Permanent gameUI;
-    [SerializeField] UI_Building build_UI;
-    [SerializeField] UI_Gameplay gameplay_UI;
+    [SerializeField] UI_Permanent ui_permanent;
+    [SerializeField] UI_Building ui_building;
+    [SerializeField] UI_Gameplay ui_gameplay;
 
     System.IDisposable unsubscriber;
 
     private void Awake()
     {
         selector = GetComponent<iTowerSelector>();
+
         setupMoneyManager_Action();
         setupUI_Actions();
         setupEnemyManager_Actions();
@@ -44,7 +46,7 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     private void startWave()
     {
         saveOldValues();
-        gameUI.OpenUI(UI_TYPE.gameplay);
+        switchToUI(UI_TYPE.gameplay);
         enemyManager.StartWave();
     }
     void cancelWave()
@@ -56,10 +58,10 @@ public class GameController : MonoBehaviour, IObserver<Transform>
 
     void startBuildPhase()
     {
-        gameUI.OpenUI(UI_TYPE.building);
-        gameplay_UI.UpdateKills(currentKills);
-        gameUI.UpdateLifes(currentLifes);
-        gameUI.UpdateMoney(moneyManager.Money);
+        switchToUI(UI_TYPE.building);
+        ui_gameplay.UpdateKills(currentKills);
+        ui_permanent.UpdateLifes(currentLifes);
+        ui_permanent.UpdateMoney(moneyManager.Money);
     }
 
     /// <summary>
@@ -74,7 +76,7 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     {
         this.selectedSpace = selectedSpace;
         selectedTower = towerManager.GetTowerByTransform(selectedSpace);
-        build_UI.HandleSpaceSelect(selectedSpace, selectedTower, towerManager.GetFirstBuildCosts());
+        ui_building.HandleSpaceSelect(selectedSpace, selectedTower, towerManager.GetFirstBuildCosts());
     }
     private void tryUpgrade()
     {
@@ -90,8 +92,8 @@ public class GameController : MonoBehaviour, IObserver<Transform>
         if (transactionPassed)
         {
             towerManager.BuildOrUpgrade(selectedSpace);
-            build_UI.CloseUpgradeMenu();
         }
+        ui_handleTransaction(transactionPassed);
     }
     private void tryAddPoison()
     {
@@ -103,8 +105,8 @@ public class GameController : MonoBehaviour, IObserver<Transform>
         if (transactionPassed)
         {
             selectedTower.PoisonEnabled = true;
-            build_UI.CloseUpgradeMenu();
         }
+        ui_handleTransaction(transactionPassed);
     }
     private void tryAddAOE()
     {
@@ -116,7 +118,41 @@ public class GameController : MonoBehaviour, IObserver<Transform>
         if (transactionPassed)
         {
             selectedTower.AOE_Enabled = true;
-            build_UI.CloseUpgradeMenu();
+        }
+        ui_handleTransaction(transactionPassed);
+
+    }
+    private void switchToUI(UI_TYPE type)
+    {
+        switch (type)
+        {
+            case UI_TYPE.building:
+                openUI(ui_building);
+                ui_current = ui_building;
+                break;
+            case UI_TYPE.gameplay:
+                openUI(ui_gameplay);
+                ui_current = ui_gameplay;
+                break;
+        }
+    }
+    private void openUI(iUserInterface nextUI)
+    {
+        if (ui_current != null)
+        {
+            ui_current.Close();
+        }
+        nextUI.Open();
+    }
+    private void ui_handleTransaction(bool transactionPassed)
+    {
+        if (transactionPassed)
+        {
+            ui_building.HandlePassedPurchase();
+        }
+        else
+        {
+            ui_building.HandleFailedPurchase();
         }
     }
 
@@ -127,8 +163,8 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     {
         currentKills++;
         moneyManager.AddMoney(enemy.GetMoney);
-        gameUI.UpdateMoney(moneyManager.Money);
-        gameplay_UI.UpdateKills(currentKills);
+        ui_permanent.UpdateMoney(moneyManager.Money);
+        ui_gameplay.UpdateKills(currentKills);
         enemyManager.HandleKilledEnemy(enemy);
     }
     /// <summary>
@@ -136,7 +172,7 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     /// </summary>
     private void handleEnemySpawned(Enemy enemy)
     {
-        gameplay_UI.UpdateSpawns(enemyManager.SpawnsLeft);
+        ui_gameplay.UpdateSpawns(enemyManager.SpawnsLeft);
     }
 
     /// <summary>
@@ -146,7 +182,7 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     {
         currentLifes--;
         enemyManager.HandleGoalReachedEnemy(enemy);
-        gameUI.UpdateLifes(currentLifes);
+        ui_permanent.UpdateLifes(currentLifes);
 
         if (currentLifes < 1)
         {
@@ -162,17 +198,17 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     }
     private void setupUI_Actions()
     {
-        gameUI.OnResetButtonClick += closeGame;
+        ui_permanent.OnResetButtonClick += closeGame;
         gameOverChecker.OnEnemyGoalReach += handleGoalReachedEnemy;
-        gameplay_UI.OnResetButtonClick += cancelWave;
-        build_UI.OnUpgradeButtonClick += tryUpgrade;
-        build_UI.OnPoisonButtonClick += tryAddPoison;
-        build_UI.OnAOE_ButtonClick += tryAddAOE;
-        build_UI.OnStartButtonClick += startWave;
+        ui_gameplay.OnResetButtonClick += cancelWave;
+        ui_building.OnUpgradeButtonClick += tryUpgrade;
+        ui_building.OnPoisonButtonClick += tryAddPoison;
+        ui_building.OnAOE_ButtonClick += tryAddAOE;
+        ui_building.OnStartButtonClick += startWave;
     }
     private void setupMoneyManager_Action()
     {
-        moneyManager.OnMoneyChange += gameUI.UpdateMoney;
+        moneyManager.OnMoneyChange += ui_permanent.UpdateMoney;
     }
     void saveOldValues()
     {
@@ -192,4 +228,9 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     }
     public void OnCompleted() { }
     public void OnError(Exception error) { }
+}
+public enum UI_TYPE
+{
+    building = 0,
+    gameplay = 1
 }

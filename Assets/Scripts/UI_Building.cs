@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class UI_Building : MonoBehaviour, UserInterface
+public class UI_Building : MonoBehaviour, iUserInterface
 {
     [SerializeField] GameObject canvasObject;
     [SerializeField] TextMeshProUGUI text_Strength, text_upgradePrice, text_poisonPrice, text_aoePrice;
@@ -20,7 +20,7 @@ public class UI_Building : MonoBehaviour, UserInterface
         button_upgrade.onClick.AddListener(onUpgradeButtonClick);
         button_poison.onClick.AddListener(onPoisonButtonClick);
         button_aoe.onClick.AddListener(onAOE_ButtonClick);
-        button_closeUpgradeMenu.onClick.AddListener(CloseUpgradeMenu);
+        button_closeUpgradeMenu.onClick.AddListener(closeUpgradeMenu);
         button_startWave.onClick.AddListener(onStartButtonClick);
     }
 
@@ -30,7 +30,17 @@ public class UI_Building : MonoBehaviour, UserInterface
         menu_buildMenu.SetActive(true);
         menu_buildMenu.transform.position = screenPostion;
     }
-    public void CloseUpgradeMenu()
+
+    public void HandlePassedPurchase()
+    {
+        closeUpgradeMenu();
+    }
+    public void HandleFailedPurchase()
+    {
+        return;
+    }
+
+    private void closeUpgradeMenu()
     {
         menu_buildMenu.SetActive(false);
     }
@@ -56,11 +66,12 @@ public class UI_Building : MonoBehaviour, UserInterface
     public void Open()
     {
         canvasObject.SetActive(true);
+        closeUpgradeMenu();
     }
 
     public void Close()
     {
-        CloseUpgradeMenu();
+        closeUpgradeMenu();
         canvasObject.SetActive(false);
     }
     void fillInTextForEmptySpace(uint emptyBuildCosts)

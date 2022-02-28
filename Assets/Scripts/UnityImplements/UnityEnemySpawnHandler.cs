@@ -5,6 +5,8 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
     [SerializeField]
     List<EnemyProperties> enemyTypes = new List<EnemyProperties>();
 
+    [SerializeField] Vector3 enemyDestination;
+
     [SerializeField]
     public float spawnTickTime = 3.0f;
 
@@ -17,7 +19,7 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
     protected override Enemy spawnEnemy(ENEMY_TYPE type)
     {
         UnityEnemy unityEnemy = Instantiate(Resources.Load<UnityEnemy>(enemyTypes[(int)type].id));
-        unityEnemy.Initialize(enemyTypes[(int)type]);
+        unityEnemy.Initialize(enemyTypes[(int)type], enemyDestination);
         return unityEnemy;
     }
     protected override Unitytimer defineTickTimer()

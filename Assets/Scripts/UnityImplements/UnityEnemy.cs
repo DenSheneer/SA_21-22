@@ -7,17 +7,17 @@ using UnityEngine.AI;
 public class UnityEnemy : Enemy
 {
     Animator anim;
-    public override void Initialize(string pID, int pMaxHealth, uint pMoney, float pSpeed, Vector3 pSpawn)
+    public override void Initialize(string pID, int pMaxHealth, uint pMoney, float pSpeed, Vector3 pSpawn, Vector3 pDestination)
     {
-        base.Initialize(pID, pMaxHealth, pMoney, pSpeed, pSpawn);
+        base.Initialize(pID, pMaxHealth, pMoney, pSpeed, pSpawn, pDestination);
         gameObject.name = pID;
 
         anim = GetComponent<Animator>();
         myCollider = GetComponent<AbstractCollider>();
     }
-    public void Initialize(EnemyProperties properties)
+    public void Initialize(EnemyProperties properties, Vector3 pDestination)
     {
-        Initialize(properties.id, properties.maxHealth, properties.money, properties.moveSpeed, properties.spawnLocation);
+        Initialize(properties.id, properties.maxHealth, properties.money, properties.moveSpeed, properties.spawnLocation, pDestination);
     }
 
     public void Update()
@@ -28,13 +28,12 @@ public class UnityEnemy : Enemy
         }
     }
 
-    protected override void setupMoveAgent(Vector3 pSpawn, float pSpeed)
+    protected override void setupMoveAgent(Vector3 pSpawn, float pSpeed, Vector3 destination)
     {
         moveAgent = GetComponent<iMovementController>();
         moveAgent.SetPosition(pSpawn);
         moveAgent.SetMovementSpeed(pSpeed);
-
-        moveAgent.SetDestination(new Vector3(75.0f, 2, -45.0f));
+        moveAgent.SetDestination(destination);
     }
 
     protected override void deleteSelf()

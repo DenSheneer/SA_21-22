@@ -13,6 +13,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     protected int _currentHealth;
     protected uint _money;
     protected float _maxSpeed;
+    protected Vector3 destination;
 
     protected List<IObserver<Enemy>> observers;
 
@@ -27,7 +28,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     /// <summary>
     /// Constructor of the Enemy class. (Is called 'Initialize' for compatibility with Unity)
     /// </summary>
-    public virtual void Initialize(string pID, int pMaxHealth, uint pMoney, float pSpeed, Vector3 pSpawn)
+    public virtual void Initialize(string pID, int pMaxHealth, uint pMoney, float pSpeed, Vector3 pSpawn, Vector3 pDestination)
     {
         _ID = pID;
         _maxHealth = pMaxHealth;
@@ -35,7 +36,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
         _money = pMoney;
         _maxSpeed = pSpeed;
         observers = new List<IObserver<Enemy>>();
-        setupMoveAgent(pSpawn, pSpeed);
+        setupMoveAgent(pSpawn, pSpeed, pDestination);
     }
 
     public virtual void TakeAttack(int pDamage)
@@ -100,7 +101,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     /// <summary>
     /// Method for defining the moveAgent. Implement in concrete class.
     /// </summary>
-    protected abstract void setupMoveAgent(Vector3 pSpawn, float pSpeed);
+    protected abstract void setupMoveAgent(Vector3 pSpawn, float pSpeed, Vector3 pDestination);
     protected abstract void deleteSelf();
 
     public IDisposable Subscribe(System.IObserver<Enemy> observer)

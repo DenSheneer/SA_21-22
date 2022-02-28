@@ -62,13 +62,16 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     {
         if (currentSpawns < enemySpawnPool.SpawnCount)
         {
-            Enemy newEnemy = createNewRandomEnemy(enemySpawnPool);
-            if (newEnemy != null)
+            if (enemySpawnPool != null)
             {
-                newEnemy.OnDeath += onEnemyKill;
-                enemies.Add(newEnemy);
-                currentSpawns++;
-                OnEnemySpawn?.Invoke(newEnemy);
+                Enemy newEnemy = createNewRandomEnemy(enemySpawnPool);
+                if (newEnemy != null)
+                {
+                    newEnemy.OnDeath += onEnemyKill;
+                    enemies.Add(newEnemy);
+                    currentSpawns++;
+                    OnEnemySpawn?.Invoke(newEnemy);
+                }
             }
         }
     }
@@ -129,10 +132,6 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         }
         else { System.Diagnostics.Debug.WriteLine("tickTimer was null."); }
     }
-    /// <summary>
-    /// Returns an enemy with variabes set. Implement in concrete class.
-    /// </summary>
-    protected abstract Enemy spawnEnemy(ENEMY_TYPE type);
 
     protected Enemy createNewRandomEnemy(SpawnPool spawnRules)
     {
@@ -142,7 +141,12 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns definition for _tickTimer. Timer's variables could be set here or elsewhere.
+    /// Returns an enemy with variabes set. Implement in concrete class.
+    /// </summary>
+    protected abstract Enemy spawnEnemy(ENEMY_TYPE type);
+
+    /// <summary>
+    /// Creates definition for tickTimer. Timer's variables could be set here or elsewhere.
     /// </summary>
     protected abstract Unitytimer defineTickTimer();
 }

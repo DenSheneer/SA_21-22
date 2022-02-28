@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class UI_Gameplay : MonoBehaviour, UserInterface
+public class UI_Gameplay : MonoBehaviour, iUserInterface
 {
     [SerializeField]
     GameObject canvasObject;
