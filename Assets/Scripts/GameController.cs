@@ -163,7 +163,6 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     {
         currentKills++;
         moneyManager.AddMoney(enemy.GetMoney);
-        ui_permanent.UpdateMoney(moneyManager.Money);
         ui_gameplay.UpdateKills(currentKills);
         enemyManager.HandleKilledEnemy(enemy);
     }

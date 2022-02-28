@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e8c8437871c27409371b120f9d9920, type: 3}
   m_Name: Enemy_Devil
   m_EditorClassIdentifier: 
-  id: Devil
+  typename: Devil
   maxHealth: 3000
   money: 50
   moveSpeed: 13

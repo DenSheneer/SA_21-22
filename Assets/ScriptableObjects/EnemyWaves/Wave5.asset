@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e8c8437871c27409371b120f9d9920, type: 3}
-  m_Name: Enemy_Spider
+  m_Script: {fileID: 11500000, guid: d722d2d72c177f4479a37da6fab7a097, type: 3}
+  m_Name: Wave5
   m_EditorClassIdentifier: 
-  typename: Spider
-  maxHealth: 1000
-  money: 15
-  moveSpeed: 15
-  spawnLocation: {x: 65, y: 0, z: -65}
+  spawns: 50
+  poolSizes:
+  - TypeProperties: {fileID: 11400000, guid: 010b9ff445bcc70418624b311e9c18ee, type: 2}
+    PoolShareSize: 1

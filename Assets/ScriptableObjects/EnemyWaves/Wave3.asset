@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d722d2d72c177f4479a37da6fab7a097, type: 3}
-  m_Name: 3HardEnemyPool
+  m_Name: Wave3
   m_EditorClassIdentifier: 
-  spawns: 40
-  maxStrongEnemies: 0
-  strongEnemPool: 3
-  medEnemPool: 5
-  weakEnemPool: 1
+  spawns: 30
+  poolSizes:
+  - TypeProperties: {fileID: 11400000, guid: 50b28433bd421f048a2d3dcbde4a8723, type: 2}
+    PoolShareSize: 1

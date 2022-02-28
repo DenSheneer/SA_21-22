@@ -14442,15 +14442,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
+  - {fileID: 11400000, guid: 53cde031109e8ca4892c17b213f35e0b, type: 2}
   - {fileID: 11400000, guid: 7d4aa27d3c1db8e4ebcb527f2c921686, type: 2}
-  - {fileID: 11400000, guid: 424643a19161c4c439b5cba50e38c447, type: 2}
-  - {fileID: 11400000, guid: 62fb4bc2ca87b5146a3fe2c00c111f4f, type: 2}
+  - {fileID: 11400000, guid: 10221ada6c48ba24dbb0602f3efddd8e, type: 2}
+  - {fileID: 11400000, guid: 072581df6949cd5478b4b78187a2e357, type: 2}
+  - {fileID: 11400000, guid: 19a512781e4073841bdb1ab9fca066f7, type: 2}
   enemies: []
-  enemyTypes:
-  - {fileID: 11400000, guid: 8acbe56d464bde84a9d6d0d12bb1c912, type: 2}
-  - {fileID: 11400000, guid: 50b28433bd421f048a2d3dcbde4a8723, type: 2}
-  - {fileID: 11400000, guid: 010b9ff445bcc70418624b311e9c18ee, type: 2}
-  enemyDestination: {x: 0, y: 0, z: 0}
+  enemyDestination: {x: 75, y: 0, z: -45}
   spawnTickTime: 1.25
 --- !u!114 &1644679913
 MonoBehaviour:

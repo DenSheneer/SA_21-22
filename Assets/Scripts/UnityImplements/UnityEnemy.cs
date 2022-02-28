@@ -17,7 +17,7 @@ public class UnityEnemy : Enemy
     }
     public void Initialize(EnemyProperties properties, Vector3 pDestination)
     {
-        Initialize(properties.id, properties.maxHealth, properties.money, properties.moveSpeed, properties.spawnLocation, pDestination);
+        Initialize(properties.typename, properties.maxHealth, properties.money, properties.moveSpeed, properties.spawnLocation, pDestination);
     }
 
     public void Update()

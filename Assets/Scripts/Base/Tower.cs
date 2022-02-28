@@ -91,7 +91,10 @@ public abstract class Tower : UnityEngine.MonoBehaviour
                     inAOE_Range[i].TakeAttack(powerProperties.damage);
                     if (poisonEnabled)
                     {
-                        inAOE_Range[i].TakeStatusAttack(powerProperties.poisonDamage);
+                        if (inAOE_Range[i] != null)
+                        {
+                            inAOE_Range[i].TakeStatusAttack(powerProperties.poisonDamage);
+                        }
                     }
                 }
             }

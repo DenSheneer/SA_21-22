@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d722d2d72c177f4479a37da6fab7a097, type: 3}
-  m_Name: 2MediumEnemyPool
+  m_Name: Wave2
   m_EditorClassIdentifier: 
-  spawns: 30
-  maxStrongEnemies: 0
-  strongEnemPool: 1
-  medEnemPool: 5
-  weakEnemPool: 3
+  spawns: 20
+  poolSizes:
+  - TypeProperties: {fileID: 11400000, guid: 8acbe56d464bde84a9d6d0d12bb1c912, type: 2}
+    PoolShareSize: 2
+  - TypeProperties: {fileID: 11400000, guid: 50b28433bd421f048a2d3dcbde4a8723, type: 2}
+    PoolShareSize: 3

@@ -136,14 +136,14 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     protected Enemy createNewRandomEnemy(SpawnPool spawnRules)
     {
         Enemy enemy = null;
-        enemy = spawnEnemy(spawnRules.RandomPullFromPool());
+        enemy = produceEnemyObject(spawnRules.RandomPullFromPool());
         return enemy;
     }
 
     /// <summary>
     /// Returns an enemy with variabes set. Implement in concrete class.
     /// </summary>
-    protected abstract Enemy spawnEnemy(ENEMY_TYPE type);
+    protected abstract Enemy produceEnemyObject(EnemyProperties properties);
 
     /// <summary>
     /// Creates definition for tickTimer. Timer's variables could be set here or elsewhere.

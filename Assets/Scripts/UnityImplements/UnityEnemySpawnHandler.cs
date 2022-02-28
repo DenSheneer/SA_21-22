@@ -2,9 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 public class UnityEnemySpawnHandler : EnemySpawnHandler
 {
-    [SerializeField]
-    List<EnemyProperties> enemyTypes = new List<EnemyProperties>();
-
     [SerializeField] Vector3 enemyDestination;
 
     [SerializeField]
@@ -16,10 +13,10 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
         Initialize();
     }
 
-    protected override Enemy spawnEnemy(ENEMY_TYPE type)
+    protected override Enemy produceEnemyObject(EnemyProperties properties)
     {
-        UnityEnemy unityEnemy = Instantiate(Resources.Load<UnityEnemy>(enemyTypes[(int)type].id));
-        unityEnemy.Initialize(enemyTypes[(int)type], enemyDestination);
+        UnityEnemy unityEnemy = Instantiate(Resources.Load<UnityEnemy>("Enemies/" + properties.typename));
+        unityEnemy.Initialize(Instantiate(properties), enemyDestination);
         return unityEnemy;
     }
     protected override Unitytimer defineTickTimer()

@@ -9,37 +9,32 @@ public class SpawnPool : ScriptableObject
     public int spawns;
 
     [SerializeField]
-    public int maxStrongEnemies;
+    public List<enemyTypePoolSizeShare> poolSizes = new List<enemyTypePoolSizeShare>();
 
-    [SerializeField]
-    public int strongEnemPool;
+    List<EnemyProperties> spawnPool = null;
 
-    [SerializeField]
-    public int medEnemPool;
-
-    [SerializeField]
-    public int weakEnemPool;
-
-    public int PoolSize() { return weakEnemPool + medEnemPool + strongEnemPool; }
     public int SpawnCount { get { return spawns; } }
-    public ENEMY_TYPE RandomPullFromPool()
+    public EnemyProperties RandomPullFromPool()
     {
-        if (PoolSize() > 0)
+        produceSpawnPool();
+        int randomNr = Random.Range(0, spawnPool.Count);
+        return spawnPool[randomNr];
+    }
+    private void produceSpawnPool()
+    {
+        spawnPool = new List<EnemyProperties>();
+        foreach (enemyTypePoolSizeShare pair in poolSizes)
         {
-            ENEMY_TYPE[] pool = new ENEMY_TYPE[PoolSize()];
-
-            int i = 0;
-            while (i < weakEnemPool) { pool[i] = ENEMY_TYPE.Spider; i++; }
-            while (i < weakEnemPool + medEnemPool) { pool[i] = ENEMY_TYPE.Zombie; i++; }
-            while (i < weakEnemPool + medEnemPool + strongEnemPool)
-            { pool[i] = ENEMY_TYPE.Boss; i++; }
-
-            int randomNr = Random.Range(0, pool.Length);
-            return pool[randomNr];
-        }
-        else
-        {
-            return ENEMY_TYPE.Zombie;
+            for (int i = 0; i < pair.PoolShareSize; i++)
+            {
+                spawnPool.Add(pair.TypeProperties);
+            }
         }
     }
+}
+[System.Serializable]
+public struct enemyTypePoolSizeShare
+{
+    public EnemyProperties TypeProperties;
+    public int PoolShareSize;
 }

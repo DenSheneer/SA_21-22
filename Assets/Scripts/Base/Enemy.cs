@@ -14,15 +14,10 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     protected uint _money;
     protected float _maxSpeed;
     protected Vector3 destination;
-
     protected List<IObserver<Enemy>> observers;
-
     protected iMovementController moveAgent;
     protected AbstractCollider myCollider;
-
     public Action<Enemy> OnDeath;
-
-    [SerializeField]
     List<PoisonEffect> statusEffects;
 
     /// <summary>
@@ -38,7 +33,6 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
         observers = new List<IObserver<Enemy>>();
         setupMoveAgent(pSpawn, pSpeed, pDestination);
     }
-
     public virtual void TakeAttack(int pDamage)
     {
         _currentHealth -= pDamage;
@@ -52,7 +46,6 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
             Die();
         }
     }
-
     public void TakeStatusAttack(POISON_EFFECT_STRENGTH strength)
     {
         PoisonEffectFactory poisonEffectFactory = new PoisonEffectFactory();
@@ -68,7 +61,6 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
             Destroy(effect);
         }
     }
-
     public void Die()
     {
         OnDeath?.Invoke(this);
@@ -79,12 +71,10 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     {
         deleteSelf();
     }
-
     public void Delete()
     {
         deleteSelf();
     }
-
     public void SetAgentSpeed(float speed)
     {
         moveAgent.SetMovementSpeed(speed);
@@ -93,7 +83,6 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     {
         moveAgent.SetMovementSpeed(_maxSpeed);
     }
-
     public string GetID { get { return _ID; } }
     public uint GetMoney { get { return _money; } }
     public int GetHealth { get { return _currentHealth; } }

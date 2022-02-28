@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyProperties : ScriptableObject
 {
     [SerializeField]
-    public string id;
+    public string typename;
 
     [SerializeField]
     public int maxHealth;
