@@ -6,7 +6,7 @@ using TMPro;
 public class UI_Building : MonoBehaviour, iUserInterface
 {
     [SerializeField] GameObject canvasObject;
-    [SerializeField] TextMeshProUGUI text_Strength, text_upgradePrice, text_poisonPrice, text_aoePrice;
+    [SerializeField] TextMeshProUGUI text_waveTimeLeft, text_Strength, text_upgradePrice, text_poisonPrice, text_aoePrice;
     [SerializeField] GameObject menu_buildMenu;
     [SerializeField] Button button_upgrade, button_poison, button_aoe, button_startWave, button_closeUpgradeMenu;
 
@@ -22,6 +22,11 @@ public class UI_Building : MonoBehaviour, iUserInterface
         button_aoe.onClick.AddListener(onAOE_ButtonClick);
         button_closeUpgradeMenu.onClick.AddListener(closeUpgradeMenu);
         button_startWave.onClick.AddListener(onStartButtonClick);
+    }
+
+    public void UpdateTimeLeft(uint timeLeft)
+    {
+        text_waveTimeLeft.text = "Time before wave: : " + timeLeft;
     }
 
     void OpenUpgradeMenu(Vector3 screenPostion)

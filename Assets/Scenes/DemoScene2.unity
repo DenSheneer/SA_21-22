@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 5698093041534571187, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
+      propertyPath: m_Name
+      value: Money Effect
+      objectReference: {fileID: 0}
     - target: {fileID: 6090191547630123937, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -243,9 +247,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6090191547989917959, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6315656100622044933, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6375958074676028102, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
+      propertyPath: moneyEffectTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 737f22f10a17e124cbfb873cd0a936d2, type: 3}
@@ -11687,6 +11699,7 @@ GameObject:
   - component: {fileID: 1311122227}
   - component: {fileID: 1311122228}
   - component: {fileID: 1311122229}
+  - component: {fileID: 1311122230}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -11720,6 +11733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2944683a784b645a5b40890694b020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBetweenWaves: 20
   towerManager: {fileID: 1605721932}
   enemyManager: {fileID: 1644679912}
   moneyManager: {fileID: 423621134}
@@ -11739,6 +11753,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607e5e43e7e63b74084c325f216cdc40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1311122230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311122226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad6178a7862b5a45bd423b41bd924bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTime: 0
 --- !u!1001 &1312990866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14441,6 +14468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ccb3715e51d5443b3b486acfb060f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minSpawnTickTime: 0.2
+  maxSpawnTickTime: 3
   waves:
   - {fileID: 11400000, guid: 53cde031109e8ca4892c17b213f35e0b, type: 2}
   - {fileID: 11400000, guid: 7d4aa27d3c1db8e4ebcb527f2c921686, type: 2}

@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour, IObserver<Transform>
 {
+    [SerializeField]
+    float timeBetweenWaves = 30.0f;
+
+    Unitytimer waveTimer;
+
     uint moneyBeforeReset = 0;
 
     uint currentKills = 0;
@@ -31,6 +36,8 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     private void Awake()
     {
         selector = GetComponent<iTowerSelector>();
+        waveTimer = GetComponent<Unitytimer>();
+        waveTimer.Initialize(timeBetweenWaves, startWave, false);
 
         setupMoneyManager_Action();
         setupUI_Actions();
@@ -58,9 +65,12 @@ public class GameController : MonoBehaviour, IObserver<Transform>
 
     void startBuildPhase()
     {
+        waveTimer.ResetTimer();
+        waveTimer.IsPaused = false;
         switchToUI(UI_TYPE.building);
         ui_gameplay.UpdateKills(currentKills);
         ui_permanent.UpdateLifes(currentLifes);
+        ui_permanent.UpdateWaveNumber(enemyManager.GetWaveNumber());
         ui_permanent.UpdateMoney(moneyManager.Money);
     }
 
@@ -208,6 +218,7 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     private void setupMoneyManager_Action()
     {
         moneyManager.OnMoneyChange += ui_permanent.UpdateMoney;
+        moneyManager.OnMoneyAdd += ui_permanent.moneyEffect.AddMoney;
     }
     void saveOldValues()
     {
@@ -224,6 +235,10 @@ public class GameController : MonoBehaviour, IObserver<Transform>
     void closeGame()
     {
         Application.Quit();
+    }
+    void Update()
+    {
+        ui_building.UpdateTimeLeft((uint)waveTimer.GetTimeLeft());
     }
     public void OnCompleted() { }
     public void OnError(Exception error) { }

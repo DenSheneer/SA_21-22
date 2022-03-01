@@ -9,10 +9,12 @@ using UnityEngine;
 public abstract class EnemySpawnHandler : MonoBehaviour
 {
     protected int currentSpawns = 0;
-    protected float _spawnTickTime = 3.0f;
     protected Unitytimer _tickTimer;
     protected SpawnPool enemySpawnPool;
     protected int currentWave = 0;
+
+    [SerializeField]
+    float minSpawnTickTime = 0.2f, maxSpawnTickTime = 1.5f;
 
     [SerializeField]
     protected List<SpawnPool> waves = new List<SpawnPool>();
@@ -68,6 +70,8 @@ public abstract class EnemySpawnHandler : MonoBehaviour
                 if (newEnemy != null)
                 {
                     newEnemy.OnDeath += onEnemyKill;
+                    float randomSpawntime = Random.Range(minSpawnTickTime, maxSpawnTickTime);
+                    _tickTimer.SetTime(randomSpawntime);
                     enemies.Add(newEnemy);
                     currentSpawns++;
                     OnEnemySpawn?.Invoke(newEnemy);
@@ -127,7 +131,7 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         _tickTimer = defineTickTimer();
         if (_tickTimer != null)
         {
-            _tickTimer.Initialize(_spawnTickTime, SpawnEnemyTick, true);
+            _tickTimer.Initialize(Random.Range(minSpawnTickTime, maxSpawnTickTime), SpawnEnemyTick, true);
             _tickTimer.IsPaused = true;
         }
         else { System.Diagnostics.Debug.WriteLine("tickTimer was null."); }
@@ -138,6 +142,10 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         Enemy enemy = null;
         enemy = produceEnemyObject(spawnRules.RandomPullFromPool());
         return enemy;
+    }
+    public int GetWaveNumber()
+    {
+        return currentWave + 1;
     }
 
     /// <summary>

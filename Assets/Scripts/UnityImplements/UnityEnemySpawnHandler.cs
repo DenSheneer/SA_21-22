@@ -9,7 +9,6 @@ public class UnityEnemySpawnHandler : EnemySpawnHandler
 
     private void Awake()
     {
-        _spawnTickTime = spawnTickTime;
         Initialize();
     }
 

@@ -8,7 +8,10 @@ using TMPro;
 public class UI_Permanent : MonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI text_money, text_lives;
+    TextMeshProUGUI text_waveNr, text_money, text_lives;
+
+    [SerializeField]
+    public UI_MoneyEffect moneyEffect;
 
     [SerializeField]
     Button button_quit;
@@ -24,9 +27,14 @@ public class UI_Permanent : MonoBehaviour
     {
         text_money.text = "Money: " + money.ToString();
     }
+
     public void UpdateLifes(uint lives)
     {
         text_lives.text = "Lives: " + lives.ToString();
+    }
+    public void UpdateWaveNumber(int waveNr)
+    {
+        text_waveNr.text = "Wave: " + waveNr;
     }
     public void onResetButtonClick()
     {

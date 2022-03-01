@@ -18,7 +18,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     protected iMovementController moveAgent;
     protected AbstractCollider myCollider;
     public Action<Enemy> OnDeath;
-    List<PoisonEffect> statusEffects;
+    List<PoisonEffect> statusEffects = new List<PoisonEffect>();
 
     /// <summary>
     /// Constructor of the Enemy class. (Is called 'Initialize' for compatibility with Unity)
@@ -48,10 +48,10 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     }
     public void TakeStatusAttack(POISON_EFFECT_STRENGTH strength)
     {
-        PoisonEffectFactory poisonEffectFactory = new PoisonEffectFactory();
-        PoisonEffect newEffect = gameObject.AddComponent<PoisonEffect>();
-        newEffect.Initialize(this, poisonEffectFactory.Produce(strength));
-        statusEffects.Add(newEffect);
+            PoisonEffectFactory poisonEffectFactory = new PoisonEffectFactory();
+            PoisonEffect newEffect = gameObject.AddComponent<PoisonEffect>();
+            newEffect.Initialize(this, poisonEffectFactory.Produce(strength));
+            statusEffects.Add(newEffect);
     }
     public void RemoveStatusEffect(PoisonEffect effect)
     {
