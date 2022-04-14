@@ -7,7 +7,7 @@ public class UnityTowerGFX_Factory : MonoBehaviour, iTowerGFX_Factory
     [SerializeField]
     protected MeshFilter towerBase, towerMiddle, towerTop;
 
-    public void AssembleGFX(TowerBuildProperties tbp) 
+    public void AssembleGFX(TowerVisualProperties tbp) 
     {
         if (tbp != null)
         {

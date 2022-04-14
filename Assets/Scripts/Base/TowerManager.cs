@@ -5,17 +5,13 @@ using UnityEngine;
 
 public abstract class TowerManager : UnityEngine.MonoBehaviour
 {
-    [SerializeField]
     protected Dictionary<Transform, Tower> towers;
 
     [SerializeField]
     protected TowerUpgradePath towerUpgradePath;
 
-    private List<IObserver<Tower>> observers;
-
     protected void Initialize()
     {
-        observers = new List<IObserver<Tower>>();
         towers = new Dictionary<Transform, Tower>();
     }
 

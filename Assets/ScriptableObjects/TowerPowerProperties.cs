@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class TowerProperties : ScriptableObject
+public class TowerPowerProperties : ScriptableObject
 {
     public string tierName;
     public uint costs;

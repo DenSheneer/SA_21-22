@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class TowerBuildProperties : ScriptableObject
+public class TowerVisualProperties : ScriptableObject
 {
     [SerializeField]
     public string tierName = "";

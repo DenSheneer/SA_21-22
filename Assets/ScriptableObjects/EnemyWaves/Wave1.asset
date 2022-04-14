@@ -16,3 +16,5 @@ MonoBehaviour:
   poolSizes:
   - TypeProperties: {fileID: 11400000, guid: 8acbe56d464bde84a9d6d0d12bb1c912, type: 2}
     PoolShareSize: 1
+  - TypeProperties: {fileID: 11400000, guid: 50b28433bd421f048a2d3dcbde4a8723, type: 2}
+    PoolShareSize: 3

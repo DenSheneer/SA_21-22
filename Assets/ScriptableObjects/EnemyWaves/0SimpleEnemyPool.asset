@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d722d2d72c177f4479a37da6fab7a097, type: 3}
   m_Name: 0SimpleEnemyPool
   m_EditorClassIdentifier: 
-  spawns: 1
-  maxStrongEnemies: 0
-  strongEnemPool: 0
-  medEnemPool: 0
-  weakEnemPool: 1
+  spawns: 50
+  poolSizes:
+  - TypeProperties: {fileID: 11400000, guid: 8acbe56d464bde84a9d6d0d12bb1c912, type: 2}
+    PoolShareSize: 3
+  - TypeProperties: {fileID: 11400000, guid: 50b28433bd421f048a2d3dcbde4a8723, type: 2}
+    PoolShareSize: 5
+  - TypeProperties: {fileID: 11400000, guid: 50b28433bd421f048a2d3dcbde4a8723, type: 2}
+    PoolShareSize: 2

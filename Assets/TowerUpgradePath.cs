@@ -6,9 +6,9 @@ using UnityEngine;
 public class TowerUpgradePath : ScriptableObject
 {
     [SerializeField]
-    List<TowerProperties> powerProperties;
+    List<TowerPowerProperties> powerProperties;
     [SerializeField]
-    List<TowerBuildProperties> buildProperties;
+    List<TowerVisualProperties> buildProperties;
     [SerializeField]
     uint addPoisonCosts;
     [SerializeField]
@@ -19,7 +19,7 @@ public class TowerUpgradePath : ScriptableObject
         return Instantiate(this);
     }
 
-    public TowerProperties NextPowerTier(int currentTier)
+    public TowerPowerProperties NextPowerTier(int currentTier)
     {
         int nextIndex = currentTier + 1;
         if (powerProperties.Count > nextIndex)
@@ -28,7 +28,7 @@ public class TowerUpgradePath : ScriptableObject
         }
         return null;
     }
-    public TowerProperties FirstPowerTier()
+    public TowerPowerProperties FirstPowerTier()
     {
         if (powerProperties.Count > 0)
         {
@@ -37,7 +37,7 @@ public class TowerUpgradePath : ScriptableObject
         return null;
     }
 
-    public TowerBuildProperties NextBuildingTier(int currentTier)
+    public TowerVisualProperties NextBuildingTier(int currentTier)
     {
         int nextIndex = currentTier + 1;
         if (buildProperties.Count > nextIndex)
@@ -46,7 +46,7 @@ public class TowerUpgradePath : ScriptableObject
         }
         return null;
     }
-    public TowerBuildProperties FirstBuildTier()
+    public TowerVisualProperties FirstBuildTier()
     {
         if (buildProperties.Count > 0)
         {

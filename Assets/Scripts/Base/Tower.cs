@@ -5,8 +5,8 @@ using UnityEngine;
 public abstract class Tower : UnityEngine.MonoBehaviour
 {
     public TowerUpgradePath upgradePath;
-    protected TowerProperties powerProperties;
-    protected TowerBuildProperties buildProperties;
+    protected TowerPowerProperties powerProperties;
+    protected TowerVisualProperties buildProperties;
 
     protected Unitytimer tickTimer;
     protected iTowerGFX_Factory GraphicsBuilder;
@@ -21,9 +21,9 @@ public abstract class Tower : UnityEngine.MonoBehaviour
         tickTimer = defineTickTimer();
 
         this.upgradePath = upgradePath.GetCopy();
-        TowerProperties firstPowerTier = upgradePath.FirstPowerTier();
+        TowerPowerProperties firstPowerTier = upgradePath.FirstPowerTier();
         if (firstPowerTier != null) { powerProperties = firstPowerTier; }
-        TowerBuildProperties firstBuildTier = upgradePath.FirstBuildTier();
+        TowerVisualProperties firstBuildTier = upgradePath.FirstBuildTier();
         if (firstBuildTier != null) { buildProperties = firstBuildTier; }
 
         if (tickTimer != null)
@@ -39,12 +39,12 @@ public abstract class Tower : UnityEngine.MonoBehaviour
 
     public void Upgrade()
     {
-        TowerProperties nextPowerTier = upgradePath.NextPowerTier(currentTier);
+        TowerPowerProperties nextPowerTier = upgradePath.NextPowerTier(currentTier);
         if (nextPowerTier != null)
         {
             powerProperties = nextPowerTier;
         }
-        TowerBuildProperties nextBuildTier = upgradePath.NextBuildingTier(currentTier);
+        TowerVisualProperties nextBuildTier = upgradePath.NextBuildingTier(currentTier);
         if (nextBuildTier != null)
         {
             buildProperties = nextBuildTier;
@@ -156,7 +156,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     public string TierName { get { return powerProperties.tierName; } }
 
     public TowerUpgradePath UpgradePath { get { return upgradePath; } }
-    public TowerProperties Properties { get { return powerProperties; } }
+    public TowerPowerProperties Properties { get { return powerProperties; } }
 
 }
 
