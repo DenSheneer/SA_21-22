@@ -21,8 +21,6 @@ public class UI_Gameplay : MonoBehaviour, iUserInterface
     private void Start()
     {
         button_reset.onClick.AddListener(onResetButtonClick);
-        //EnemySpawnHandler.Instance.OnEnemyDie += updateKills;
-        //EnemySpawnHandler.Instance.OnEnemySpawn += updateSpawns;
     }
 
     public void Open()

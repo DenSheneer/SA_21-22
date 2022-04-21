@@ -18,7 +18,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     protected iMovementController moveAgent;
     protected AbstractCollider myCollider;
     public Action<Enemy> OnDeath;
-    List<PoisonEffect> statusEffects = new List<PoisonEffect>();
+    PoisonEffect statusEffect = null;
 
     /// <summary>
     /// Constructor of the Enemy class. (Is called 'Initialize' for compatibility with Unity)
@@ -46,20 +46,16 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
             Die();
         }
     }
-    public void TakeStatusAttack(POISON_EFFECT_STRENGTH strength)
+    public void TakeStatusAttack(PoisonEffectFactory effectFactory)
     {
-            PoisonEffectFactory poisonEffectFactory = new PoisonEffectFactory();
-            PoisonEffect newEffect = gameObject.AddComponent<PoisonEffect>();
-            newEffect.Initialize(this, poisonEffectFactory.Produce(strength));
-            statusEffects.Add(newEffect);
+        RemoveCurrentStatusEffect();
+        PoisonEffect newEffect = gameObject.AddComponent<PoisonEffect>();
+        newEffect.Initialize(this, effectFactory.Produce());
+        statusEffect = newEffect;
     }
-    public void RemoveStatusEffect(PoisonEffect effect)
+    public void RemoveCurrentStatusEffect()
     {
-        if (statusEffects.Contains(effect))
-        {
-            statusEffects.Remove(effect);
-            Destroy(effect);
-        }
+        Destroy(statusEffect);
     }
     public void Die()
     {
@@ -75,14 +71,7 @@ public abstract class Enemy : UnityEngine.MonoBehaviour, iAttackable, System.IOb
     {
         deleteSelf();
     }
-    public void SetAgentSpeed(float speed)
-    {
-        moveAgent.SetMovementSpeed(speed);
-    }
-    public void RestoreSpeed()
-    {
-        moveAgent.SetMovementSpeed(_maxSpeed);
-    }
+
     public string GetID { get { return _ID; } }
     public uint GetMoney { get { return _money; } }
     public int GetHealth { get { return _currentHealth; } }

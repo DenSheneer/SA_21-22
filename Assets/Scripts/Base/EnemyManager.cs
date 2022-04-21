@@ -6,10 +6,10 @@ using UnityEngine;
 /// <summary>
 /// Spawn handler abstract base class. Inherits from Monobehaviour for Unity compatibility.
 /// </summary>
-public abstract class EnemySpawnHandler : MonoBehaviour
+public abstract class EnemyManager : MonoBehaviour
 {
     protected int currentSpawns = 0;
-    protected Unitytimer _tickTimer;
+    protected Unitytimer tickTimer;
     protected SpawnPool enemySpawnPool;
     protected int currentWave = 0;
 
@@ -19,7 +19,7 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     [SerializeField]
     protected List<SpawnPool> waves = new List<SpawnPool>();
 
-    public List<Enemy> enemies = new List<Enemy>();
+    private List<Enemy> enemies = new List<Enemy>();
     public System.Action<Enemy> OnEnemyKill;
     public System.Action<Enemy> OnEnemySpawn;
     public System.Action OnWaveComplete;
@@ -31,16 +31,16 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     }
     public int SpawnsLeft { get { return enemySpawnPool.spawns - currentSpawns; } }
 
-    public void onEnemyKill(Enemy enemy)
+    private void onEnemyKill(Enemy enemy)
     {
         OnEnemyKill?.Invoke(enemy);
     }
     public void StartWave()
     {
-        SpawnEnemyTick();
-        _tickTimer.IsPaused = false;
+        spawnEnemyTick();
+        tickTimer.IsPaused = false;
     }
-    public void SetWave(int waveNr)
+    private void setWave(int waveNr)
     {
         if (waves.Count > waveNr)
         {
@@ -57,10 +57,10 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         }
 
         currentSpawns = 0;
-        _tickTimer.ResetTimer();
-        _tickTimer.IsPaused = true;
+        tickTimer.ResetTimer();
+        tickTimer.IsPaused = true;
     }
-    public void SpawnEnemyTick()
+    private void spawnEnemyTick()
     {
         if (currentSpawns < enemySpawnPool.SpawnCount)
         {
@@ -71,7 +71,7 @@ public abstract class EnemySpawnHandler : MonoBehaviour
                 {
                     newEnemy.OnDeath += onEnemyKill;
                     float randomSpawntime = Random.Range(minSpawnTickTime, maxSpawnTickTime);
-                    _tickTimer.SetTime(randomSpawntime);
+                    tickTimer.SetTime(randomSpawntime);
                     enemies.Add(newEnemy);
                     currentSpawns++;
                     OnEnemySpawn?.Invoke(newEnemy);
@@ -95,9 +95,9 @@ public abstract class EnemySpawnHandler : MonoBehaviour
     {
         currentWave++;
         currentSpawns = 0;
-        SetWave(currentWave);
-        _tickTimer.ResetTimer();
-        _tickTimer.IsPaused = true;
+        setWave(currentWave);
+        tickTimer.ResetTimer();
+        tickTimer.IsPaused = true;
         OnWaveComplete?.Invoke();
     }
 
@@ -119,25 +119,25 @@ public abstract class EnemySpawnHandler : MonoBehaviour
         }
     }
 
-    protected void removeEnemyFromList(Enemy enemy)
+    private void removeEnemyFromList(Enemy enemy)
     {
         if (enemies.Contains(enemy))
         {
             enemies.Remove(enemy);
         }
     }
-    protected void setupTimer()
+    private void setupTimer()
     {
-        _tickTimer = defineTickTimer();
-        if (_tickTimer != null)
+        tickTimer = defineTickTimer();
+        if (tickTimer != null)
         {
-            _tickTimer.Initialize(Random.Range(minSpawnTickTime, maxSpawnTickTime), SpawnEnemyTick, true);
-            _tickTimer.IsPaused = true;
+            tickTimer.Initialize(Random.Range(minSpawnTickTime, maxSpawnTickTime), spawnEnemyTick, true);
+            tickTimer.IsPaused = true;
         }
         else { System.Diagnostics.Debug.WriteLine("tickTimer was null."); }
     }
 
-    protected Enemy createNewRandomEnemy(SpawnPool spawnRules)
+    private Enemy createNewRandomEnemy(SpawnPool spawnRules)
     {
         Enemy enemy = null;
         enemy = produceEnemyObject(spawnRules.RandomPullFromPool());

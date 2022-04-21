@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface iAttackable
 {
-    void TakeStatusAttack(POISON_EFFECT_STRENGTH strength);
-    void RemoveStatusEffect(PoisonEffect effect);
+    void TakeStatusAttack(PoisonEffectFactory poisonEffect);
+    void RemoveCurrentStatusEffect();
     void TakeAttack(int pDamage);
     void Die();
 

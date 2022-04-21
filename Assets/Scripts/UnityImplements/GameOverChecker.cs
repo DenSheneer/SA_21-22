@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Rigidbody))]
-public class UnityGameOverChecker : MonoBehaviour
+public class GameOverChecker : MonoBehaviour
 {
     public System.Action<Enemy> OnEnemyGoalReach;
 

@@ -4,8 +4,12 @@ using UnityEngine;
 
 public abstract class Tower : UnityEngine.MonoBehaviour
 {
-    public TowerUpgradePath upgradePath;
+    [SerializeField]
+    protected TowerUpgradePath upgradePath;
+
+    [SerializeField]
     protected TowerProperties powerProperties;
+    [SerializeField]
     protected TowerBuildProperties buildProperties;
 
     protected Unitytimer tickTimer;
@@ -15,25 +19,27 @@ public abstract class Tower : UnityEngine.MonoBehaviour
     private bool poisonEnabled = false;
     private bool aoeAttackEnabled = false;
 
-    public virtual void Initialize(TowerUpgradePath upgradePath)
+    public virtual void Initialize()
     {
         GraphicsBuilder = defineGraphicsBuilder();
         tickTimer = defineTickTimer();
+        upgradePath = upgradePath.GetCopy();
+    }
 
-        this.upgradePath = upgradePath.GetCopy();
-        TowerProperties firstPowerTier = upgradePath.FirstPowerTier();
-        if (firstPowerTier != null) { powerProperties = firstPowerTier; }
-        TowerBuildProperties firstBuildTier = upgradePath.FirstBuildTier();
-        if (firstBuildTier != null) { buildProperties = firstBuildTier; }
-
+    public void StartFiring()
+    {
+        tickTimer.Initialize(powerProperties.attackTick, findAndAttackTarget, true);
         if (tickTimer != null)
         {
-            tickTimer.Initialize(powerProperties.attackTick, attack, true);
             tickTimer.IsPaused = false;
         }
-        if (GraphicsBuilder != null)
+    }
+    public void StopFiring()
+    {
+        if (tickTimer != null)
         {
-            GraphicsBuilder.AssembleGFX(buildProperties);
+            tickTimer.ResetTimer();
+            tickTimer.IsPaused = true;
         }
     }
 
@@ -43,6 +49,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
         if (nextPowerTier != null)
         {
             powerProperties = nextPowerTier;
+
         }
         TowerBuildProperties nextBuildTier = upgradePath.NextBuildingTier(currentTier);
         if (nextBuildTier != null)
@@ -50,6 +57,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
             buildProperties = nextBuildTier;
             GraphicsBuilder.AssembleGFX(buildProperties);
         }
+
         currentTier++;
     }
     public bool PoisonEnabled
@@ -63,7 +71,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
         set { aoeAttackEnabled = value; }
     }
 
-    private void attack()
+    protected virtual void findAndAttackTarget()
     {
         iAttackable target = null;
         Enemy[] inRangeEnemies = getInRangeEnemies(transform.position, powerProperties.attackRadius);
@@ -79,7 +87,7 @@ public abstract class Tower : UnityEngine.MonoBehaviour
         }
         if (target != null) { attackTarget(target); }
     }
-    void attackTarget(iAttackable target)
+    protected virtual void attackTarget(iAttackable target)
     {
         if (aoeAttackEnabled)
         {

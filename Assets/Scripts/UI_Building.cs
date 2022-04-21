@@ -29,7 +29,7 @@ public class UI_Building : MonoBehaviour, iUserInterface
         text_waveTimeLeft.text = "Time before wave: : " + timeLeft;
     }
 
-    void OpenUpgradeMenu(Vector3 screenPostion)
+    void openUpgradeMenu(Vector3 screenPostion)
     {
         button_upgrade.gameObject.SetActive(true);
         menu_buildMenu.SetActive(true);
@@ -50,20 +50,23 @@ public class UI_Building : MonoBehaviour, iUserInterface
         menu_buildMenu.SetActive(false);
     }
 
-    public void HandleSpaceSelect(Transform selectedSpace, Tower tower, uint emptyBuildCosts)
+    public void HandleSpaceSelect(Tower tower)
     {
         if (!menu_buildMenu.activeInHierarchy)
         {
-            OpenUpgradeMenu(Camera.main.WorldToScreenPoint(selectedSpace.position));
-            if (tower != null)
+            openUpgradeMenu(Camera.main.WorldToScreenPoint(tower.transform.position));
+            if (tower.UpgradePath != null)
             {
-                fillInTextForPowerUpgrade(tower);
-                fillInTextForAOE_Upgrade(tower);
-                fillInTextForPoisonUpgrade(tower);
-            }
-            else
-            {
-                fillInTextForEmptySpace(emptyBuildCosts);
+                if (tower.Tier > 0)
+                {
+                    fillInTextForPowerUpgrade(tower);
+                    fillInTextForAOE_Upgrade(tower);
+                    fillInTextForPoisonUpgrade(tower);
+                }
+                else
+                {
+                    fillInTextForEmptySpace(tower);
+                }
             }
         }
     }
@@ -79,14 +82,14 @@ public class UI_Building : MonoBehaviour, iUserInterface
         closeUpgradeMenu();
         canvasObject.SetActive(false);
     }
-    void fillInTextForEmptySpace(uint emptyBuildCosts)
+    void fillInTextForEmptySpace(Tower emptyTowerSpace)
     {
         button_aoe.gameObject.SetActive(false);
         text_aoePrice.gameObject.SetActive(false);
         button_poison.gameObject.SetActive(false);
         text_poisonPrice.gameObject.SetActive(false);
         text_Strength.text = "Nothing here yet!";
-        text_upgradePrice.text = "Build price: " + emptyBuildCosts;
+        text_upgradePrice.text = "Build price: " + emptyTowerSpace.UpgradePath.NextPowerTier(emptyTowerSpace.Tier).costs;
     }
 
     void fillInTextForAOE_Upgrade(Tower tower)

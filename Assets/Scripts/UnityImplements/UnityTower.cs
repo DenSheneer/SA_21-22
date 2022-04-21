@@ -5,6 +5,11 @@ using UnityEngine;
 public class UnityTower : Tower
 {
     List<Enemy> inrangeEnemy;
+
+    private void Awake()
+    {
+        Initialize();
+    }
     protected override Unitytimer defineTickTimer()
     {
         return GetComponent<Unitytimer>();

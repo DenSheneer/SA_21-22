@@ -18,5 +18,5 @@ MonoBehaviour:
   damage: 1000
   attackTick: 1
   attackRadius: 15
-  poisonDamage: 1
+  poisonDamage: {fileID: 11400000, guid: 2d34a99511e72284dbcc1f82309c2d77, type: 2}
   aoeAttackRange: 10

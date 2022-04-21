@@ -5,8 +5,7 @@ using UnityEngine;
 
 public abstract class TowerManager : UnityEngine.MonoBehaviour
 {
-    [SerializeField]
-    protected Dictionary<Transform, Tower> towers;
+    private Dictionary<int, Tower> activeTowers = new Dictionary<int, Tower>();
 
     [SerializeField]
     protected TowerUpgradePath towerUpgradePath;
@@ -16,47 +15,41 @@ public abstract class TowerManager : UnityEngine.MonoBehaviour
     protected void Initialize()
     {
         observers = new List<IObserver<Tower>>();
-        towers = new Dictionary<Transform, Tower>();
     }
-
-    public void BuildOrUpgrade(Transform clickedSpace)
+    public void UpgradeTower(Tower tower)
     {
-        if (!towers.ContainsKey(clickedSpace))
-        {
-            SpawnTower(towerUpgradePath, clickedSpace.position);
-        }
-        else
-        {
-            UpgradeTower(clickedSpace);
-        }
-    }
-
-    public Tower GetTowerByTransform(Transform key)
-    {
-        towers.TryGetValue(key, out Tower outTower);
-        return outTower;
-    }
-
-    public void SpawnTower(TowerUpgradePath upgradePath, Vector3 position)
-    {
-        Tower newTower = defineTower(upgradePath, position);
-        if (newTower != null)
-        {
-            towers.Add(newTower.transform, newTower);
-        }
-    }
-
-    protected void UpgradeTower(Transform key)
-    {
-        towers.TryGetValue(key, out Tower tower);
         if (tower != null)
         {
-            tower.Upgrade();
+            if (tower.UpgradePath != null)
+            {
+                tower.Upgrade();
+                if (!activeTowers.ContainsKey(tower.GetHashCode()))
+                {
+                    activeTowers.Add(tower.GetHashCode(), tower);
+                }
+            }
         }
     }
-    public uint GetFirstBuildCosts()
+    public void EnableTowerAttacks()
     {
-        return towerUpgradePath.NextPowerTier(-1).costs;
+        foreach (KeyValuePair<int, Tower> pair in activeTowers)
+        {
+            Tower tower = pair.Value;
+            if (tower != null)
+            {
+                tower.StartFiring();
+            }
+        }
     }
-    protected abstract Tower defineTower(TowerUpgradePath upgradePath, Vector3 position);
+    public void DisableTowerAttacks()
+    {
+        foreach (KeyValuePair<int, Tower> pair in activeTowers)
+        {
+            Tower tower = pair.Value;
+            if (tower != null)
+            {
+                tower.StopFiring();
+            }
+        }
+    }
 }

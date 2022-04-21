@@ -5,50 +5,45 @@ using UnityEngine;
 
 public class UnityClickSelector : MonoBehaviour, iTowerSelector
 {
-    Transform selected;
-    private List<IObserver<Transform>> observers = new List<IObserver<Transform>>();
-    public Transform GetSelectedSpace()
+    Tower currentSelectedTower;
+    private List<IObserver<Tower>> observers = new List<IObserver<Tower>>();
+    public Tower GetSelectedTower()
     {
-        return selected;
+        return currentSelectedTower;
     }
 
     public void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnPointerClick();
+            OnClick();
         }
     }
-    public void OnPointerClick()
+    public void OnClick()
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out hit))
         {
-            Transform objectHit = hit.transform;
-            if (objectHit.tag == "tower")
+            hit.transform.TryGetComponent(out Tower nextSelect);
+            if (nextSelect != null)
             {
-                selected = objectHit;
+                currentSelectedTower = nextSelect;
                 foreach (var observer in observers)
                 {
-                    observer.OnNext(selected);
+                    observer.OnNext(nextSelect);
                 }
             }
         }
     }
 
-    public void OnSpaceClick()
-    {
-        
-    }
-
-    public IDisposable Subscribe(System.IObserver<Transform> observer)
+    public IDisposable Subscribe(System.IObserver<Tower> observer)
     {
         if (!observers.Contains(observer))
         {
             observers.Add(observer);
         }
-        return new Unsubscriber<Transform>(observers, observer);
+        return new Unsubscriber<Tower>(observers, observer);
     }
 }

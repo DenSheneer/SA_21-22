@@ -3,30 +3,28 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class GameController : MonoBehaviour, IObserver<Transform>
+public class GameController : MonoBehaviour, IObserver<Tower>
 {
     [SerializeField]
     float timeBetweenWaves = 30.0f;
+    uint currentKills = 0;
+    uint currentLifes = 10;
 
     Unitytimer waveTimer;
 
     uint moneyBeforeReset = 0;
-
-    uint currentKills = 0;
     uint killsbeforeReset = 0;
-
-    uint currentLifes = 10;
     uint lifesBeforeReset = 0;
 
     iUserInterface ui_current = null;
     iTowerSelector selector;
-    Transform selectedSpace;
-    Tower selectedTower;
+
+    Tower selectedTower = null;
 
     [SerializeField] TowerManager towerManager;
-    [SerializeField] EnemySpawnHandler enemyManager;
+    [SerializeField] EnemyManager enemyManager;
     [SerializeField] MoneyManager moneyManager;
-    [SerializeField] UnityGameOverChecker gameOverChecker;
+    [SerializeField] GameOverChecker gameOverChecker;
     [SerializeField] UI_Permanent ui_permanent;
     [SerializeField] UI_Building ui_building;
     [SerializeField] UI_Gameplay ui_gameplay;
@@ -55,6 +53,7 @@ public class GameController : MonoBehaviour, IObserver<Transform>
         saveOldValues();
         switchToUI(UI_TYPE.gameplay);
         enemyManager.StartWave();
+        towerManager.EnableTowerAttacks();
     }
     void cancelWave()
     {
@@ -65,12 +64,13 @@ public class GameController : MonoBehaviour, IObserver<Transform>
 
     void startBuildPhase()
     {
+        towerManager.DisableTowerAttacks();
         waveTimer.ResetTimer();
         waveTimer.IsPaused = false;
         switchToUI(UI_TYPE.building);
         ui_gameplay.UpdateKills(currentKills);
         ui_permanent.UpdateLifes(currentLifes);
-        ui_permanent.UpdateWaveNumber(enemyManager.GetWaveNumber());
+        ui_permanent.UpdateWaveNr(enemyManager.GetWaveNumber());
         ui_permanent.UpdateMoney(moneyManager.Money);
     }
 
@@ -82,28 +82,33 @@ public class GameController : MonoBehaviour, IObserver<Transform>
         Debug.Log("huzzah! you won!");
     }
 
-    public void OnNext(Transform selectedSpace)
+    public void OnNext(Tower selectedTower)
     {
-        this.selectedSpace = selectedSpace;
-        selectedTower = towerManager.GetTowerByTransform(selectedSpace);
-        ui_building.HandleSpaceSelect(selectedSpace, selectedTower, towerManager.GetFirstBuildCosts());
+        if (selectedTower != null)
+        {
+            this.selectedTower = selectedTower;
+            ui_building.HandleSpaceSelect(selectedTower);
+        }
+
+        //this.selectedSpace = selectedSpace;
+        //selectedTower = towerManager.GetTowerByTransform(selectedSpace);
+        //ui_building.HandleSpaceSelect(selectedSpace, selectedTower, towerManager.GetFirstBuildCosts());
     }
     private void tryUpgrade()
     {
-        bool transactionPassed = false;
         if (selectedTower != null)
         {
-            transactionPassed = moneyManager.RemoveMoney(selectedTower.UpgradePath.NextPowerTier(selectedTower.Tier).costs);
+            bool transactionPassed = false;
+            if (selectedTower.UpgradePath != null)
+            {
+                transactionPassed = moneyManager.RemoveMoney(selectedTower.UpgradePath.NextPowerTier(selectedTower.Tier).costs);
+            }
+            if (transactionPassed)
+            {
+                towerManager.UpgradeTower(selectedTower);
+            }
+            ui_handleTransaction(transactionPassed);
         }
-        else
-        {
-            transactionPassed = moneyManager.RemoveMoney(towerManager.GetFirstBuildCosts());
-        }
-        if (transactionPassed)
-        {
-            towerManager.BuildOrUpgrade(selectedSpace);
-        }
-        ui_handleTransaction(transactionPassed);
     }
     private void tryAddPoison()
     {

@@ -21,7 +21,7 @@ public class TowerUpgradePath : ScriptableObject
 
     public TowerProperties NextPowerTier(int currentTier)
     {
-        int nextIndex = currentTier + 1;
+        int nextIndex = currentTier;
         if (powerProperties.Count > nextIndex)
         {
             return powerProperties[nextIndex];
@@ -39,7 +39,7 @@ public class TowerUpgradePath : ScriptableObject
 
     public TowerBuildProperties NextBuildingTier(int currentTier)
     {
-        int nextIndex = currentTier + 1;
+        int nextIndex = currentTier;
         if (buildProperties.Count > nextIndex)
         {
             return buildProperties[nextIndex];
@@ -66,6 +66,6 @@ public class TowerUpgradePath : ScriptableObject
 
     public int MaxTier()
     {
-        return powerProperties.Count - 1;
+        return powerProperties.Count;
     }
 }

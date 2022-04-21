@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-public class UnityEnemySpawnHandler : EnemySpawnHandler
+public class UnityEnemyManager: EnemyManager
 {
     [SerializeField] Vector3 enemyDestination;
 

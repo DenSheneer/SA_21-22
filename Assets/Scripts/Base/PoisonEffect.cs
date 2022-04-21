@@ -15,6 +15,7 @@ public class PoisonEffect : Unitytimer
         damage = properties.damage;
         base.Initialize(properties.tickTime, onTimerEnd, true);
         IsPaused = false;
+        onTimerEnd();
     }
 
 
@@ -24,7 +25,7 @@ public class PoisonEffect : Unitytimer
         currentTick++;
         if (currentTick >= totalTicks)
         {
-            target.RemoveStatusEffect(this);
+            target.RemoveCurrentStatusEffect();
         }
     }
 }
